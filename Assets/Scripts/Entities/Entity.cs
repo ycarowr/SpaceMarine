@@ -9,7 +9,7 @@ public abstract class BaseEntity : MonoBehaviour
     public Collider Collider { get; private set; }
     public SpriteRenderer Sprite { get; private set; }
     public Animator Animator { get; private set; }
-    public Player Player => Player.Instance;
+    public IPlayer MyPlayer => Player.Instance;
 
     protected virtual void Awake()
     {
@@ -21,13 +21,13 @@ public abstract class BaseEntity : MonoBehaviour
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider == Player.Collider)
+        if(collision.collider == MyPlayer.Collider2D)
             OnCollisionEnterPlayer();
     }
 
     protected void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider == Player.Collider)
+        if (collision.collider == MyPlayer.Collider2D)
             OnCollisionExitPlayer();
     }
 

@@ -47,11 +47,11 @@ namespace SpaceMarine
             if (!Input.IsJumpPressed)
             {
                 JumpTime = 0;
-                return Parameters.Gravity;
+                return Parameters.FallSpeed;
             }
 
             JumpTime += Time.deltaTime;
-            return JumpTime < Parameters.MaxJump ? Input.Vertical * Parameters.Jump : Parameters.Gravity;
+            return JumpTime < Parameters.JumpTime ? Input.Vertical * Parameters.JumpSpeed : Parameters.FallSpeed;
         }
     }
 }

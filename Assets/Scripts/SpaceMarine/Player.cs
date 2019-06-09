@@ -12,7 +12,7 @@ namespace SpaceMarine
         [SerializeField] PlayerParameters parameters;
         public PlayerParameters Parameters => parameters;
         public Rigidbody2D Rigidbody2D { get; private set; }
-        public Collider2D Collider { get; private set; }
+        public Collider2D Collider2D { get; private set; }
         public SpriteRenderer Sprite { get; private set; }
         public Animator Animator { get; private set; }
         public MonoBehaviour MonoBehavior => this;
@@ -24,7 +24,7 @@ namespace SpaceMarine
         protected override void OnAwake()
         {
             Rigidbody2D = GetComponentInChildren<Rigidbody2D>();
-            Collider = GetComponentInChildren<Collider2D>();
+            Collider2D = GetComponentInChildren<Collider2D>();
             Sprite = GetComponentInChildren<SpriteRenderer>();
             Animator = GetComponentInChildren<Animator>();
             Input = GetComponent<KeyboardInput>();

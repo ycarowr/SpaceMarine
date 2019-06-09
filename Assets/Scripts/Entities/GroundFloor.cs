@@ -6,11 +6,11 @@ public class GroundFloor : BaseEntity
 {
     protected override void OnCollisionEnterPlayer()
     {
-        Player.Attributes.IsGrounded = true;
+        MyPlayer.Attributes.IsGrounded = true;
     }
 
     protected override void OnCollisionExitPlayer()
     {
-        Player.Attributes.IsGrounded = false;
+        MyPlayer.Attributes.IsGrounded = false;
     }
 }
