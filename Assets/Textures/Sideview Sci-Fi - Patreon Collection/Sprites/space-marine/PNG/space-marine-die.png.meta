@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: 81101eb1edb837044bbdb9dad360bf4c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1646864220084688452
+    second: space-marine-die_0
+  - first:
+      213: 5685055855302739919
+    second: space-marine-die_1
+  - first:
+      213: -8746452801790940940
+    second: space-marine-die_2
+  - first:
+      213: 3301143990506229674
+    second: space-marine-die_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -93,7 +105,91 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: space-marine-die_0
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 13
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1797f4970c56afb4b9bacbe6d58baf92
+      internalID: -1646864220084688452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-die_1
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 14
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e5422d2bf22dc4ba678af61930c0cd
+      internalID: 5685055855302739919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-die_2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 12
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f3428d927adec46ba98bcb5f7c9384
+      internalID: -8746452801790940940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-die_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 8
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1138ff811795ece4ba493b0df2ca4a2c
+      internalID: 3301143990506229674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: 4c760045d1cc1304786d65260d3fc1a9
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5216108532581367534
+    second: space-marine-shoot_0
+  - first:
+      213: 5645636573563791825
+    second: space-marine-shoot_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -93,7 +99,49 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: space-marine-shoot_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2dd169ac0725c543ac5405855c2dd3b
+      internalID: -5216108532581367534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-shoot_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1
+        width: 50
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e575fed0f2f2b4f84589a1b35f9750
+      internalID: 5645636573563791825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

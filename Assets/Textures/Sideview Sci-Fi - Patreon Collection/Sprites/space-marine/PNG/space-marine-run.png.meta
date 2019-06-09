@@ -1,7 +1,40 @@
 fileFormatVersion: 2
 guid: 2e161725c27fb5f40a643e1298ec41d5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7130453859150362978
+    second: space-marine-run_0
+  - first:
+      213: 2353100142346318422
+    second: space-marine-run_1
+  - first:
+      213: -5873244521242158204
+    second: space-marine-run_2
+  - first:
+      213: 3536004892731108018
+    second: space-marine-run_3
+  - first:
+      213: 5086393513849027416
+    second: space-marine-run_4
+  - first:
+      213: 2451619294553433995
+    second: space-marine-run_5
+  - first:
+      213: 4110055895863468941
+    second: space-marine-run_6
+  - first:
+      213: 199968234835836968
+    second: space-marine-run_7
+  - first:
+      213: 1933711379350429248
+    second: space-marine-run_8
+  - first:
+      213: 1393234923524356870
+    second: space-marine-run_9
+  - first:
+      213: -8396786549259897023
+    second: space-marine-run_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -93,7 +126,238 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: space-marine-run_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05abf5a1ccda364aa70a6292bf5c442
+      internalID: -7130453859150362978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 8
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c888add4e50ec4e4889be60eab48f59a
+      internalID: 2353100142346318422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 3
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700dbc82b17d30941b8712ae6cc3b890
+      internalID: -5873244521242158204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_3
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 3
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c52dd26aef7525458679c558043cd0b
+      internalID: 3536004892731108018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_4
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5835439f252c66b43bfaf2f4d106d7c5
+      internalID: 5086393513849027416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_5
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 5
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83c8b6c2aedd594d929cd8e3dfce3e5
+      internalID: 2451619294553433995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_6
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 8
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 912abe444e9e19748b4f32ae28269b16
+      internalID: 4110055895863468941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_7
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 3
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d6df63e1e2d444db0b8aaa4713546d
+      internalID: 199968234835836968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_8
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 3
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0b35a2c59889146a0d15839ae195dc
+      internalID: 1933711379350429248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_9
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 3
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9ef10ab96b123438cd841e1320a046
+      internalID: 1393234923524356870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space-marine-run_10
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 5
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425f6535a791a2f4f914c237bbc09a66
+      internalID: -8396786549259897023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

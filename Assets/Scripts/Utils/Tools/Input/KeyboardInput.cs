@@ -5,26 +5,18 @@ using UnityEngine;
 
 namespace Tools.Input
 {
-    public interface IInputAxisProvider
+    public interface IInputProvider
     {
         float Horizontal { get; }
         float Vertical { get; }
-    }
-
-    public interface IJumpProvider
-    {
+        bool IsShootPressed { get; }
         bool IsJumpPressed { get; }
     }
 
-    public interface IShootProvider
+    public class KeyboardInput : MonoBehaviour, IInputProvider
     {
-        bool IsShootPressed { get; }
-    }
-
-    public class KeyboardInput : MonoBehaviour, IInputAxisProvider, IJumpProvider, IShootProvider
-    {
-        private const KeyCode JumpKey1 = KeyCode.Space;
-        private const KeyCode JumpKey2 = KeyCode.W;
+        private const KeyCode ShootKey = KeyCode.Space;
+        private const KeyCode JumpKey = KeyCode.W;
 
         private const string HorizontalAx = "Horizontal";
         private const string VerticalAx = "Vertical";
@@ -43,7 +35,10 @@ namespace Tools.Input
             Vertical = UnityEngine.Input.GetAxis(VerticalAx);
 
             //jump
-            IsJumpPressed = UnityEngine.Input.GetKeyDown(JumpKey1) || UnityEngine.Input.GetKeyDown(JumpKey2);
+            IsJumpPressed = UnityEngine.Input.GetKey(JumpKey);
+
+            //shoot
+            IsShootPressed = UnityEngine.Input.GetKey(ShootKey);
         }
     }
 }

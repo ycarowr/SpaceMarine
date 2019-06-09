@@ -10,25 +10,48 @@ namespace SpaceMarine
     {
         private IPlayer Player { get; }
         private PlayerParameters Parameters { get; }
-        private KeyboardInput Input { get; }
+        private IInputProvider Input { get; }
         private Rigidbody2D Rigidbody2D { get; }
+        private float JumpTime { get; set; }
+        private float vSpeed { get; set; }
+        private float hSpeed { get; set; }
 
         public PlayerMovement(IPlayer player)
         {
             Player = player;
             Parameters = player.Parameters;
-            Input = player.MonoBehavior.GetComponentInChildren<KeyboardInput>();
-            Rigidbody2D = player.MonoBehavior.GetComponentInChildren<Rigidbody2D>();
+            Input = player.Input;
+            Rigidbody2D = player.Rigidbody2D;
         }
 
         public void Update()
         {
-            var delta = Time.deltaTime;
-            var hSpeed = delta * Input.Horizontal * Parameters.Speed;
-            var vSpeed = delta * Input.Vertical * Parameters.Jump;
-            var speed = new Vector2(hSpeed, vSpeed);
+            Move();
+        }
+
+        private void Move()
+        {
+            if (Player.Attributes.IsShotting && Player.Attributes.IsGrounded)
+                return;
+
             var position = (Vector2)Player.MonoBehavior.transform.position;
+            var deltaTime = Time.deltaTime;
+            hSpeed = Input.Horizontal * Parameters.Speed;
+            vSpeed = GetVerticalSpeed(position);
+            var speed = new Vector2(hSpeed, vSpeed) * deltaTime;
             Rigidbody2D.MovePosition(position + speed);
+        }
+
+        private float GetVerticalSpeed(Vector3 position)
+        {
+            if (!Input.IsJumpPressed)
+            {
+                JumpTime = 0;
+                return Parameters.Gravity;
+            }
+
+            JumpTime += Time.deltaTime;
+            return JumpTime < Parameters.MaxJump ? Input.Vertical * Parameters.Jump : Parameters.Gravity;
         }
     }
 }
