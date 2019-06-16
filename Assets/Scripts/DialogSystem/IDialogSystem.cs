@@ -73,11 +73,5 @@ namespace Dialog
         ///  Calls next text sequence.
         /// </summary>
         void WriteNext();
-
-        /// <summary>
-        ///     Set the position according the a world position.
-        /// </summary>
-        /// <param name="worldPosition"></param>
-        void SetPosition(Vector3 worldPosition);
     }
 }

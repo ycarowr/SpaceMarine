@@ -7,25 +7,37 @@ using System;
 
 namespace SpaceMarine.Arrival
 {
-    public partial class CameraSequence : MonoBehaviour
+    public partial class OpeningSequence : MonoBehaviour
     {
         [SerializeField] OpeningSceneParameters parameters;
 
         [Button]
-        private void Start()
+        void Start()
         {
+            Restart();
             Fade.Instance.SetAlphaImmediatly(parameters.FadeStart);
             StartCoroutine(FadeOut());
         }
 
-        private IEnumerator FadeOut()
+        [Button]
+        void Restart()
+        {
+            SpaceCraft.Instance.Motion.StopMotion();
+            SpaceCraft.Instance.Motion.OnFinishMotion = () => { };
+            SpaceCraft.Instance.transform.position = parameters.StartCraftPosition;
+            SpaceCraft.Instance.Motion.IsConstant = false;
+            Fade.Instance.SetAlphaImmediatly(1);
+            DialogSystem.Instance.Hide();
+        }
+
+        IEnumerator FadeOut()
         {
             yield return new WaitForSeconds(parameters.FadeStartDelay);
             Fade.Instance.SetAlpha(0, parameters.FadeSpeedOpening);
             StartCoroutine(MoveSpaceCraftScreenCenter());
         }
 
-        private IEnumerator MoveSpaceCraftScreenCenter()
+        IEnumerator MoveSpaceCraftScreenCenter()
         {
             yield return new WaitForSeconds(parameters.DelayMoveCraftCenter);
             var cameraPos = Camera.main.transform.position;
@@ -40,7 +52,7 @@ namespace SpaceMarine.Arrival
             SpaceCraft.Instance.Motion.OnFinishMotion += MoveLeftRoutine;
         }
 
-        private void MoveSpaceCraftLeftScreenSide()
+        void MoveSpaceCraftLeftScreenSide()
         {
             SpaceCraft.Instance.Motion
                 .Execute(parameters.LeftScreenSpaceCraftPosition, parameters.SpaceCraftSpeedLeft, 0);
@@ -56,7 +68,7 @@ namespace SpaceMarine.Arrival
             SpaceCraft.Instance.Motion.OnFinishMotion += ShowDialog;
         }
 
-        private void MoveSpaceCraftRightScreenSide()
+        void MoveSpaceCraftRightScreenSide()
         {
             DialogSystem.Instance.OnHide -= MoveSpaceCraftRightScreenSide;
             SpaceCraft.Instance.Motion

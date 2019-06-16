@@ -1,9 +1,8 @@
 ﻿using Patterns;
 using System.Collections;
 using System.Collections.Generic;
-using Tools.Input;
 using UnityEngine;
-
+using SpaceMarine.Input;
 
 namespace SpaceMarine
 {
@@ -20,7 +19,7 @@ namespace SpaceMarine
         public PlayerMovement Movement { get; private set; }
         public PlayerAttributes Attributes { get; private set; }
         public PlayerAnimator Animation { get; private set; }
-        public IInputProvider Input { get; private set; }
+        public ISpaceMarineInput Input { get; private set; }
 
         protected override void OnAwake()
         {
@@ -28,7 +27,7 @@ namespace SpaceMarine
             Collider2D = GetComponentInChildren<Collider2D>();
             Sprite = GetComponentInChildren<SpriteRenderer>();
             Animator = GetComponentInChildren<Animator>();
-            Input = GetComponent<KeyboardInput>();
+            Input = GetComponent<SpaceMarineInput>();
             Attributes = new PlayerAttributes(this);
             Animation = new PlayerAnimator(this);
             Movement = new PlayerMovement(this);

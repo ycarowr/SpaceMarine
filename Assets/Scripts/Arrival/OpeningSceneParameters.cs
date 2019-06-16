@@ -21,6 +21,7 @@ namespace SpaceMarine.Arrival
         [Range(0, 10)] public float SpaceCraftSpeedLeft = 5.5f;
         [Range(0, 10)] public float SpaceCraftSpeedRight = 6.5f;
 
+        public Vector3 StartCraftPosition = new Vector3(-65.5f, 2.89f, -2);
         public Vector3 LeftScreenSpaceCraftPosition = new Vector3(-57f, 2.89f, -2);
         public Vector3 RightScreenSpaceCraftPosition = new Vector3(50f, 2.89f, -2);
 

@@ -1,44 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Input = UnityEngine.Input;
 
 
-namespace Tools.Input
+namespace Tools
 {
-    public interface IInputProvider
+    public class KeyboardInput : MonoBehaviour, IKeyboardInput
     {
-        float Horizontal { get; }
-        float Vertical { get; }
-        bool IsShootPressed { get; }
-        bool IsJumpPressed { get; }
-    }
-
-    public class KeyboardInput : MonoBehaviour, IInputProvider
-    {
-        private const KeyCode ShootKey = KeyCode.Space;
-        private const KeyCode JumpKey = KeyCode.W;
-
-        private const string HorizontalAx = "Horizontal";
-        private const string VerticalAx = "Vertical";
-
-        public float Horizontal { get; private set; }
-        public float Vertical { get; private set; }
-
-        public bool IsJumpPressed { get; private set; }
-
-        public bool IsShootPressed { get; private set; }
+        [SerializeField] [Tooltip("The Keyboard key")] KeyCode key;
+        public KeyCode Key => key;
+        public Action OnKey { get; set; } = () => { };
+        public Action OnKeyDown { get; set; } = () => { }; 
+        public Action OnKeyUp { get; set; } = () => { };
 
         private void Update()
         {
-            //axis
-            Horizontal = UnityEngine.Input.GetAxis(HorizontalAx);
-            Vertical = UnityEngine.Input.GetAxis(VerticalAx);
+            var isKey = Input.GetKey(key);
+            var isKeyDown = Input.GetKeyDown(key);
+            var isKeyUp = Input.GetKeyUp(key);
 
-            //jump
-            IsJumpPressed = UnityEngine.Input.GetKey(JumpKey);
-
-            //shoot
-            IsShootPressed = UnityEngine.Input.GetKey(ShootKey);
+            if (isKey)
+                OnKey?.Invoke();
+            if (isKeyDown)
+                OnKeyDown?.Invoke();
+            if (isKeyUp)
+                OnKeyUp?.Invoke();
         }
     }
 }

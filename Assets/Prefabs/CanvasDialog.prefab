@@ -866,6 +866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6757785974156077135}
   - component: {fileID: 6757785974156077128}
+  - component: {fileID: 9003748785089595540}
   m_Layer: 5
   m_Name: DialogSystem
   m_TagString: Untagged
@@ -913,6 +914,19 @@ MonoBehaviour:
   authorText: {fileID: 457630756476053516}
   NextButton: {fileID: 457630758090046897}
   testSequence: {fileID: 11400000, guid: c6862af17ed88df4ea17a00773b497e2, type: 2}
+--- !u!114 &9003748785089595540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757785974156077134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f56e7e70c96c444c9e3c322dc31c687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 32
 --- !u!1 &6757785974538287813
 GameObject:
   m_ObjectHideFlags: 0

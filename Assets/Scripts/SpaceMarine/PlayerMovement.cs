@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using SpaceMarine.Input;
+using System.Collections;
 using System.Collections.Generic;
-using Tools.Input;
 using UnityEngine;
 
 
@@ -10,7 +10,7 @@ namespace SpaceMarine
     {
         private IPlayer Player { get; }
         private PlayerParameters Parameters { get; }
-        private IInputProvider Input { get; }
+        private ISpaceMarineInput Input { get; }
         private Rigidbody2D Rigidbody2D { get; }
         private float JumpTime { get; set; }
         private float vSpeed { get; set; }

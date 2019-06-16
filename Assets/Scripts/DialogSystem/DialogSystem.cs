@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ namespace Dialog
         [SerializeField] TextMeshProUGUI sentenceText;
         [SerializeField] TextMeshProUGUI authorText;
         [SerializeField] Button NextButton;
+        
 
         public int Speed => parameters.Speed;
         public bool IsOpened { get; private set; }
@@ -22,8 +24,7 @@ namespace Dialog
         public Action OnHide { get; set; } = () => { };
         public Action OnFinishSequence { get; set; } = () => { };
         public MonoBehaviour Monobehavior => this;
-
-        Camera MainCamera => Camera.main;
+        IKeyboardInput Keyboard { get; set; }
 
         DialogAnimation Animation { get; set; }
         DialogWriting Writing { get; set; }
@@ -36,7 +37,8 @@ namespace Dialog
             Sequence = new DialogSequence(this);
             Clear();
             Hide();
-
+            Keyboard = GetComponent<IKeyboardInput>();
+            Keyboard.OnKeyDown += PressNext;
             NextButton.onClick.AddListener(PressNext);
         }
 
@@ -136,13 +138,11 @@ namespace Dialog
 
         //-----------------------------------------------------------------------------------------
 
-        public void SetPosition(Vector3 worldPosition)
-        {
-
-        }
-
         void PressNext()
         {
+            if (!IsOpened)
+                return;
+
             if (Sequence == null)
                 return;
 

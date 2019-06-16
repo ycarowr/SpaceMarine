@@ -1,4 +1,4 @@
-﻿using Tools.Input;
+﻿using SpaceMarine.Input;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -10,7 +10,7 @@ namespace SpaceMarine
         PlayerAttributes Attributes { get; }
         PlayerParameters Parameters { get; }
         PlayerMovement Movement { get; }
-        IInputProvider Input { get; }
+        ISpaceMarineInput Input { get; }
         Rigidbody2D Rigidbody2D { get; }
         Collider2D Collider2D { get; }
         Animator Animator { get; }
