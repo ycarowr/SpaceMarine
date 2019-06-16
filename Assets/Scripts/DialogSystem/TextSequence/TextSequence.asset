@@ -15,7 +15,8 @@ MonoBehaviour:
   Sequence:
   - {fileID: 11400000, guid: 66e3f4b053525c04fa63cfb89062343f, type: 2}
   - {fileID: 11400000, guid: 05b5f0c09f37e7c4a81c881c008bf073, type: 2}
-  - {fileID: 11400000, guid: 05b5f0c09f37e7c4a81c881c008bf073, type: 2}
   - {fileID: 11400000, guid: 66e3f4b053525c04fa63cfb89062343f, type: 2}
   - {fileID: 11400000, guid: 05b5f0c09f37e7c4a81c881c008bf073, type: 2}
   - {fileID: 11400000, guid: 66e3f4b053525c04fa63cfb89062343f, type: 2}
+  - {fileID: 11400000, guid: 05b5f0c09f37e7c4a81c881c008bf073, type: 2}
+  - {fileID: 11400000, guid: 1f7acc92c51cc204681a6f99c9599bdc, type: 2}

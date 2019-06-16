@@ -26,7 +26,7 @@ namespace Dialog
         /// <summary>
         ///  Tells whether the window is opened or not.
         /// </summary>
-        bool IsOpened { get; set; }
+        bool IsOpened { get; }
 
         /// <summary>
         ///     If active, show the dialog in the screen in the same position it was before.
@@ -67,7 +67,7 @@ namespace Dialog
         /// <summary>
         ///  Calls next text sequence.
         /// </summary>
-        void Next();
+        void WriteNext();
 
         /// <summary>
         ///     Set the position according the a world position.

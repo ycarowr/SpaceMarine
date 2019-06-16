@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.Events;
 
 namespace Dialog
 {
@@ -8,5 +8,7 @@ namespace Dialog
     {
         public string Author;
         [Multiline] public string Text;
+        public DialogSystem.DialogAutoAction OnPressNext = DialogSystem.DialogAutoAction.Next;
+        public UnityEvent OnNext = new UnityEvent();
     }
 }
