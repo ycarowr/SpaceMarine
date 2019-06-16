@@ -9,6 +9,7 @@ namespace Tools.UI
         }
 
         private bool WithZ { get; set; }
+        public bool IsConstant { get; set; }
 
         public override void Execute(Vector3 position, float speed, float delay, bool withZ)
         {
@@ -30,7 +31,9 @@ namespace Tools.UI
         {
             var current = Handler.transform.position;
             var amount = Speed * Time.deltaTime;
-            var delta = Vector3.Lerp(current, Target, amount);
+            var delta = !IsConstant
+                ? Vector3.Lerp(current, Target, amount)
+                : Vector3.MoveTowards(current, Target, amount);
             if (!WithZ)
                 delta.z = Handler.transform.position.z;
             Handler.transform.position = delta;

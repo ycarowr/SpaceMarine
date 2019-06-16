@@ -26,7 +26,7 @@ namespace Tools.UI
         /// <summary>
         ///     Limit magnitude until the reaches the target completely.
         /// </summary>
-        protected virtual float Threshold => 0.01f;
+        protected virtual float Threshold => 0.05f;
 
         /// <summary>
         ///     Target of the motion.

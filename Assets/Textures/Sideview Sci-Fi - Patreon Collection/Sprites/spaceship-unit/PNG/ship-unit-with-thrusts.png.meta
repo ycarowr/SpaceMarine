@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: e80371e46bc33a74a9f48f5ff6f3701f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4787604738227357262
+    second: ship-unit-with-thrusts_0
+  - first:
+      213: 194303834677039809
+    second: ship-unit-with-thrusts_1
+  - first:
+      213: -2373643533468840020
+    second: ship-unit-with-thrusts_2
+  - first:
+      213: 2928321551106746333
+    second: ship-unit-with-thrusts_3
+  - first:
+      213: -4918106861349507291
+    second: ship-unit-with-thrusts_4
+  - first:
+      213: -2350513231290200537
+    second: ship-unit-with-thrusts_5
+  - first:
+      213: -4903289413450750297
+    second: ship-unit-with-thrusts_6
+  - first:
+      213: -2942667600347283789
+    second: ship-unit-with-thrusts_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -93,7 +117,175 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ship-unit-with-thrusts_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 7
+        width: 97
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab3b0dd8a97af9479b2470b73270f5b
+      internalID: -4787604738227357262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-unit-with-thrusts_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 7
+        width: 97
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a59b21be6923247ab3ae0ed0903280
+      internalID: 194303834677039809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-unit-with-thrusts_2
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 8
+        width: 97
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c77fe9f5223b64c81410c7ebcea7f8
+      internalID: -2373643533468840020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-unit-with-thrusts_3
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 8
+        width: 97
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9764de36a6a4af34995085925353b19e
+      internalID: 2928321551106746333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-unit-with-thrusts_4
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 8
+        width: 97
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c26505ef777a3f4fb0b081b6c438c4a
+      internalID: -4918106861349507291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-unit-with-thrusts_5
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 8
+        width: 97
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e96e2b0016f1784a9003012d33c1e8c
+      internalID: -2350513231290200537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-unit-with-thrusts_6
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 8
+        width: 97
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8504bce4e4634084d99002f39384b7f9
+      internalID: -4903289413450750297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship-unit-with-thrusts_7
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 8
+        width: 97
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 759c288406601994eaf5eda2385afdcb
+      internalID: -2942667600347283789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

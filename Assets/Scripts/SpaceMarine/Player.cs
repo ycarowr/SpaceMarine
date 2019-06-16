@@ -11,6 +11,7 @@ namespace SpaceMarine
     {
         [SerializeField] PlayerParameters parameters;
         public PlayerParameters Parameters => parameters;
+
         public Rigidbody2D Rigidbody2D { get; private set; }
         public Collider2D Collider2D { get; private set; }
         public SpriteRenderer Sprite { get; private set; }
