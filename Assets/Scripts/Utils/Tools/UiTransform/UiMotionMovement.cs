@@ -11,10 +11,9 @@ namespace Tools.UI
         private bool WithZ { get; set; }
         public bool IsConstant { get; set; }
 
-        public override void Execute(Vector3 position, float speed, float delay, bool withZ)
+        public override void Execute(Vector3 position, float speed, float delay)
         {
-            WithZ = withZ;
-            base.Execute(position, speed, delay, withZ);
+            base.Execute(position, speed, delay);
         }
 
         protected override void OnMotionEnds()
@@ -29,21 +28,18 @@ namespace Tools.UI
 
         protected override void KeepMotion()
         {
-            var current = Handler.transform.position;
+            var current = (Vector2)Handler.transform.position;
             var amount = Speed * Time.deltaTime;
             var delta = !IsConstant
-                ? Vector3.Lerp(current, Target, amount)
-                : Vector3.MoveTowards(current, Target, amount);
-            if (!WithZ)
-                delta.z = Handler.transform.position.z;
+                ? Vector2.Lerp(current, Target, amount)
+                : Vector2.MoveTowards(current, Target, amount);
+            
             Handler.transform.position = delta;
         }
 
         protected override bool CheckFinalState()
         {
-            var distance = Target - Handler.transform.position;
-            if (!WithZ)
-                distance.z = 0;
+            var distance = (Vector2)Target - (Vector2)Handler.transform.position;
             return distance.magnitude <= Threshold;
         }
     }

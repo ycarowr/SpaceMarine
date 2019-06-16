@@ -14,7 +14,7 @@ namespace SpaceMarine
         protected override void OnAwake()
         {
             Motion = new UiMotionMovement(this);
-            Motion.IsConstant = true;
+            Motion.IsConstant = false;
         }
 
         private void Update()
@@ -25,7 +25,7 @@ namespace SpaceMarine
         [Button]
         public void MoveToZero()
         {
-            Motion.Execute(Vector3.zero, 100, 0, true);
+            Motion.Execute(Vector3.zero, 100, 0);
         }
     }
 }

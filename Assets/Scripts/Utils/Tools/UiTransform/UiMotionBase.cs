@@ -26,7 +26,7 @@ namespace Tools.UI
         /// <summary>
         ///     Limit magnitude until the reaches the target completely.
         /// </summary>
-        protected virtual float Threshold => 0.05f;
+        protected virtual float Threshold => 0.01f;
 
         /// <summary>
         ///     Target of the motion.
@@ -81,7 +81,7 @@ namespace Tools.UI
         /// <param name="vector"></param>
         /// <param name="speed"></param>
         /// <param name="delay"></param>
-        public virtual void Execute(Vector3 vector, float speed, float delay = 0, bool withZ = false)
+        public virtual void Execute(Vector3 vector, float speed, float delay = 0)
         {
             Speed = speed;
             Target = vector;

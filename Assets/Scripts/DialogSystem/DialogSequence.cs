@@ -6,6 +6,7 @@
         {
             public TextSequence Sequence { get; private set; }
             public int IndexPieces { get; private set; }
+            public bool IsLast => Sequence.Sequence.Length -1 == IndexPieces;
 
             public DialogSequence(IDialogSystem system): base(system)
             {

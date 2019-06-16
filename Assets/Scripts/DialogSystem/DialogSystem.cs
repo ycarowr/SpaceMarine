@@ -20,6 +20,7 @@ namespace Dialog
         public bool IsOpened { get; private set; }
         public Action OnShow { get; set; } = () => { };
         public Action OnHide { get; set; } = () => { };
+        public Action OnFinishSequence { get; set; } = () => { };
         public MonoBehaviour Monobehavior => this;
 
         Camera MainCamera => Camera.main;
@@ -107,6 +108,7 @@ namespace Dialog
         {
             Animation.Hide();
             Sequence.Hide();
+
             IsOpened = false;
         }
 
@@ -141,6 +143,12 @@ namespace Dialog
 
         void PressNext()
         {
+            if (Sequence == null)
+                return;
+
+            if (Sequence.IsLast)
+                OnFinishSequence?.Invoke();
+
             var current = Sequence.GetCurrent();
             if (current == null)
                 return;

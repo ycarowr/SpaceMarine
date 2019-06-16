@@ -24,6 +24,11 @@ namespace Dialog
         Action OnHide { get; }
 
         /// <summary>
+        ///     OnHide Finish Sequence Event.
+        /// </summary>
+        Action OnFinishSequence { get; set; }
+
+        /// <summary>
         ///  Tells whether the window is opened or not.
         /// </summary>
         bool IsOpened { get; }

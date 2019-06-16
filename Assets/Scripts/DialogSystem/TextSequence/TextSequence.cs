@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 namespace Dialog
 {
     [CreateAssetMenu(menuName = "DialogSystem/TextSequence")]

@@ -33,12 +33,12 @@ namespace Tools.UI
 
         public void MoveTo(Vector3 position, float speed, float delay = 0)
         {
-            Movement?.Execute(position, speed, delay, withZ: false);
+            Movement?.Execute(position, speed, delay);
         }
 
         public void MoveToWithZ(Vector3 position, float speed, float delay = 0)
         {
-            Movement?.Execute(position, speed, delay, withZ: true);
+            Movement?.Execute(position, speed, delay);
         }
 
         public void ScaleTo(Vector3 scale, float speed, float delay = 0)
