@@ -62,6 +62,14 @@ namespace SpaceMarine.Arrival
             yield return new WaitForSeconds(param.DelayMoveToArrivalPoint);
             SpaceCraft.Instance.Motion
                 .Execute(param.ArrivalPoint, param.SpaceCraftSpeedArrival, 0);
+
+            SpaceCraft.Instance.Motion.OnFinishMotion += EnablePlayer;
+        }
+
+        private void EnablePlayer()
+        {
+            SpaceCraft.Instance.Motion.OnFinishMotion -= EnablePlayer;
+            Player.Instance.Active();
         }
     }
 }

@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundFloor : BaseEntity
+namespace SpaceMarine
 {
-    protected override void OnCollisionEnterPlayer()
+    public class GroundFloor : BaseEntity
     {
-        MyPlayer.Attributes.IsGrounded = true;
-    }
+        protected override void OnCollisionEnterPlayer()
+        {
+            MyPlayer.Attributes.IsGrounded = true;
+        }
 
-    protected override void OnCollisionExitPlayer()
-    {
-        MyPlayer.Attributes.IsGrounded = false;
+        protected override void OnCollisionExitPlayer()
+        {
+            MyPlayer.Attributes.IsGrounded = false;
+        }
     }
 }

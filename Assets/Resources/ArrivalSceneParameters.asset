@@ -24,6 +24,6 @@ MonoBehaviour:
   StartCraftScale: {x: 18, y: 12, z: 1}
   ReverCraftScale: {x: -6, y: 4, z: 1}
   StartCraftPosition: {x: -38, y: 2.89, z: -2}
-  ArrivalPoint: {x: -13.7, y: 2.89, z: -2}
+  ArrivalPoint: {x: -9, y: 2.89, z: -2}
   RightScreenSpaceCraftPosition: {x: 12, y: 2.89, z: -2}
   TextSequence: {fileID: 0}
