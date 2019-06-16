@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6-Hmmm. Reaching the landing zone in approximately 60 minutes. Copy
   m_EditorClassIdentifier: 
   Author: Marine 05
-  Text: -Reaching the landing zone in 60 minutes.
+  Text: -Reaching the landing zone in 1 hour.
   OnPressNext: 3
   OnNext:
     m_PersistentCalls:

@@ -4,10 +4,11 @@ using Tools.UI.Fade;
 using UnityEngine;
 using Dialog;
 using System;
+using UnityEngine.SceneManagement;
 
-namespace SpaceMarine.Arrival
+namespace SpaceMarine.Opening
 {
-    public partial class OpeningSequence : MonoBehaviour
+    public class OpeningSceneSequence : MonoBehaviour
     {
         [SerializeField] OpeningSceneParameters parameters;
 
@@ -22,6 +23,7 @@ namespace SpaceMarine.Arrival
         [Button]
         void Restart()
         {
+            SpaceCraft.Instance.transform.localScale = parameters.StartCraftScale;
             SpaceCraft.Instance.Motion.StopMotion();
             SpaceCraft.Instance.Motion.OnFinishMotion = () => { };
             SpaceCraft.Instance.transform.position = parameters.StartCraftPosition;
@@ -75,6 +77,12 @@ namespace SpaceMarine.Arrival
                 .Execute(parameters.RightScreenSpaceCraftPosition, parameters.SpaceCraftSpeedRight, 0);
 
             Fade.Instance.SetAlpha(1, parameters.FadeSpeedEnding);
+            Fade.Instance.OnFinishFade += LoadLevel;
+        }
+
+        private void LoadLevel()
+        {
+            SceneManager.LoadScene(parameters.NextLevel.name);
         }
     }
 }

@@ -31,19 +31,31 @@ namespace SpaceMarine
             Attributes = new PlayerAttributes(this);
             Animation = new PlayerAnimator(this);
             Movement = new PlayerMovement(this);
+            Deactive();
         }
 
-        private void Update()
+        void Update()
         {
             Movement?.Update();
             Animation?.Update();
         }
 
         [Button]
-        private void Die()
+        void Die()
         {
             Attributes.IsDead = true;
         }
 
+        [Button]
+        public void Deactive()
+        {
+            gameObject.SetActive(false);
+        }
+
+        [Button]
+        public void Active()
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

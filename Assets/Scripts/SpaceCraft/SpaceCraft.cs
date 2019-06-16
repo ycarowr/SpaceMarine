@@ -10,6 +10,7 @@ namespace SpaceMarine
     public class SpaceCraft : SingletonMB<SpaceCraft>
     {
         public UiMotionMovement Motion { get; private set; }
+        public GameObject Number;
 
         protected override void OnAwake()
         {
@@ -26,6 +27,16 @@ namespace SpaceMarine
         public void MoveToZero()
         {
             Motion.Execute(Vector3.zero, 100, 0);
+        }
+
+        public void EnableNumber()
+        {
+            Number.SetActive(true);
+        }
+
+        public void DisableNumber()
+        {
+            Number.SetActive(false);
         }
     }
 }

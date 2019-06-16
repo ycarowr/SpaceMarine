@@ -2,21 +2,22 @@
 using UnityEngine;
 
 
-namespace SpaceMarine.Arrival
+namespace SpaceMarine.Opening
 {
-    [CreateAssetMenu(menuName = "Parameters/OpeningScene")]
+    [CreateAssetMenu(menuName = "Parameters/OpeningSceneParameters")]
     public class OpeningSceneParameters : ScriptableObject
     {
+        public Object NextLevel;
+
         [Header("Fades")]
         [Range(0, 5)] public float FadeSpeedOpening = 0.5f;
         [Range(0, 5)] public float FadeSpeedEnding = 2.5f;
         [Range(0, 5)] public float FadeStart = 1f;
         [Range(0, 5)] public float FadeStartDelay = 1f;
 
-
         [Header("Space Craft")]
+        public Vector3 StartCraftScale = Vector3.one;
         [Range(0, 5)] public float DelayMoveCraftCenter = 3;
-
         [Range(0, 10)] public float SpaceCraftSpeedCenter = 1.5f;
         [Range(0, 10)] public float SpaceCraftSpeedLeft = 5.5f;
         [Range(0, 10)] public float SpaceCraftSpeedRight = 6.5f;

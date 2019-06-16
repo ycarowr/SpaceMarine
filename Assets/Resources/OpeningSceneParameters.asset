@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1aba4237c7212a468cda17f11c7194f, type: 3}
   m_Name: OpeningSceneParameters
   m_EditorClassIdentifier: Assembly-CSharp:SpaceMarine.Arrival:CameraSequence/CameraSequenceParameters
+  NextLevel: {fileID: 102900000, guid: 26dc183b89579bb42b8768c175971b10, type: 3}
   FadeSpeedOpening: 0.5
   FadeSpeedEnding: 2.5
   FadeStart: 1
   FadeStartDelay: 1
+  StartCraftScale: {x: 6, y: 4, z: 1}
   DelayMoveCraftCenter: 3
   SpaceCraftSpeedCenter: 2.5
   SpaceCraftSpeedLeft: 5.5
   SpaceCraftSpeedRight: 6.5
+  StartCraftPosition: {x: -65.5, y: 2.89, z: -2}
   LeftScreenSpaceCraftPosition: {x: -57, y: 2.89, z: -2}
   RightScreenSpaceCraftPosition: {x: -21, y: 2.89, z: -2}
   TextSequence: {fileID: 11400000, guid: c6862af17ed88df4ea17a00773b497e2, type: 2}
