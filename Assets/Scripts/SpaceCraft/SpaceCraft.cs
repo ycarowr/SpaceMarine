@@ -7,15 +7,15 @@ using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class SpaceCraft : SingletonMB<SpaceCraft>
+    public class SpaceCraft : SingletonMB<SpaceCraft>, IUiMotionHandler
     {
         public UiMotionMovement Motion { get; private set; }
+        public MonoBehaviour MonoBehaviour => this;
         public GameObject Number;
 
         protected override void OnAwake()
         {
-            Motion = new UiMotionMovement(this);
-            Motion.IsConstant = false;
+            Motion = new UiMotionMovement(this) {IsConstant = false};
         }
 
         private void Update()
@@ -38,5 +38,7 @@ namespace SpaceMarine
         {
             Number.SetActive(false);
         }
+
+        UiMotion IUiMotionHandler.Motion => _motion;
     }
 }
