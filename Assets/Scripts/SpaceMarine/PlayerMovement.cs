@@ -1,21 +1,10 @@
 ﻿using SpaceMarine.Input;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 namespace SpaceMarine
 {
     public class PlayerMovement
     {
-        private IPlayer Player { get; }
-        private PlayerParameters Parameters { get; }
-        private ISpaceMarineInput Input { get; }
-        private Rigidbody2D Rigidbody2D { get; }
-        private float JumpTime { get; set; }
-        private float vSpeed { get; set; }
-        private float hSpeed { get; set; }
-
         public PlayerMovement(IPlayer player)
         {
             Player = player;
@@ -23,6 +12,14 @@ namespace SpaceMarine
             Input = player.Input;
             Rigidbody2D = player.Rigidbody2D;
         }
+
+        private IPlayer Player { get; }
+        private PlayerParameters Parameters { get; }
+        private ISpaceMarineInput Input { get; }
+        private Rigidbody2D Rigidbody2D { get; }
+        private float JumpTime { get; set; }
+        private float vSpeed { get; set; }
+        private float hSpeed { get; set; }
 
         public void Update()
         {
@@ -34,7 +31,7 @@ namespace SpaceMarine
             if (Player.Attributes.IsShotting && Player.Attributes.IsGrounded)
                 return;
 
-            var position = (Vector2)Player.MonoBehavior.transform.position;
+            var position = (Vector2) Player.MonoBehavior.transform.position;
             var deltaTime = Time.deltaTime;
             hSpeed = Input.Horizontal * Parameters.Speed;
             vSpeed = GetVerticalSpeed(position);

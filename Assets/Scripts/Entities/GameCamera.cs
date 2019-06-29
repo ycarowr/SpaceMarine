@@ -1,6 +1,4 @@
 ﻿using SpaceMarine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameCamera : MonoBehaviour
@@ -11,12 +9,10 @@ public class GameCamera : MonoBehaviour
 
     private void Update()
     {
-        
     }
 
     private void FollowSpaceCraft()
     {
-
     }
 
     private void FollowPlayer()

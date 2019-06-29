@@ -1,14 +1,12 @@
 ﻿using Patterns;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using SpaceMarine.Input;
+using UnityEngine;
 
 namespace SpaceMarine
 {
     public class Player : SingletonMB<Player>, IPlayer
     {
-        [SerializeField] PlayerParameters parameters;
+        [SerializeField] private PlayerParameters parameters;
         public PlayerParameters Parameters => parameters;
 
         public Rigidbody2D Rigidbody2D { get; private set; }
@@ -34,14 +32,14 @@ namespace SpaceMarine
             Deactive();
         }
 
-        void Update()
+        private void Update()
         {
             Movement?.Update();
             Animation?.Update();
         }
 
         [Button]
-        void Die()
+        private void Die()
         {
             Attributes.IsDead = true;
         }

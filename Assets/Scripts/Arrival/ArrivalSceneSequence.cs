@@ -1,19 +1,20 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using Tools;
 using Tools.UI.Fade;
 using UnityEngine;
-using Dialog;
-using System;
-using UnityEngine.SceneManagement;
 
 namespace SpaceMarine.Arrival
 {
     public class ArrivalSceneSequence : MonoBehaviour
     {
-        [SerializeField] ArrivalSceneParameters param;
+        [SerializeField] private DialogSystem dialog;
+        [SerializeField] private ArrivalSceneParameters param;
+        
+        private SpaceCraft SpaceCraft => SpaceCraft.Instance;
+        
 
         [Button]
-        void Start()
+        private void Start()
         {
             Restart();
             Fade.Instance.SetAlphaImmediatly(param.FadeStart);
@@ -21,54 +22,52 @@ namespace SpaceMarine.Arrival
         }
 
         [Button]
-        void Restart()
+        private void Restart()
         {
-            SpaceCraft.Instance.Motion.StopMotion();
-            SpaceCraft.Instance.Motion.OnFinishMotion = () => { };
-            SpaceCraft.Instance.transform.position = param.StartCraftPosition;
-            SpaceCraft.Instance.transform.localScale = param.StartCraftScale;
-            SpaceCraft.Instance.Motion.IsConstant = false;
+            SpaceCraft.Motion.Movement.StopMotion();
+            SpaceCraft.Motion.Movement.OnFinishMotion = () => { };
+            SpaceCraft.transform.position = param.StartCraftPosition;
+            SpaceCraft.transform.localScale = param.StartCraftScale;
+            SpaceCraft.Motion.Movement.IsConstant = false;
             Fade.Instance.SetAlphaImmediatly(1);
-            DialogSystem.Instance.Hide();
+            dialog.Hide();
         }
 
-        IEnumerator FadeOut()
+        private IEnumerator FadeOut()
         {
             yield return new WaitForSeconds(param.FadeStartDelay);
             Fade.Instance.SetAlpha(0, param.FadeSpeedOpening);
             StartCoroutine(MoveSpaceCraftScreenRight());
         }
 
-        IEnumerator MoveSpaceCraftScreenRight()
+        private IEnumerator MoveSpaceCraftScreenRight()
         {
             yield return new WaitForSeconds(param.DelayMoveRight);
 
-            SpaceCraft.Instance.Motion
-                .Execute(param.RightScreenSpaceCraftPosition, param.SpaceCraftSpeedRight, 0);
-            
-            SpaceCraft.Instance.Motion.OnFinishMotion += MoveSpaceCraftArrivalPoint;
+            SpaceCraft.Motion.Movement.Execute(param.RightScreenSpaceCraftPosition, param.SpaceCraftSpeedRight, 0);
+            SpaceCraft.Motion.Movement.OnFinishMotion += MoveSpaceCraftArrivalPoint;
         }
 
-        void MoveSpaceCraftArrivalPoint()
+        private void MoveSpaceCraftArrivalPoint()
         {
-            DialogSystem.Instance.OnHide -= MoveSpaceCraftArrivalPoint;
+            dialog.OnHide -= MoveSpaceCraftArrivalPoint;
             StartCoroutine(MoveToArrival());
         }
 
-        IEnumerator MoveToArrival()
+        private IEnumerator MoveToArrival()
         {
             SpaceCraft.Instance.transform.localScale = param.ReverCraftScale;
             SpaceCraft.Instance.DisableNumber();
             yield return new WaitForSeconds(param.DelayMoveToArrivalPoint);
-            SpaceCraft.Instance.Motion
+            SpaceCraft.Motion.Movement
                 .Execute(param.ArrivalPoint, param.SpaceCraftSpeedArrival, 0);
 
-            SpaceCraft.Instance.Motion.OnFinishMotion += EnablePlayer;
+            SpaceCraft.Motion.Movement.OnFinishMotion += EnablePlayer;
         }
 
         private void EnablePlayer()
         {
-            SpaceCraft.Instance.Motion.OnFinishMotion -= EnablePlayer;
+            SpaceCraft.Motion.Movement.OnFinishMotion -= EnablePlayer;
             Player.Instance.Active();
         }
     }

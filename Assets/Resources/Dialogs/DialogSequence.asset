@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49936e700b247a94e977703cf48e3114, type: 3}
+  m_Name: DialogSequence
+  m_EditorClassIdentifier: 
+  Sequence:
+  - {fileID: 11400000, guid: 50de8c8351a5cea46a86a492c4b3a0e4, type: 2}
+  - {fileID: 11400000, guid: 1072419ec95135d4e9f34060b276ba43, type: 2}
+  - {fileID: 11400000, guid: 7535e241a1028a148964d1c067b46ae0, type: 2}
+  - {fileID: 11400000, guid: 2c106ce1e136dff408e67c21a9907b4d, type: 2}
+  - {fileID: 11400000, guid: 68f1a8e6c4bfa3e448eda2324c540b99, type: 2}
+  - {fileID: 11400000, guid: 2ec1ed99be69dd94babb291539b7aafe, type: 2}
+  - {fileID: 11400000, guid: f6edb1ee415905a4ca316bdbe225e228, type: 2}
+  - {fileID: 11400000, guid: 433477ac0d278f24983aee7874108e66, type: 2}

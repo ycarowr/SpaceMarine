@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25be350881af7204e9c1e12e1c99e240, type: 3}
-  m_Name: TextPieceC
+  m_Script: {fileID: 11500000, guid: bcab75401a7828f419300d5386c3a328, type: 3}
+  m_Name: 7-Roger that, over
   m_EditorClassIdentifier: 
   Author: Mission Control
-  Text: '- Copy. What''s the situation?'
+  OnNext:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnPressNext: 0
+  Text: '- Roger that. Over.'

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 namespace SpaceMarine
 {
     public abstract class BaseEntity : MonoBehaviour
@@ -43,14 +42,25 @@ namespace SpaceMarine
                 OnTriggerExitPlayer();
         }
 
-        bool IsPlayer(Collider2D collider)
+        private bool IsPlayer(Collider2D collider)
         {
             return collider == MyPlayer.Collider2D;
         }
 
-        protected virtual void OnCollisionEnterPlayer() { }
-        protected virtual void OnCollisionExitPlayer() { }
-        protected virtual void OnTriggerEnterPlayer() { }
-        protected virtual void OnTriggerExitPlayer() { }
+        protected virtual void OnCollisionEnterPlayer()
+        {
+        }
+
+        protected virtual void OnCollisionExitPlayer()
+        {
+        }
+
+        protected virtual void OnTriggerEnterPlayer()
+        {
+        }
+
+        protected virtual void OnTriggerExitPlayer()
+        {
+        }
     }
 }

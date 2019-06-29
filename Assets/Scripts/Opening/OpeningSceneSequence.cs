@@ -1,19 +1,18 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using Tools;
 using Tools.UI.Fade;
 using UnityEngine;
-using Dialog;
-using System;
 using UnityEngine.SceneManagement;
 
 namespace SpaceMarine.Opening
 {
     public class OpeningSceneSequence : MonoBehaviour
     {
-        [SerializeField] OpeningSceneParameters parameters;
+        [SerializeField] private DialogSystem dialog;
+        [SerializeField] private OpeningSceneParameters parameters;
 
         [Button]
-        void Start()
+        private void Start()
         {
             Restart();
             Fade.Instance.SetAlphaImmediatly(parameters.FadeStart);
@@ -21,59 +20,59 @@ namespace SpaceMarine.Opening
         }
 
         [Button]
-        void Restart()
+        private void Restart()
         {
             SpaceCraft.Instance.transform.localScale = parameters.StartCraftScale;
-            SpaceCraft.Instance.Motion.StopMotion();
-            SpaceCraft.Instance.Motion.OnFinishMotion = () => { };
+            SpaceCraft.Instance.Motion.Movement.StopMotion();
+            SpaceCraft.Instance.Motion.Movement.OnFinishMotion = () => { };
             SpaceCraft.Instance.transform.position = parameters.StartCraftPosition;
-            SpaceCraft.Instance.Motion.IsConstant = false;
+            SpaceCraft.Instance.Motion.Movement.IsConstant = false;
             Fade.Instance.SetAlphaImmediatly(1);
-            DialogSystem.Instance.Hide();
+            dialog.Hide();
         }
 
-        IEnumerator FadeOut()
+        private IEnumerator FadeOut()
         {
             yield return new WaitForSeconds(parameters.FadeStartDelay);
             Fade.Instance.SetAlpha(0, parameters.FadeSpeedOpening);
             StartCoroutine(MoveSpaceCraftScreenCenter());
         }
 
-        IEnumerator MoveSpaceCraftScreenCenter()
+        private IEnumerator MoveSpaceCraftScreenCenter()
         {
             yield return new WaitForSeconds(parameters.DelayMoveCraftCenter);
             var cameraPos = Camera.main.transform.position;
-            SpaceCraft.Instance.Motion.Execute(cameraPos, parameters.SpaceCraftSpeedCenter, 0);
+            SpaceCraft.Instance.Motion.Movement.Execute(cameraPos, parameters.SpaceCraftSpeedCenter, 0);
 
             void MoveLeftRoutine()
             {
-                SpaceCraft.Instance.Motion.OnFinishMotion -= MoveLeftRoutine;
+                SpaceCraft.Instance.Motion.Movement.OnFinishMotion -= MoveLeftRoutine;
                 MoveSpaceCraftLeftScreenSide();
             }
 
-            SpaceCraft.Instance.Motion.OnFinishMotion += MoveLeftRoutine;
+            SpaceCraft.Instance.Motion.Movement.OnFinishMotion += MoveLeftRoutine;
         }
 
-        void MoveSpaceCraftLeftScreenSide()
+        private void MoveSpaceCraftLeftScreenSide()
         {
-            SpaceCraft.Instance.Motion
+            SpaceCraft.Instance.Motion.Movement
                 .Execute(parameters.LeftScreenSpaceCraftPosition, parameters.SpaceCraftSpeedLeft, 0);
-            SpaceCraft.Instance.Motion.IsConstant = true;
+            SpaceCraft.Instance.Motion.Movement.IsConstant = true;
 
             void ShowDialog()
             {
-                SpaceCraft.Instance.Motion.OnFinishMotion -= ShowDialog;
-                DialogSystem.Instance.Write(parameters.TextSequence);
-                DialogSystem.Instance.OnHide += MoveSpaceCraftRightScreenSide;
+                SpaceCraft.Instance.Motion.Movement.OnFinishMotion -= ShowDialog;
+                dialog.Write(parameters.TextSequence);
+                dialog.OnHide += MoveSpaceCraftRightScreenSide;
             }
 
-            SpaceCraft.Instance.Motion.OnFinishMotion += ShowDialog;
+            SpaceCraft.Instance.Motion.Movement.OnFinishMotion += ShowDialog;
         }
 
-        void MoveSpaceCraftRightScreenSide()
+        private void MoveSpaceCraftRightScreenSide()
         {
-            DialogSystem.Instance.OnHide -= MoveSpaceCraftRightScreenSide;
-            SpaceCraft.Instance.Motion
+            dialog.OnHide -= MoveSpaceCraftRightScreenSide;
+            SpaceCraft.Instance.Motion.Movement
                 .Execute(parameters.RightScreenSpaceCraftPosition, parameters.SpaceCraftSpeedRight, 0);
 
             Fade.Instance.SetAlpha(1, parameters.FadeSpeedEnding);
