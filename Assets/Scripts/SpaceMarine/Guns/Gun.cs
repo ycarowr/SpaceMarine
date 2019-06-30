@@ -62,7 +62,8 @@ namespace SpaceMarine
             //go
             var velocity = Data.Velocity;
             var precision = Data.Precision;
-            bullet.Move(xDirection, velocity, precision, Data.LifeSpan);
+            var adjustment = Data.Adjustment;
+            bullet.Move(xDirection, velocity, precision, adjustment, Data.LifeSpan);
         }
 
         public void Reload()

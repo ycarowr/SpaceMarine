@@ -6,7 +6,7 @@ namespace SpaceMarine
 {   
     public interface IBullet
     {
-        void Move(int xDirection, float velocity, float precision, float lifeSpan);
+        void Move(int xDirection, float velocity, float precision, float adjustment, float lifeSpan);
     }
 
     public class Bullet : MonoBehaviour, IBullet
@@ -23,10 +23,10 @@ namespace SpaceMarine
 
         //------------------------------------------------------------------------------------------------------------------
 
-        public void Move(int xDirection, float velocity, float precision, float lifeSpan)
+        public void Move(int xDirection, float velocity, float precision, float adjustment, float lifeSpan)
         {
             var newVelocity = Rigidbody2D.velocity;
-            newVelocity.y = GetAccuracy(precision);
+            newVelocity.y = GetAccuracy(precision) + adjustment;
             newVelocity.x = velocity * xDirection;
             
             Rigidbody2D.velocity = newVelocity;
@@ -37,7 +37,7 @@ namespace SpaceMarine
 
         float GetAccuracy(float precision)
         {
-            return Random.Range(-precision + 0.2f, precision + 0.2f);
+            return Random.Range(-precision, precision);
         }
 
         public IEnumerator KeepAlive(float delay)

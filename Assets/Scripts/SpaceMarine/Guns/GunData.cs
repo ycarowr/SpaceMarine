@@ -28,9 +28,13 @@ namespace SpaceMarine
         
         [Tooltip("Precision on Y of the projectile.")] 
         [SerializeField] [Range(0.01f, 20)] private float precision;
+        
+        [Tooltip("Adjustment for precision")]
+        [SerializeField] [Range(0.01f, 20)] private float adjustment = 0.02f;
 
         [Tooltip("Time that the projectile will be alive in seconds")]
         [SerializeField] [Range(0.01f, 20)] private float lifeSpan = 1;
+        
         
         //--------------------------------------------------------------------------------------------------------------
 
@@ -41,5 +45,6 @@ namespace SpaceMarine
         public float Velocity => velocity;
         public float Precision => precision;
         public float LifeSpan => lifeSpan;
+        public float Adjustment => adjustment;
     }
 }

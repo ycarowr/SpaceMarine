@@ -19,5 +19,6 @@ MonoBehaviour:
   pickable: {fileID: 0}
   bullet: {fileID: 893718200375990404, guid: b82bd7b09b72ae0418428e12fdc32d8e, type: 3}
   velocity: 35
-  precision: 1
+  precision: 0.8
+  adjustment: 0.2
   lifeSpan: 2
