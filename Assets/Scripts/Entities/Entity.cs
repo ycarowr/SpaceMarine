@@ -23,6 +23,12 @@ namespace SpaceMarine
             if (IsPlayer(collision.collider))
                 OnCollisionEnterPlayer();
         }
+        
+        protected void OnCollisionStay2D(Collision2D collision)
+        {
+            if (IsPlayer(collision.collider))
+                OnCollisionStayPlayer();
+        }
 
         protected void OnCollisionExit2D(Collision2D collision)
         {
@@ -48,6 +54,10 @@ namespace SpaceMarine
         }
 
         protected virtual void OnCollisionEnterPlayer()
+        {
+        }
+        
+        protected virtual void OnCollisionStayPlayer()
         {
         }
 
