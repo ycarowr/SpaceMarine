@@ -7,8 +7,8 @@ namespace SpaceMarine
     public class Player : SingletonMB<Player>, IPlayer
     {
         [SerializeField] private PlayerParameters parameters;
+        [SerializeField] private Transform bulletSpawn;
         public PlayerParameters Parameters => parameters;
-
         public Rigidbody2D Rigidbody2D { get; private set; }
         public Collider2D Collider2D { get; private set; }
         public SpriteRenderer Sprite { get; private set; }
@@ -18,6 +18,8 @@ namespace SpaceMarine
         public PlayerAttributes Attributes { get; private set; }
         public PlayerAnimator Animation { get; private set; }
         public ISpaceMarineInput Input { get; private set; }
+        public IGun Gun { get; private set; }
+        
 
         protected override void OnAwake()
         {
@@ -29,13 +31,14 @@ namespace SpaceMarine
             Attributes = new PlayerAttributes(this);
             Animation = new PlayerAnimator(this);
             Movement = new PlayerMovement(this);
-            Deactive();
+            Gun = new Gun(this, bulletSpawn, dataTest);
         }
 
         private void Update()
         {
             Movement?.Update();
             Animation?.Update();
+            Gun?.Update();
         }
 
         [Button]
@@ -45,7 +48,7 @@ namespace SpaceMarine
         }
 
         [Button]
-        public void Deactive()
+        public void Deactivate()
         {
             gameObject.SetActive(false);
         }
@@ -54,6 +57,18 @@ namespace SpaceMarine
         public void Active()
         {
             gameObject.SetActive(true);
+        }
+
+        public void Equip(GunData data)
+        {
+            Gun?.SetGunData(data);
+        }
+
+        public GunData dataTest;
+        [Button]
+        public void EquipTest()
+        {
+            Equip(dataTest);
         }
     }
 }
