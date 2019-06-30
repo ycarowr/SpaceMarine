@@ -18,6 +18,7 @@ namespace SpaceMarine.Arrival
         {
             Restart();
             Fade.Instance.SetAlphaImmediatly(param.FadeStart);
+            Player.Instance.Deactivate();
             StartCoroutine(FadeOut());
         }
 
