@@ -2,6 +2,9 @@
 
 namespace SpaceMarine
 {
+    /// <summary>
+    ///     Entities which somehow interact with the player.
+    /// </summary>
     public abstract class StateEntity : BaseEntity
     {
         /// <summary>
@@ -14,7 +17,6 @@ namespace SpaceMarine
         }
         
         public State Current { get; private set; }
-        
         public bool IsProcessing => Current == State.On;
         public bool IsDisabled=> Current == State.Off;
         
@@ -32,6 +34,9 @@ namespace SpaceMarine
 
         //--------------------------------------------------------------------------------------------------------------
         
+        /// <summary>
+        ///     Turns on the entity.
+        /// </summary>
         private void SwitchOn()
         {
             if (!IsDisabled)
@@ -41,13 +46,16 @@ namespace SpaceMarine
             OnStartProcessing();
         }
 
+        /// <summary>
+        ///     Turns off the entity.
+        /// </summary>
         private void SwitchOff()
         {
             if (!IsProcessing)
                 return;
             
             Current = State.Off;
-            OnFinishProcessing();
+            OnStopProcessing();
         }
         
         //--------------------------------------------------------------------------------------------------------------
@@ -63,7 +71,7 @@ namespace SpaceMarine
         /// <summary>
         ///     Fired when the player exit the collision.
         /// </summary>
-        protected virtual void OnFinishProcessing()
+        protected virtual void OnStopProcessing()
         {
             //Override to do something.
         }
