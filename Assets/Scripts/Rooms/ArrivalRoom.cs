@@ -2,16 +2,11 @@
 
 namespace SpaceMarine.Rooms
 {
-    public class ArrivalRoom : BaseEntity
+    public class ArrivalRoom : Room
     {
-        protected override void OnTriggerEnterPlayer()
+        private void Start()
         {
-            Debug.Log("Entered arrival");
-        }
-
-        protected override void OnTriggerExitPlayer()
-        {
-            Debug.Log("exit arrival");
+            GameCamera.Instance.Motion.Teleport(CameraPosition.position);
         }
     }
 }

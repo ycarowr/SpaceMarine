@@ -1,24 +1,41 @@
-﻿using SpaceMarine;
+﻿using Patterns;
+using SpaceMarine;
+using Tools.UI;
 using UnityEngine;
 
-public class GameCamera : MonoBehaviour
+public class GameCamera : SingletonMB<GameCamera>, IUiMotionHandler
 {
     private const float OffsetZ = -10;
-    private float CachedY { get; set; }
-    private IPlayer MyPlayer => Player.Instance;
+    
+    public UiMotion Motion { get; private set; }
+    public MonoBehaviour MonoBehaviour => this;
+
+    protected override void OnAwake()
+    {
+        Motion = new UiMotion(this);
+    }
 
     private void Update()
     {
+        Motion?.Update();
     }
 
-    private void FollowSpaceCraft()
+    
+    //------------------------------------------------------------------------------------------------------------------
+    
+    #region Test
+    
+    [Button]
+    void GoZero()
     {
+        Motion.MoveToWithZ(Vector3.zero, 10, -10);
     }
 
-    private void FollowPlayer()
+    [Button]
+    void Go1010()
     {
-        if (CachedY == 0)
-            CachedY = MyPlayer.MonoBehavior.transform.position.y;
-        transform.position = new Vector3(MyPlayer.MonoBehavior.transform.position.x, CachedY, OffsetZ);
+        Motion.MoveToWithZ(new Vector2(10, 10), 40, -10);
     }
+    
+    #endregion
 }
