@@ -12,7 +12,7 @@
         private PlayerParameters Parameters { get; }
 
         public bool IsDead { get; set; }
-        public bool IsGrounded { get; set; }
+        public bool IsGrounded { get; private set; }
 
         //movement
         public bool IsMoving => Player.Input.Horizontal != 0 && !Player.Input.IsShootPressed && IsGrounded;
@@ -22,5 +22,10 @@
         public bool IsIdle => IsGrounded && !IsMoving;
 
         public bool IsShotting => Player.Input.IsShootPressed;
+
+        public void SetGrounded(bool isGrounded)
+        {
+            IsGrounded = isGrounded;
+        }
     }
 }
