@@ -5,6 +5,14 @@ namespace SpaceMarine
     [CreateAssetMenu(menuName = "Data/Gun")]
     public class GunData : ScriptableObject
     {
+        [Header("Global")]
+        [Tooltip("Time that the projectile will be alive in seconds")]
+        [SerializeField] [Range(0.01f, 20)] private float lifeSpan = 1;
+
+        [Tooltip("Velocity on X of the projectile.")] 
+        [SerializeField] [Range(1, 50)] private float velocity;
+        
+        [Header("Configs")]
         [Tooltip("How much the player can shoot before to run out of bullets.")][SerializeField] [Range(1, 30)] 
         private int ammo;
         
@@ -14,6 +22,14 @@ namespace SpaceMarine
         [Tooltip("Time in seconds to reload the gun.")]
         [SerializeField] [Range(0, 30)] private float reloadTime;
         
+        [Tooltip("Precision on Y of the projectile.")] 
+        [SerializeField] [Range(0.01f, 20)] private float precision;
+        
+        [Tooltip("Adjustment for precision")]
+        [SerializeField] [Range(0.01f, 20)] private float adjustment = 0.02f;
+
+        [Header("Visual")]
+        
         [Tooltip("Icon of the gun.")]
         [SerializeField] private Sprite icon;
 
@@ -22,19 +38,6 @@ namespace SpaceMarine
 
         [Tooltip("Bullets shot by this gun.")] [SerializeField]
         private GameObject bullet;
-        
-        [Tooltip("Velocity on X of the projectile.")] 
-        [SerializeField] [Range(1, 50)] private float velocity;
-        
-        [Tooltip("Precision on Y of the projectile.")] 
-        [SerializeField] [Range(0.01f, 20)] private float precision;
-        
-        [Tooltip("Adjustment for precision")]
-        [SerializeField] [Range(0.01f, 20)] private float adjustment = 0.02f;
-
-        [Tooltip("Time that the projectile will be alive in seconds")]
-        [SerializeField] [Range(0.01f, 20)] private float lifeSpan = 1;
-        
         
         //--------------------------------------------------------------------------------------------------------------
 

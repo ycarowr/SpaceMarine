@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27fd11629b414ed6838459507b853308, type: 3}
-  m_Name: MachineGun
+  m_Name: MachineGun_Precision2
   m_EditorClassIdentifier: 
   ammo: 30
   rate: 5
@@ -19,6 +19,6 @@ MonoBehaviour:
   pickable: {fileID: 0}
   bullet: {fileID: 893718200375990404, guid: b82bd7b09b72ae0418428e12fdc32d8e, type: 3}
   velocity: 35
-  precision: 0.8
-  adjustment: 0.2
+  precision: 0.15
+  adjustment: 0.01
   lifeSpan: 2
