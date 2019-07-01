@@ -1,20 +1,38 @@
 ﻿using Tools;
+using UnityEditor;
 using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class Elevator : StateEntity
+    public class Elevator : MonoBehaviour
     {
-        protected override void Awake()
+        PressButtonNotification PlayerInteraction { get; set; }
+
+        void Awake()
         {
-            base.Awake();
             ElevatorControl.OnSwitchElevator += SwitchElevator;
+            PlayerInteraction = GetComponentInChildren<PressButtonNotification>();
+            Deactivate();
         }
 
-
-        public void SwitchElevator(bool isEnabled)
+        //--------------------------------------------------------------------------------------------------------------
+        
+        void SwitchElevator(bool isEnabled)
         {
-            Debug.Log("Elevator: " + isEnabled);
+            if(isEnabled)
+                Activate();
+            else
+                Deactivate();
+        }
+
+        void Activate()
+        {
+            PlayerInteraction.SetState(StateEntity.State.Off);
+        }
+
+        void Deactivate()
+        {
+            PlayerInteraction.SetState(StateEntity.State.Inactive);
         }
     }
     

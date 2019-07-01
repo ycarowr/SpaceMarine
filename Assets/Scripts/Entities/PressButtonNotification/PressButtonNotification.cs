@@ -16,19 +16,23 @@ namespace SpaceMarine
             base.Awake();
             Input = GetComponent<KeyboardInput>();
             Window = GetComponent<Window>();
+        }
+
+        private void Start()
+        {
             Input.OnKeyDown += OnPressButton.Invoke;
         }
 
         protected override void OnStartProcessing()
         {
             Window.Show();
-            Input.IsTracking = true;
+            Input.StartTracking();
         }
 
         protected override void OnStopProcessing()
         {
             Window.Hide();
-            Input.IsTracking = false;
+            Input.StopTracking();
         }      
     }
 }

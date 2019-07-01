@@ -13,12 +13,14 @@ namespace SpaceMarine
         public enum State
         {
             Off,
-            On
+            On,
+            Inactive
         }
         
         public State Current { get; private set; }
         public bool IsProcessing => Current == State.On;
-        public bool IsDisabled=> Current == State.Off;
+        public bool IsDisabled => Current == State.Off;
+        public bool IsActive => Current != State.Inactive;
         
         //--------------------------------------------------------------------------------------------------------------
 
@@ -37,9 +39,9 @@ namespace SpaceMarine
         /// <summary>
         ///     Turns on the entity.
         /// </summary>
-        private void SwitchOn()
+        public void SwitchOn()
         {
-            if (!IsDisabled)
+            if (!IsActive)
                 return;
             
             Current = State.On;
@@ -49,13 +51,18 @@ namespace SpaceMarine
         /// <summary>
         ///     Turns off the entity.
         /// </summary>
-        private void SwitchOff()
+        public void SwitchOff()
         {
-            if (!IsProcessing)
+            if (!IsActive)
                 return;
             
             Current = State.Off;
             OnStopProcessing();
+        }
+
+        public void SetState(State state)
+        {
+            Current = state;
         }
         
         //--------------------------------------------------------------------------------------------------------------

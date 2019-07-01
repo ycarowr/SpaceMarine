@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Tools;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace SpaceMarine
 {
