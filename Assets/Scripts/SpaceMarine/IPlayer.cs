@@ -17,5 +17,6 @@ namespace SpaceMarine
         SpriteRenderer Sprite { get; }
         IGun Gun { get; }
         void Equip(GunData gun);
+        void Die();
     }
 }

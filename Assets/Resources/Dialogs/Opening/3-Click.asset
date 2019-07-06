@@ -13,10 +13,6 @@ MonoBehaviour:
   m_Name: 3-Click
   m_EditorClassIdentifier: 
   Author: 
-  OnNext:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnPressNext: 3
+  Buttons:
+  - {fileID: 11400000, guid: 3d2513bfea202d045a1a3372c123308c, type: 2}
   Text: Click.

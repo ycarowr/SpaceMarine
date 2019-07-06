@@ -10,13 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcab75401a7828f419300d5386c3a328, type: 3}
-  m_Name: 7-Roger that, over
+  m_Name: 6-Hmmm. Reaching the landing zone in approximately 60 minutes. Copy
   m_EditorClassIdentifier: 
-  Author: Mission Control
-  OnNext:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnPressNext: 0
-  Text: '- Roger that. Over.'
+  Author: Marine 05
+  Buttons:
+  - {fileID: 11400000, guid: 3d2513bfea202d045a1a3372c123308c, type: 2}
+  Text: '- Hmmm. Reaching the landing zone in approximately 60 minutes.'

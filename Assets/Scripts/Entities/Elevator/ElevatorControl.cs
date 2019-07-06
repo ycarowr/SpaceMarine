@@ -28,9 +28,13 @@ namespace SpaceMarine
         private void Awake()
         {
             PlayerInteraction = GetComponentInChildren<PressButtonNotification>();
-            PlayerInteraction.OnPressButton += SwitchElevatorMechanism;
         }
 
+        private void Start()
+        {
+            PlayerInteraction.AddListener(SwitchElevatorMechanism);
+        }
+        
         /// <summary>
         ///     Locks or unlocks the elevator.
         /// </summary>

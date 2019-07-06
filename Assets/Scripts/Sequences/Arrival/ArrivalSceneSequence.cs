@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Tools;
+using Tools.Dialog;
 using Tools.UI.Fade;
 using UnityEngine;
 

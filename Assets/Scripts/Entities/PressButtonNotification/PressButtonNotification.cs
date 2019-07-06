@@ -5,24 +5,23 @@ using UnityEngine;
 namespace SpaceMarine
 {
     public class PressButtonNotification : StateEntity
-    {
-        public Action OnPressButton { get; set; } = () => { };
-        
+    {        
         private Window Window;
-        private KeyboardInput Input;
+        private IKeyboardInput Input;
 
         protected override void Awake()
         {
             base.Awake();
-            Input = GetComponent<KeyboardInput>();
+            Input = GetComponent<IKeyboardInput>();
             Window = GetComponent<Window>();
         }
 
-        private void Start()
+        public void AddListener(Action action)
         {
-            Input.OnKeyDown += OnPressButton.Invoke;
+            if(action != null)
+                Input.OnKeyDown += action;
         }
-
+        
         protected override void OnStartProcessing()
         {
             Window.Show();

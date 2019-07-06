@@ -6,8 +6,15 @@ namespace SpaceMarine
 {
     public class Player : SingletonMB<Player>, IPlayer
     {
+        #region Set by editor
+        
         [SerializeField] private PlayerParameters parameters;
         [SerializeField] private Transform bulletSpawn;
+        [SerializeField] private Transform spawnPoint;
+        
+        #endregion
+        
+        #region Properties
         public PlayerParameters Parameters => parameters;
         public Rigidbody2D Rigidbody2D { get; private set; }
         public Collider2D Collider2D { get; private set; }
@@ -19,7 +26,11 @@ namespace SpaceMarine
         public PlayerAnimator Animation { get; private set; }
         public ISpaceMarineInput Input { get; private set; }
         public IGun Gun { get; private set; }
+        public Death Death { get; private set; }
+        public Spawn Spawn { get; private set; }
         
+        #endregion
+
 
         protected override void OnAwake()
         {
@@ -31,6 +42,8 @@ namespace SpaceMarine
             Attributes = new PlayerAttributes(this);
             Animation = new PlayerAnimator(this);
             Movement = new PlayerMovement(this);
+            Death = new Death(this);
+            Spawn = new Spawn(this, spawnPoint);
             Gun = new Gun(this, bulletSpawn, dataTest);
         }
 
@@ -42,9 +55,9 @@ namespace SpaceMarine
         }
 
         [Button]
-        private void Die()
+        public void Die()
         {
-            Attributes.IsDead = true;
+            Death.Die();
         }
 
         [Button]
