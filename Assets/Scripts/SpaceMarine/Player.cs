@@ -1,11 +1,14 @@
-﻿using Patterns;
+﻿using System;
+using Patterns;
 using SpaceMarine.Input;
+using UnityEditor;
 using UnityEngine;
 
 namespace SpaceMarine
 {
     public class Player : SingletonMB<Player>, IPlayer
     {
+        public Action<bool> OnChangeUserPermission = (isLocked) => { };
         #region Set by editor
         
         [SerializeField] private PlayerParameters parameters;
@@ -28,6 +31,7 @@ namespace SpaceMarine
         public IGun Gun { get; private set; }
         public Death Death { get; private set; }
         public Spawn Spawn { get; private set; }
+        public bool IsLocked { get; private set; }
         
         #endregion
 
@@ -45,6 +49,7 @@ namespace SpaceMarine
             Death = new Death(this);
             Spawn = new Spawn(this, spawnPoint);
             Gun = new Gun(this, bulletSpawn, dataTest);
+            UnLock();
         }
 
         private void Update()
@@ -52,6 +57,22 @@ namespace SpaceMarine
             Movement?.Update();
             Animation?.Update();
             Gun?.Update();
+        }
+
+        [Button]
+        public void Lock()
+        {
+            IsLocked = true;
+            Input.StopTracking();
+            OnChangeUserPermission.Invoke(IsLocked);
+        }
+        
+        [Button]
+        public void UnLock()
+        {
+            IsLocked = false;
+            Input.StartTracking();
+            OnChangeUserPermission.Invoke(IsLocked);
         }
 
         [Button]

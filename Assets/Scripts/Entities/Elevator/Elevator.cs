@@ -1,24 +1,29 @@
 ﻿using Tools;
-using Tools.UI.Fade;
+using Tools.UI;
 using UnityEditor;
 using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class Elevator : MonoBehaviour
+    public partial class Elevator : MonoBehaviour
     {
-        private const float LightsOn = 0f;
-        private const float LightsOff = 0.8f;
+        public Transform[] ElevatorStops;
+        [Range(0, 20)] public float MovingSpeed;
         PressButtonNotification PlayerInteraction { get; set; }
-        private FadeComponent Lights { get; set; }
-        
+        private Animations AnimationElevator { get; set; }       
 
         void Awake()
         {
+            AnimationElevator = new Animations(this, ElevatorStops);
             PlayerInteraction = GetComponentInChildren<PressButtonNotification>();
-            Lights = GetComponentInChildren<FadeComponent>();
             ElevatorControl.OnSwitchElevator += SwitchElevator;
+            GoStop1();
             Deactivate();
+        }
+        
+        void Update()
+        {
+            AnimationElevator?.Update();    
         }
 
         //--------------------------------------------------------------------------------------------------------------
@@ -34,14 +39,41 @@ namespace SpaceMarine
         void Activate()
         {
             PlayerInteraction.SetState(StateEntity.State.Off);
-            Lights.SetAlpha(LightsOn);
+            AnimationElevator.Activate();
         }
 
         void Deactivate()
         {
             PlayerInteraction.SetState(StateEntity.State.Inactive);
-            Lights.SetAlpha(LightsOff);
+            AnimationElevator.Deactivate();
         }
+        
+        //--------------------------------------------------------------------------------------------------------------
+
+        [Button]
+        public void GoStop1()
+        {
+            AnimationElevator.GoStop1();
+        }
+        
+        [Button]
+        public void GoStop2()
+        {
+            AnimationElevator.GoStop2();
+        }
+        
+        [Button]
+        public void GoStop3()
+        {
+            AnimationElevator.GoStop3();
+        }
+        
+        [Button]
+        public void GoStop4()
+        {
+            AnimationElevator.GoStop4();
+        }
+        
+
     }
-    
 }

@@ -5,6 +5,7 @@ namespace SpaceMarine
 {
     public interface IPlayer
     {
+        bool IsLocked { get; }
         MonoBehaviour MonoBehavior { get; }
         PlayerAnimator Animation { get; }
         PlayerAttributes Attributes { get; }
