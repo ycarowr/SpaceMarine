@@ -6,12 +6,12 @@ namespace SpaceMarine
     {
         protected override void OnCollisionStayPlayer()
         {
-            MyPlayer.Die();
+            MyUiPlayer.Die();
         }
 
         protected override void OnCollisionExitPlayer()
         {
-            MyPlayer.Die();
+            MyUiPlayer.Die();
         }
     }
 }

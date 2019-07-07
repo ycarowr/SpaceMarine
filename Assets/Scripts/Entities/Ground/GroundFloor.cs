@@ -6,12 +6,12 @@ namespace SpaceMarine
     {
         protected override void OnCollisionStayPlayer()
         {
-            MyPlayer.Attributes.SetGrounded(true);
+            MyUiPlayer.Attributes.SetGrounded(true);
         }
 
         protected override void OnCollisionExitPlayer()
         {
-            MyPlayer.Attributes.SetGrounded(false);
+            MyUiPlayer.Attributes.SetGrounded(false);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace SpaceMarine
         public Collider Collider { get; private set; }
         public SpriteRenderer Sprite { get; private set; }
         public Animator Animator { get; private set; }
-        public IPlayer MyPlayer => Player.Instance;
+        public IUiPlayer MyUiPlayer => UiPlayer.Instance;
 
         protected virtual void Awake()
         {
@@ -50,7 +50,7 @@ namespace SpaceMarine
 
         private bool IsPlayer(Collider2D collider)
         {
-            return collider == MyPlayer.Collider2D;
+            return collider == MyUiPlayer.Collider2D;
         }
 
         protected virtual void OnCollisionEnterPlayer()

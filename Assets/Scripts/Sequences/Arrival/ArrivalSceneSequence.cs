@@ -19,7 +19,7 @@ namespace SpaceMarine.Arrival
         {
             Restart();
             Fade.Instance.SetAlphaImmediatly(param.FadeStart);
-            Player.Instance.Deactivate();
+            UiPlayer.Instance.Deactivate();
             StartCoroutine(FadeOut());
         }
 
@@ -70,7 +70,7 @@ namespace SpaceMarine.Arrival
         private void EnablePlayer()
         {
             SpaceCraft.Motion.Movement.OnFinishMotion -= EnablePlayer;
-            Player.Instance.Active();
+            UiPlayer.Instance.Active();
         }
     }
 }

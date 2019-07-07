@@ -1,0 +1,37 @@
+using Patterns.GameEvents;
+
+namespace SpaceMarine.Model
+{
+    public class ElevatorControl : IElevatorControl
+    {
+        public bool IsLocked { get; private set; }
+        
+        public ElevatorControl()
+        {
+            
+        }
+        
+        public void Lock()
+        {
+            IsLocked = true;
+            OnSwitch(IsLocked);
+        }
+
+        public void UnLock()
+        {
+            IsLocked = false;
+            OnSwitch(IsLocked);
+        }
+
+        public void Switch()
+        {
+            IsLocked = !IsLocked;
+            OnSwitch(IsLocked);
+        }
+
+        void OnSwitch(bool isLocked)
+        {
+            GameEvents.Instance.Notify<Events.IElevatorControl>(i => i.OnSwitch(isLocked));
+        }
+    }
+}
