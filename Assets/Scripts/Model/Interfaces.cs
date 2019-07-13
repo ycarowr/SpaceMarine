@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using SpaceMarine.Data;
 
 namespace SpaceMarine.Model
 {
     public interface IGame
     {
         IPlayer Player { get; }
+        GameAttributes Attributes { get; }
         ElevatorMechanics ElevatorMechanics { get; }
         IRoomMechanics RoomMechanics { get; }
         EnemyMechanics EnemyMechanics { get; }
@@ -44,6 +46,7 @@ namespace SpaceMarine.Model
 
     public interface IRoom
     {
+        RoomData Data { get; }
         RoomId Id { get; }
         List<IEnemy> Enemies { get; }
         List<IDoor> Doors { get; }
@@ -55,5 +58,13 @@ namespace SpaceMarine.Model
         bool IsLocked { get; }
         void Lock();
         void UnLock();
+    }
+
+    public interface IRoomMechanics
+    {
+        void CreateRooms(RoomData[] roomData);
+        IRoom Get(RoomId id);
+        void PlayerEnter(RoomId id);
+        void PlayerLeave(RoomId id);
     }
 }

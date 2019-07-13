@@ -1,41 +1,28 @@
 using System.Collections.Generic;
+using Patterns.GameEvents;
+using SpaceMarine.Data;
 
 namespace SpaceMarine.Model
 {
-    public class Room : IRoom
-    {
-        public RoomId Id { get; }
-        public List<IEnemy> Enemies { get; } 
-        public List<IDoor> Doors { get; }
-
-        public Room()
-        {
-            Enemies = new List<IEnemy>();
-            Doors = new List<IDoor>();
-        }
-    }
-
-    
-    public interface IRoomMechanics
-    {
-        void CreateRooms();
-        IRoom Get(RoomId id);
-        void PlayerEnter(RoomId id);
-        void PlayerLeave(RoomId id);
-    }
-    
     public class RoomMechanics : BaseGameMechanic, IRoomMechanics
     {
         public Dictionary<RoomId, IRoom> Rooms { get; }
         
-        public RoomMechanics(IGame game) : base(game)
+        public RoomMechanics(IGame game, RoomData[] roomData) : base(game)
         {
             Rooms = new Dictionary<RoomId, IRoom>();
+            CreateRooms(roomData);
         }
 
-        public void CreateRooms()
+        public void CreateRooms(RoomData[] roomData)
         {
-            
+            Rooms.Clear();
+            foreach (var data in roomData)
+            {
+                var id = data.Id;
+                var room = new Room(data);
+                Rooms.Add(id, room);
+            }
         }
 
         public IRoom Get(RoomId id)
@@ -45,13 +32,19 @@ namespace SpaceMarine.Model
 
         public void PlayerEnter(RoomId id)
         {
-            var room = Get(id);
             Game.Player.EnterRoom(id);
         }
 
         public void PlayerLeave(RoomId id)
         {
             Game.Player.LeaveRoom(id);
+        }
+        
+        //--------------------------------------------------------------------------------------------------------------
+
+        void OnCreateRoom(IRoom room)
+        {
+            GameEvents.Instance.Notify<Events.ICreateRoom>(i=>i.OnCreateRoom(room));
         }
     }
 }

@@ -5,12 +5,17 @@ using UnityEngine;
 
 namespace SpaceMarine.Rooms
 {
-    public class UiRoomEvents : UiGameEventListener, Events.IRoom
+    public class UiRoomEnter : UiGameEventListener, Events.IEnterRoom
     {
+        //TODO: provide configurations for the values below.
         protected const float CameraSpeed = 3;
         protected const float CameraZ = -10;
+
+        [Tooltip("Position of the camera in this room.")] [SerializeField]
+        protected Transform CameraPosition;
+        
         private UiRoom UiRoom { get; set; }
-        public Transform CameraPosition;
+        
         private UiMotion CameraMotion => GameCamera.Instance.Motion;
 
         private void Awake()
@@ -18,22 +23,17 @@ namespace SpaceMarine.Rooms
             UiRoom = GetComponent<UiRoom>();
         }
         
-        void Events.IRoom.OnEnterRoom(RoomId id)
+        void Events.IEnterRoom.OnEnterRoom(RoomId id)
         {
             if(UiRoom.RoomId == id)
-                MoveCamera();
-        }
-
-        void Events.IRoom.OnLeaveRoom(RoomId id)
-        {
-            
+                MoveCameraHere();
         }
         
-        [Button("MoveCameraHere")]
-        private void MoveCamera()
+        [Button]
+        private void MoveCameraHere()
         {
+            CameraMotion.Movement.StopMotion();
             CameraMotion.MoveToWithZ(CameraPosition.position, CameraSpeed, CameraZ);
         }
-
     }
 }

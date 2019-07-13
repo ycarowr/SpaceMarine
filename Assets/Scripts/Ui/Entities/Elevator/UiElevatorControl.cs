@@ -12,7 +12,8 @@ namespace SpaceMarine
     /// </summary>
     public class UiElevatorControl : MonoBehaviour
     {
-        private IElevatorControl ElevatorControl => GameData.Instance.RuntimeGame.ElevatorMechanics.ElevatorControl;
+        private IElevatorControl ElevatorControl =>
+            GameObject.FindObjectOfType<GameController>().Game.ElevatorMechanics.ElevatorControl;//GameController.Instance.Game.ElevatorMechanics.ElevatorControl;
         private PressButtonNotification PlayerInteraction { get; set; }
         
         private void Awake()

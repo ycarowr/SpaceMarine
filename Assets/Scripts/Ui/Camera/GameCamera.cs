@@ -1,11 +1,14 @@
 ﻿using Patterns;
+using Patterns.GameEvents;
 using SpaceMarine;
+using SpaceMarine.Model;
 using Tools.UI;
 using UnityEngine;
 
 public class GameCamera : SingletonMB<GameCamera>, IUiMotionHandler
 {
     private const float OffsetZ = -10;
+    [SerializeField] private float speed = 3;
     
     public UiMotion Motion { get; private set; }
     public MonoBehaviour MonoBehaviour => this;
@@ -14,12 +17,16 @@ public class GameCamera : SingletonMB<GameCamera>, IUiMotionHandler
     {
         Motion = new UiMotion(this);
     }
-
+    
     private void Update()
     {
         Motion?.Update();
     }
 
+    private void GoTo(Vector2 position)
+    {
+        Motion.MoveToWithZ(position, speed, OffsetZ);
+    }
     
     //------------------------------------------------------------------------------------------------------------------
     
@@ -38,4 +45,6 @@ public class GameCamera : SingletonMB<GameCamera>, IUiMotionHandler
     }
     
     #endregion
+
+
 }

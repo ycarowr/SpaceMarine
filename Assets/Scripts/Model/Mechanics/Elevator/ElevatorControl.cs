@@ -6,11 +6,6 @@ namespace SpaceMarine.Model
     {
         public bool IsLocked { get; private set; }
         
-        public ElevatorControl()
-        {
-            
-        }
-        
         public void Lock()
         {
             IsLocked = true;

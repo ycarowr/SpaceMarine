@@ -6,10 +6,11 @@ namespace SpaceMarine.Rooms
 {
     public class UiRoom : BaseEntity
     {
-        private IRoomMechanics Room => GameData.Instance.RuntimeGame.RoomMechanics;
-        protected const float CameraSpeed = 3;
-        protected const float CameraZ = -10;
+        [Tooltip("The id of this room.")]
         public RoomId RoomId;
+        
+        private IRoomMechanics Room => GameController.Instance.Game.RoomMechanics;
+        
                 
         protected override void OnTriggerEnterPlayer()
         {

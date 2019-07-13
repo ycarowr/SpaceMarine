@@ -15,5 +15,4 @@ MonoBehaviour:
   Name: Arrival
   Id: 0
   Description: Place where the player arrives.
-  Model: {fileID: 0}
   Enemies: []

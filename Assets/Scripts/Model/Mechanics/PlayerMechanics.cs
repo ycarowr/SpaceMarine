@@ -1,4 +1,5 @@
 using Patterns.GameEvents;
+using UnityEngine;
 
 namespace SpaceMarine.Model
 {
@@ -44,12 +45,12 @@ namespace SpaceMarine.Model
 
         void OnEnterRoom(RoomId id)
         {
-            GameEvents.Instance.Notify<Events.IRoom>(i => i.OnEnterRoom(id));
+            GameEvents.Instance.Notify<Events.IEnterRoom>(i => i.OnEnterRoom(id));
         }
         
         void OnLeaveRoom(RoomId id)
         {
-            GameEvents.Instance.Notify<Events.IRoom>(i => i.OnLeaveRoom(id));
+            GameEvents.Instance.Notify<Events.ILeaveRoom>(i => i.OnLeaveRoom(id));
         }
     }
 }

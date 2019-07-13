@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using Patterns.GameEvents;
+using SpaceMarine.Model;
 using Tools;
 using Tools.Dialog;
 using Tools.UI.Fade;
@@ -6,16 +8,21 @@ using UnityEngine;
 
 namespace SpaceMarine.Arrival
 {
-    public class ArrivalSceneSequence : MonoBehaviour
+    public class ArrivalSceneSequence : UiGameEventListener, Events.IStartGame
     {
         [SerializeField] private DialogSystem dialog;
         [SerializeField] private ArrivalSceneParameters param;
         
         private SpaceCraft SpaceCraft => SpaceCraft.Instance;
         
-
+        
+        public void OnStartGame(IGame runtimeGame)
+        {
+            StartProcessing();
+        }
+        
         [Button]
-        private void Start()
+        private void StartProcessing()
         {
             Restart();
             Fade.Instance.SetAlphaImmediatly(param.FadeStart);

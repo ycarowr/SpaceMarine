@@ -1,4 +1,5 @@
 using Patterns.GameEvents;
+using UnityEngine;
 
 namespace SpaceMarine.Model
 {
@@ -17,10 +18,10 @@ namespace SpaceMarine.Model
         {
             if (IsStarted)
                 return;
-            
+
             if (IsFinished)
                 return;
-            
+
             IsStarted = true;
             OnStart();
         }

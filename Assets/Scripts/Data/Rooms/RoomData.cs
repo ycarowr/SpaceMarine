@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using SpaceMarine.Model;
 using UnityEngine;
@@ -18,6 +19,16 @@ namespace SpaceMarine.Data
         [Multiline] public string Description;
 
         [Tooltip("Creatures inside the room.")]
-        public EnemyData[] Enemies;
+        public EnemySpot[] Enemies;
+    }
+
+    [Serializable]
+    public class EnemySpot
+    {
+        [Tooltip("Creature inside the room.")]
+        public EnemyData Enemy;
+
+        [Tooltip("Placed Local Position.")]
+        public Vector2 Position;
     }
 }

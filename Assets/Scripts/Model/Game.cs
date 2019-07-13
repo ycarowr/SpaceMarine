@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SpaceMarine.Data;
 using UnityEngine;
 
 namespace SpaceMarine.Model
@@ -20,16 +21,14 @@ namespace SpaceMarine.Model
         #endregion
         
         
-        public Game()
+        public Game(RoomData[] roomData)
         {
+            RoomMechanics = new RoomMechanics(this, roomData);
             ElevatorMechanics = new ElevatorMechanics(this);
             EnemyMechanics = new EnemyMechanics(this);
             DoorsMechanics = new DoorMechanics(this);
-            RoomMechanics = new RoomMechanics(this);
             Attributes = new GameAttributes(this);
             Player = new PlayerMechanics(this);
         }
     }
-
-    
 }
