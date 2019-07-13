@@ -4,14 +4,13 @@ using UnityEngine;
 
 namespace SpaceMarine.Rooms
 {
-    public class UiRoom : BaseEntity
+    public class UiRoom : UiBaseEntity
     {
-        [Tooltip("The id of this room.")]
-        public RoomId RoomId;
-        
         private IRoomMechanics Room => GameController.Instance.Game.RoomMechanics;
         
-                
+        [Tooltip("The id of this room.")]
+        public RoomId RoomId;
+
         protected override void OnTriggerEnterPlayer()
         {
             Room.PlayerEnter(RoomId);

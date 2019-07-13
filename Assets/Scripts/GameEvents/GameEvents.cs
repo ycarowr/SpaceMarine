@@ -71,6 +71,38 @@ namespace SpaceMarine
         {
             void OnSwitch(bool isEnabled);
         }
+        
+        /// <summary>
+        ///     Broadcast of die event to all the interested listeners.
+        /// </summary>
+        public interface IPlayerDie : ISubject
+        {
+            void OnDie();
+        }
+        
+        /// <summary>
+        ///     Broadcast of shoot event to all the interested listeners.
+        /// </summary>
+        public interface IPlayerShoot : ISubject
+        {
+            void OnShoot(IShooter player);
+        }
+        
+        /// <summary>
+        ///     Broadcast of reload event to all the interested listeners.
+        /// </summary>
+        public interface IPlayerReload : ISubject
+        {
+            void OnReload(IShooter player);
+        }
+        
+        /// <summary>
+        ///     Broadcast of equip event to all the interested listeners.
+        /// </summary>
+        public interface IPlayerEquip : ISubject
+        {
+            void OnEquip(IShooter player, IGunData gunData);
+        }
     }
 
     // ...

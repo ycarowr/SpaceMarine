@@ -11,8 +11,9 @@ namespace SpaceMarine
     {
         private UiElevator UiElevator { get; set; }
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             UiElevator = GetComponent<UiElevator>();
         }
 

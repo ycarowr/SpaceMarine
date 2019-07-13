@@ -7,7 +7,7 @@ using Debug = UnityEngine.Debug;
 
 namespace SpaceMarine
 {
-    public class LightsElevatorControl : BaseEntity
+    public class UiElevatorLights : UiBaseEntity
     {
         private const float LightsOn = 0;
         private const float LightsOff = 0.7f;

@@ -879,8 +879,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0fe0ee3eddb7744798da4359d45358e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraPosition: {fileID: 1599571924606375604}
   RoomId: 0
+  CameraPosition: {fileID: 1599571924606375604}
 --- !u!61 &45340216514992765
 BoxCollider2D:
   m_ObjectHideFlags: 0

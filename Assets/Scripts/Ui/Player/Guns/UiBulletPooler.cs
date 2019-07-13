@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class BulletPooler : PrefabPooler<BulletPooler>
+    public class UiBulletPooler : PrefabPooler<UiBulletPooler>
     {
         
     }

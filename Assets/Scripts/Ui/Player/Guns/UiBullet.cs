@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceMarine
-{   
-    public interface IBullet
-    {
-        void Move(int xDirection, float velocity, float precision, float adjustment, float lifeSpan);
-    }
-
-    public class Bullet : MonoBehaviour, IBullet
+{
+    public class UiBullet : MonoBehaviour
     {
         private Rigidbody2D Rigidbody2D { get; set; }
         private TrailRenderer Trail { get; set; }
@@ -54,7 +49,7 @@ namespace SpaceMarine
         public void Deactivate()
         {
             Trail.Clear();
-            BulletPooler.Instance.Release(gameObject);
+            UiBulletPooler.Instance.Release(gameObject);
         }
     }
 }

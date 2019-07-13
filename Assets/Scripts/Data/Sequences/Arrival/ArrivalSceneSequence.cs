@@ -13,7 +13,7 @@ namespace SpaceMarine.Arrival
         [SerializeField] private DialogSystem dialog;
         [SerializeField] private ArrivalSceneParameters param;
         
-        private SpaceCraft SpaceCraft => SpaceCraft.Instance;
+        private UiSpaceCraft UiSpaceCraft => UiSpaceCraft.Instance;
         
         
         public void OnStartGame(IGame runtimeGame)
@@ -33,11 +33,11 @@ namespace SpaceMarine.Arrival
         [Button]
         private void Restart()
         {
-            SpaceCraft.Motion.Movement.StopMotion();
-            SpaceCraft.Motion.Movement.OnFinishMotion = () => { };
-            SpaceCraft.transform.position = param.StartCraftPosition;
-            SpaceCraft.transform.localScale = param.StartCraftScale;
-            SpaceCraft.Motion.Movement.IsConstant = false;
+            UiSpaceCraft.Motion.Movement.StopMotion();
+            UiSpaceCraft.Motion.Movement.OnFinishMotion = () => { };
+            UiSpaceCraft.transform.position = param.StartCraftPosition;
+            UiSpaceCraft.transform.localScale = param.StartCraftScale;
+            UiSpaceCraft.Motion.Movement.IsConstant = false;
             Fade.Instance.SetAlphaImmediatly(1);
             dialog.Hide();
         }
@@ -53,8 +53,8 @@ namespace SpaceMarine.Arrival
         {
             yield return new WaitForSeconds(param.DelayMoveRight);
 
-            SpaceCraft.Motion.Movement.Execute(param.RightScreenSpaceCraftPosition, param.SpaceCraftSpeedRight, 0);
-            SpaceCraft.Motion.Movement.OnFinishMotion += MoveSpaceCraftArrivalPoint;
+            UiSpaceCraft.Motion.Movement.Execute(param.RightScreenSpaceCraftPosition, param.SpaceCraftSpeedRight, 0);
+            UiSpaceCraft.Motion.Movement.OnFinishMotion += MoveSpaceCraftArrivalPoint;
         }
 
         private void MoveSpaceCraftArrivalPoint()
@@ -65,18 +65,18 @@ namespace SpaceMarine.Arrival
 
         private IEnumerator MoveToArrival()
         {
-            SpaceCraft.Instance.transform.localScale = param.ReverCraftScale;
-            SpaceCraft.Instance.DisableNumber();
+            UiSpaceCraft.Instance.transform.localScale = param.ReverCraftScale;
+            UiSpaceCraft.Instance.DisableNumber();
             yield return new WaitForSeconds(param.DelayMoveToArrivalPoint);
-            SpaceCraft.Motion.Movement
+            UiSpaceCraft.Motion.Movement
                 .Execute(param.ArrivalPoint, param.SpaceCraftSpeedArrival, 0);
 
-            SpaceCraft.Motion.Movement.OnFinishMotion += EnablePlayer;
+            UiSpaceCraft.Motion.Movement.OnFinishMotion += EnablePlayer;
         }
 
         private void EnablePlayer()
         {
-            SpaceCraft.Motion.Movement.OnFinishMotion -= EnablePlayer;
+            UiSpaceCraft.Motion.Movement.OnFinishMotion -= EnablePlayer;
             UiPlayer.Instance.Active();
         }
     }

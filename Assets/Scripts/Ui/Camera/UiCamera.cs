@@ -5,7 +5,7 @@ using SpaceMarine.Model;
 using Tools.UI;
 using UnityEngine;
 
-public class GameCamera : SingletonMB<GameCamera>, IUiMotionHandler
+public class UiCamera : SingletonMB<UiCamera>, IUiMotionHandler
 {
     private const float OffsetZ = -10;
     [SerializeField] private float speed = 3;

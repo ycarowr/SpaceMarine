@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class SpaceCraft : SingletonMB<SpaceCraft>, IUiMotionHandler
+    public class UiSpaceCraft : SingletonMB<UiSpaceCraft>, IUiMotionHandler
     {
         public GameObject Number;
         public UiMotion Motion { get; private set; }

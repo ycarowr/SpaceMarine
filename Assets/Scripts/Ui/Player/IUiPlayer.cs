@@ -16,8 +16,5 @@ namespace SpaceMarine
         Collider2D Collider2D { get; }
         Animator Animator { get; }
         SpriteRenderer Sprite { get; }
-        IGun Gun { get; }
-        void Equip(GunData gun);
-        void Die();
     }
 }

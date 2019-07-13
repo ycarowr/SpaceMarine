@@ -5,7 +5,7 @@ namespace SpaceMarine
     /// <summary>
     ///     Entities which somehow interact with the player.
     /// </summary>
-    public abstract class StateEntity : BaseEntity
+    public abstract class UiStateEntity : UiBaseEntity
     {
         /// <summary>
         ///     State of the entity.

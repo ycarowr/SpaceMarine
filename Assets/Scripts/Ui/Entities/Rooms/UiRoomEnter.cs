@@ -16,10 +16,11 @@ namespace SpaceMarine.Rooms
         
         private UiRoom UiRoom { get; set; }
         
-        private UiMotion CameraMotion => GameCamera.Instance.Motion;
+        private UiMotion CameraMotion => UiCamera.Instance.Motion;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             UiRoom = GetComponent<UiRoom>();
         }
         

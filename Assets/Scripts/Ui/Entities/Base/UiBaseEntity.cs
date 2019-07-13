@@ -2,7 +2,7 @@
 
 namespace SpaceMarine
 {
-    public abstract class BaseEntity : MonoBehaviour
+    public abstract class UiBaseEntity : MonoBehaviour
     {
         public Rigidbody2D Rigidbody2D { get; private set; }
         public Collider Collider { get; private set; }

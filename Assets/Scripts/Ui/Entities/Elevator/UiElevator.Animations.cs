@@ -67,6 +67,26 @@ namespace SpaceMarine
             }
             
             //----------------------------------------------------------------------------------------------------------
+            
+            private void PlayerEmbark()
+            {
+                UiPlayer.Instance.Lock();
+                UiPlayer.Instance.transform.SetParent(Handler.transform);
+                UiPlayer.Instance.Animation.ForcePlayJump();
+                UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += UiPlayer.Instance.Animation.ForceIdle;
+                UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += Handler.GoNext;
+                UiPlayer.Instance.Movement.Motion.MoveTo(Handler.PlayerPosition.position, 10);
+                Motion.Movement.OnFinishMotion += PlayerDisembark;
+            }
+
+            private void PlayerDisembark()
+            {
+                Motion.Movement.OnFinishMotion -= PlayerDisembark;
+                UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion -= UiPlayer.Instance.Animation.ForceIdle;
+                UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion -= Handler.GoNext;
+                UiPlayer.Instance.transform.SetParent(null);
+                UiPlayer.Instance.UnLock();
+            }
         }
     }
 }

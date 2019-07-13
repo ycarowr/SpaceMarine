@@ -2,7 +2,7 @@ using Patterns.GameEvents;
 
 namespace SpaceMarine.Model
 {
-    public class ElevatorControl : IElevatorControl
+    public class Elevator : IElevator
     {
         public bool IsLocked { get; private set; }
         

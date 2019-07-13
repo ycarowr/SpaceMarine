@@ -8,14 +8,9 @@ namespace SpaceMarine
 {
     public class UiPlayer : SingletonMB<UiPlayer>, IUiPlayer
     {
-        public Action<bool> OnChangeUserPermission = (isLocked) => { };
-        #region Set by editor
+        public Action<bool> OnInputChange = (isLocked) => { };
         
         [SerializeField] private UiPlayerParameters parameters;
-        [SerializeField] private Transform bulletSpawn;
-        [SerializeField] private Transform spawnPoint;
-        
-        #endregion
         
         #region Properties
         public UiPlayerParameters Parameters => parameters;
@@ -28,9 +23,6 @@ namespace SpaceMarine
         public UiPlayerAttributes Attributes { get; private set; }
         public UiPlayerAnimator Animation { get; private set; }
         public ISpaceMarineInput Input { get; private set; }
-        public IGun Gun { get; private set; }
-        public UiDeath UiDeath { get; private set; }
-        public UiSpawn Spawn { get; private set; }
         public bool IsLocked { get; private set; }
         
         #endregion
@@ -46,8 +38,6 @@ namespace SpaceMarine
             Attributes = new UiPlayerAttributes(this);
             Animation = new UiPlayerAnimator(this);
             Movement = new UiPlayerMovement(this);
-            Spawn = new UiSpawn(this, spawnPoint);
-            Gun = new UiGun(this, bulletSpawn, dataTest);
             UnLock();
         }
 
@@ -55,7 +45,6 @@ namespace SpaceMarine
         {
             Movement?.Update();
             Animation?.Update();
-            Gun?.Update();
         }
 
         [Button]
@@ -64,7 +53,7 @@ namespace SpaceMarine
             IsLocked = true;
             Input.StopTracking();
             Collider2D.enabled = false;
-            OnChangeUserPermission.Invoke(IsLocked);
+            OnInputChange.Invoke(IsLocked);
         }
         
         [Button]
@@ -73,15 +62,8 @@ namespace SpaceMarine
             IsLocked = false;
             Input.StartTracking();
             Collider2D.enabled = true;
-            OnChangeUserPermission.Invoke(IsLocked);
+            OnInputChange.Invoke(IsLocked);
         }
-
-        [Button]
-        public void Die()
-        {
-            UiDeath.Die();
-        }
-
         [Button]
         public void Deactivate()
         {
@@ -92,18 +74,6 @@ namespace SpaceMarine
         public void Active()
         {
             gameObject.SetActive(true);
-        }
-
-        public void Equip(GunData data)
-        {
-            Gun?.SetGunData(data);
-        }
-
-        public GunData dataTest;
-        [Button]
-        public void EquipTest()
-        {
-            Equip(dataTest);
         }
     }
 }

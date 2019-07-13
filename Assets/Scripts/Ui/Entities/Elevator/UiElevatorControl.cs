@@ -12,13 +12,12 @@ namespace SpaceMarine
     /// </summary>
     public class UiElevatorControl : MonoBehaviour
     {
-        private IElevatorControl ElevatorControl =>
-            GameObject.FindObjectOfType<GameController>().Game.ElevatorMechanics.ElevatorControl;//GameController.Instance.Game.ElevatorMechanics.ElevatorControl;
-        private PressButtonNotification PlayerInteraction { get; set; }
+        private IElevator Elevator => GameController.Instance.Game.ElevatorMechanics.Elevator;
+        private UiButtonTriggerZone PlayerInteraction { get; set; }
         
         private void Awake()
         {
-            PlayerInteraction = GetComponentInChildren<PressButtonNotification>();
+            PlayerInteraction = GetComponentInChildren<UiButtonTriggerZone>();
         }
 
         private void Start()
@@ -28,7 +27,7 @@ namespace SpaceMarine
 
         private void SwitchElevatorMechanism()
         {
-            ElevatorControl.Switch();
+            Elevator.Switch();
         }
     }
 }

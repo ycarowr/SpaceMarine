@@ -11,13 +11,13 @@ namespace SpaceMarine
         public Transform[] ElevatorStops;
         public Transform PlayerPosition;
         [Range(0, 20)] public float MovingSpeed;
-        PressButtonNotification PlayerInteraction { get; set; }
-        Animations AnimationElevator { get; set; }       
+        UiButtonTriggerZone PlayerInteraction { get; set; }
+        Animations ElevatorAnimations { get; set; }       
 
         void Awake()
         {
-            AnimationElevator = new Animations(this, ElevatorStops);
-            PlayerInteraction = GetComponentInChildren<PressButtonNotification>();
+            ElevatorAnimations = new Animations(this, ElevatorStops);
+            PlayerInteraction = GetComponentInChildren<UiButtonTriggerZone>();
             PlayerInteraction.AddListener(PlayerEmbark);
             GoStop1();
             Deactivate();
@@ -25,21 +25,21 @@ namespace SpaceMarine
         
         void Update()
         {
-            AnimationElevator?.Update();    
+            ElevatorAnimations?.Update();    
         }
 
         //--------------------------------------------------------------------------------------------------------------
 
         public void Activate()
         {
-            PlayerInteraction.SetState(StateEntity.State.Off);
-            AnimationElevator.Activate();
+            PlayerInteraction.SetState(UiStateEntity.State.Off);
+            ElevatorAnimations.Activate();
         }
 
         public void Deactivate()
         {
-            PlayerInteraction.SetState(StateEntity.State.Inactive);
-            AnimationElevator.Deactivate();
+            PlayerInteraction.SetState(UiStateEntity.State.Inactive);
+            ElevatorAnimations.Deactivate();
         }
         
         //--------------------------------------------------------------------------------------------------------------
@@ -52,12 +52,12 @@ namespace SpaceMarine
             UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += UiPlayer.Instance.Animation.ForceIdle;
             UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += GoNext;
             UiPlayer.Instance.Movement.Motion.MoveTo(PlayerPosition.position, 10);
-            AnimationElevator.Motion.Movement.OnFinishMotion += PlayerDisembark;
+            ElevatorAnimations.Motion.Movement.OnFinishMotion += PlayerDisembark;
         }
 
         private void PlayerDisembark()
         {
-            AnimationElevator.Motion.Movement.OnFinishMotion -= PlayerDisembark;
+            ElevatorAnimations.Motion.Movement.OnFinishMotion -= PlayerDisembark;
             UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion -= UiPlayer.Instance.Animation.ForceIdle;
             UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion -= GoNext;
             UiPlayer.Instance.transform.SetParent(null);
@@ -80,25 +80,25 @@ namespace SpaceMarine
         [Button]
         public void GoStop1()
         {
-            AnimationElevator.GoStop1();
+            ElevatorAnimations.GoStop1();
         }
         
         [Button]
         public void GoStop2()
         {
-            AnimationElevator.GoStop2();
+            ElevatorAnimations.GoStop2();
         }
         
         [Button]
         public void GoStop3()
         {
-            AnimationElevator.GoStop3();
+            ElevatorAnimations.GoStop3();
         }
         
         [Button]
         public void GoStop4()
         {
-            AnimationElevator.GoStop4();
+            ElevatorAnimations.GoStop4();
         }
     }
 }

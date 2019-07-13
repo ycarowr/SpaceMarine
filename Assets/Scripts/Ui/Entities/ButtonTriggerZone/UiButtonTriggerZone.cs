@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class PressButtonNotification : StateEntity
+    public class UiButtonTriggerZone : UiStateEntity
     {        
         private Window Window;
         private IKeyboardInput Input;

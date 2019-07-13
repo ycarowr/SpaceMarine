@@ -13,15 +13,20 @@ namespace SpaceMarine.Model
         IDoorMechanics DoorsMechanics { get; }
     }
 
-    public interface IPlayer : IAttackable
+    public interface IPlayer : IAttackable, IShooter
     {
-        int Health { get; }
-        int Ammo { get; }
-        bool IsDead { get; }
         RoomId CurrentRoom { get; }
-        GunId CurrentGun { get; }
         void EnterRoom(RoomId id);
         void LeaveRoom(RoomId id);
+    }
+
+    public interface IShooter
+    {
+        IGunData CurrentGun { get; }
+        void Equip(IGunData gun);
+        int Ammo { get; }
+        bool CanShoot();
+        void Shoot();
     }
 
     public interface IAttackable
@@ -32,7 +37,7 @@ namespace SpaceMarine.Model
         void Die();
     }
 
-    public interface IElevatorControl
+    public interface IElevator
     {
         bool IsLocked { get; }
         void Lock();

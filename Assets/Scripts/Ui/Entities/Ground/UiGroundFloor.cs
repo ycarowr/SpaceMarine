@@ -2,7 +2,7 @@
 
 namespace SpaceMarine
 {
-    public class GroundFloor : BaseEntity
+    public class UiGroundFloor : UiBaseEntity
     {
         protected override void OnCollisionStayPlayer()
         {

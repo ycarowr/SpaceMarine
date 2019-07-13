@@ -9,7 +9,7 @@ namespace SpaceMarine.Rooms
         
         private void Start()
         {
-            GameCamera.Instance.Motion.Teleport(CameraPosition.position);
+            UiCamera.Instance.Motion.Teleport(CameraPosition.position);
         }
     }
 }
