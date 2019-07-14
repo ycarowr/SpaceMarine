@@ -15,6 +15,7 @@ namespace SpaceMarine.Model
 
     public interface IPlayer : IAttackable, IShooter
     {
+        bool IsInsideElevator { get; set; }
         RoomId CurrentRoom { get; }
         void EnterRoom(RoomId id);
         void LeaveRoom(RoomId id);
@@ -39,10 +40,12 @@ namespace SpaceMarine.Model
 
     public interface IElevator
     {
+        RoomId CurrentRoom { get; }
         bool IsLocked { get; }
         void Lock();
         void UnLock();
         void Switch();
+        void GoTo(RoomId id);
     }
 
     public interface IEnemy : IAttackable

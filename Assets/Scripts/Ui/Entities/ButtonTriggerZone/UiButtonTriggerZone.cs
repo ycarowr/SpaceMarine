@@ -5,8 +5,8 @@ using UnityEngine;
 namespace SpaceMarine
 {
     public class UiButtonTriggerZone : UiStateEntity
-    {        
-        private Window Window;
+    {
+        public Window Window { get; private set; }
         private IKeyboardInput Input;
 
         protected override void Awake()

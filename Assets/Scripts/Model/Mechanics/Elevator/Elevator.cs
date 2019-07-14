@@ -5,6 +5,7 @@ namespace SpaceMarine.Model
     public class Elevator : IElevator
     {
         public bool IsLocked { get; private set; }
+        public RoomId CurrentRoom { get; private set; } = RoomId.Level0;
         
         public void Lock()
         {
@@ -24,9 +25,20 @@ namespace SpaceMarine.Model
             OnSwitch(IsLocked);
         }
 
+        public void GoTo(RoomId id)
+        {
+            CurrentRoom = id;
+            OnChangeRoom();
+        }
+
         void OnSwitch(bool isLocked)
         {
-            GameEvents.Instance.Notify<Events.IElevatorControl>(i => i.OnSwitch(isLocked));
+            GameEvents.Instance.Notify<Events.IOnSwitchElevator>(i => i.OnSwitch(isLocked));
+        }
+
+        void OnChangeRoom()
+        {
+            GameEvents.Instance.Notify<Events.IOnElevatorChangeRoom>(i => i.OnChangeRoom(CurrentRoom));
         }
     }
 }

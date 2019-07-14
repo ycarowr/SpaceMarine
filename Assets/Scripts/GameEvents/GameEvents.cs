@@ -67,9 +67,17 @@ namespace SpaceMarine
         /// <summary>
         ///     Broadcast of elevator control switcher to all the interested listeners. 
         /// </summary>
-        public interface IElevatorControl : ISubject
+        public interface IOnSwitchElevator : ISubject
         {
             void OnSwitch(bool isEnabled);
+        }
+        
+        /// <summary>
+        ///     Broadcast of elevator change room event to all the interested listeners. 
+        /// </summary>
+        public interface IOnElevatorChangeRoom : ISubject
+        {
+            void OnChangeRoom(RoomId id);
         }
         
         /// <summary>
@@ -102,6 +110,24 @@ namespace SpaceMarine
         public interface IPlayerEquip : ISubject
         {
             void OnEquip(IShooter player, IGunData gunData);
+        }
+        
+          
+        /// <summary>
+        ///     Broadcast of disembark event to all the interested listeners.
+        /// </summary>
+        public interface IPlayerDisembark : ISubject
+        {
+            void OnDisembark(IElevator elevator, IPlayer player);
+        }
+        
+          
+        /// <summary>
+        ///     Broadcast of embark event to all the interested listeners.
+        /// </summary>
+        public interface IPlayerEmbark : ISubject
+        {
+            void OnEmbark(IElevator elevator, IPlayer player);
         }
     }
 

@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using SpaceMarine.Model;
 using Tools.UI;
 using Tools.UI.Fade;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace SpaceMarine
 {
@@ -8,23 +11,35 @@ namespace SpaceMarine
     {
         public class Animations: IUiMotionHandler
         {
+            #region Elevator Stops and Motion
+            private Dictionary<RoomId, Transform> Stops { get; }
+            
             private const float Threshold = 0.075f;
             public float Speed => Handler.MovingSpeed;
             public UiMotion Motion { get; }
             public MonoBehaviour MonoBehaviour => Handler;
-            private Transform[] Stops { get; }
+            private UiElevator Handler { get; }
+            
+            #endregion
+            
+            #region Lights
+            
             private const float LightsOn = 0f;
             private const float LightsOff = 0.8f;
             private FadeComponent Lights { get; }
-            private UiElevator Handler { get; }
+            
+            #endregion
 
-            public Animations(UiElevator handler, Transform[] stops)
+            public Animations(UiElevator handler, UiElevatorStop[] stops)
             {
-                Stops = stops;
                 Handler = handler;
                 Lights = Handler.GetComponentInChildren<FadeComponent>();
                 Motion = new UiMotion(this);
                 Motion.Movement.SetThreshold(Threshold);
+               
+                Stops = new Dictionary<RoomId, Transform>();
+                foreach(var stop in stops)
+                    Stops.Add(stop.Id, stop.Position);
             }
 
             public void Update()
@@ -34,59 +49,64 @@ namespace SpaceMarine
 
             //----------------------------------------------------------------------------------------------------------
             
-            public void Activate()
+            #region Lights
+            
+            public void SwitchOn()
             {
                 Lights.SetAlpha(LightsOn);
             }
 
-            public void Deactivate()
+            public void SwitchOff()
             {
                 Lights.SetAlpha(LightsOff);
             }
             
-            //----------------------------------------------------------------------------------------------------------
-            
-            public void GoStop1()
-            {
-                Motion.MoveTo(Stops[0].position, Speed);
-            }
-        
-            public void GoStop2()
-            {
-                Motion.MoveTo(Stops[1].position, Speed);
-            }
-        
-            public void GoStop3()
-            {
-                Motion.MoveTo(Stops[2].position, Speed);
-            }
-        
-            public void GoStop4()
-            {
-                Motion.MoveTo(Stops[3].position, Speed);
-            }
+            #endregion
             
             //----------------------------------------------------------------------------------------------------------
+
+            #region Handle Movement
             
-            private void PlayerEmbark()
+            private void MoveToDestiny()
             {
+                var id = Handler.CurrentRoom;
+                var stop = Stops[id];
+                Motion.MoveTo(stop.position, Speed);
+            }
+
+            public void GoToWithNoPlayer()
+            {
+                var id = Handler.CurrentRoom;
+                var stop = Stops[id];
+                Motion.MoveTo(stop.position, Speed);
+            }
+            
+            public void GoTo(RoomId id)
+            {
+                
+                UiCamera.Instance.transform.SetParent(Handler.transform);
                 UiPlayer.Instance.Lock();
                 UiPlayer.Instance.transform.SetParent(Handler.transform);
                 UiPlayer.Instance.Animation.ForcePlayJump();
                 UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += UiPlayer.Instance.Animation.ForceIdle;
-                UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += Handler.GoNext;
+                UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += MoveToDestiny;
                 UiPlayer.Instance.Movement.Motion.MoveTo(Handler.PlayerPosition.position, 10);
                 Motion.Movement.OnFinishMotion += PlayerDisembark;
             }
 
             private void PlayerDisembark()
             {
+                UiCamera.Instance.transform.SetParent(null);
                 Motion.Movement.OnFinishMotion -= PlayerDisembark;
                 UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion -= UiPlayer.Instance.Animation.ForceIdle;
-                UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion -= Handler.GoNext;
+                UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion -= MoveToDestiny;
                 UiPlayer.Instance.transform.SetParent(null);
                 UiPlayer.Instance.UnLock();
             }
+            
+            
+            
+            #endregion
         }
     }
 }

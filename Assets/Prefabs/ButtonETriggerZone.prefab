@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 7889307582428401761}
   - component: {fileID: 2906001126019531407}
   m_Layer: 0
-  m_Name: InteractionNotification
+  m_Name: ButtonETriggerZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

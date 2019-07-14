@@ -2647,6 +2647,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 2950740170736709642, guid: 1a4237c9fe49e03479bc906cfe676e0a,
+        type: 3}
+      propertyPath: ButtonToggleOn
+      value: 
+      objectReference: {fileID: 11400000, guid: 20d0e0201f0485345ad1e73c8d386e64,
+        type: 2}
+    - target: {fileID: 2950740170736709642, guid: 1a4237c9fe49e03479bc906cfe676e0a,
+        type: 3}
+      propertyPath: ButtonToggleOff
+      value: 
+      objectReference: {fileID: 11400000, guid: 6fad401799a77234f8444b40491c4ca8,
+        type: 2}
+    - target: {fileID: 2950740170736709642, guid: 1a4237c9fe49e03479bc906cfe676e0a,
+        type: 3}
+      propertyPath: TextSequenceOn
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b63c521cb7dd44429cde326026bcd05,
+        type: 2}
+    - target: {fileID: 2950740170736709642, guid: 1a4237c9fe49e03479bc906cfe676e0a,
+        type: 3}
+      propertyPath: TextSequenceOff
+      value: 
+      objectReference: {fileID: 11400000, guid: 79a56d088ffb6d14a880821569a705d8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4237c9fe49e03479bc906cfe676e0a, type: 3}
 --- !u!4 &9161619796279855168 stripped

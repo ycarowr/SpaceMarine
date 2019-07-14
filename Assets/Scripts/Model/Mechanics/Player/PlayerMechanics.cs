@@ -13,6 +13,7 @@ namespace SpaceMarine.Model
         public bool IsDead { get; private set; }
         public RoomId CurrentRoom { get; private set; }
         public IGunData CurrentGun { get; private set; }
+        public bool IsInsideElevator { get; set; }
 
         public PlayerMechanics(IGame game) : base(game)
         {

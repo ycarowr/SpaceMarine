@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcab75401a7828f419300d5386c3a328, type: 3}
-  m_Name: SwitchOff
+  m_Name: SwitchQuestionOff
   m_EditorClassIdentifier: 
-  Author: 
-  OnNext:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnPressNext: 3
-  Text: 
+  Author: Terminal
+  Buttons:
+  - {fileID: 11400000, guid: 6fad401799a77234f8444b40491c4ca8, type: 2}
+  - {fileID: 11400000, guid: 0379764341135e84698f180e5cc729d5, type: 2}
+  Text: Would you like to switch off the elevator?

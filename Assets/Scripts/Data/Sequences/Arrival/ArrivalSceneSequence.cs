@@ -18,7 +18,7 @@ namespace SpaceMarine.Arrival
         
         public void OnStartGame(IGame runtimeGame)
         {
-            StartProcessing();
+//            StartProcessing();
         }
         
         [Button]

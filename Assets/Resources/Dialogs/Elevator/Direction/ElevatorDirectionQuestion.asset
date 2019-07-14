@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcab75401a7828f419300d5386c3a328, type: 3}
-  m_Name: SwitchOn
+  m_Name: ElevatorDirectionQuestion
   m_EditorClassIdentifier: 
   Author: 
-  OnNext:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnPressNext: 3
-  Text: 
+  Buttons:
+  - {fileID: 11400000, guid: edf4892ce791c434a84e034acfaa19c7, type: 2}
+  - {fileID: 11400000, guid: e6204f424fcb1a946a5db78af84ed55e, type: 2}
+  Text: Which direction would you like to go?
