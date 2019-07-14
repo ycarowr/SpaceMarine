@@ -18,7 +18,7 @@ MonoBehaviour:
   FadeStart: 1
   FadeStartDelay: 1
   LeftScreenSpaceCraftPosition: {x: -57, y: 2.89, z: -2}
-  NextLevel: {fileID: 102900000, guid: 26dc183b89579bb42b8768c175971b10, type: 3}
+  NextLevel: {fileID: 102900000, guid: 374d1cea3e56cc146a533568268f4f81, type: 3}
   RightScreenSpaceCraftPosition: {x: -21, y: 2.89, z: -2}
   SpaceCraftSpeedCenter: 2.5
   SpaceCraftSpeedLeft: 5.5

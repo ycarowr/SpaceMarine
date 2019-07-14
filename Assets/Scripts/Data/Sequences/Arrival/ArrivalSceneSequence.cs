@@ -10,7 +10,6 @@ namespace SpaceMarine.Arrival
 {
     public class ArrivalSceneSequence : UiGameEventListener, Events.IStartGame
     {
-        [SerializeField] private DialogSystem dialog;
         [SerializeField] private ArrivalSceneParameters param;
         
         private UiSpaceCraft UiSpaceCraft => UiSpaceCraft.Instance;
@@ -39,7 +38,6 @@ namespace SpaceMarine.Arrival
             UiSpaceCraft.transform.localScale = param.StartCraftScale;
             UiSpaceCraft.Motion.Movement.IsConstant = false;
             Fade.Instance.SetAlphaImmediatly(1);
-            dialog.Hide();
         }
 
         private IEnumerator FadeOut()
@@ -59,7 +57,6 @@ namespace SpaceMarine.Arrival
 
         private void MoveSpaceCraftArrivalPoint()
         {
-            dialog.OnHide -= MoveSpaceCraftArrivalPoint;
             StartCoroutine(MoveToArrival());
         }
 

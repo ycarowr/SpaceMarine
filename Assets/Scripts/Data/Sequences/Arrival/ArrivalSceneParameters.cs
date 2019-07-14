@@ -12,7 +12,6 @@ namespace SpaceMarine.Arrival
         [Header("Space Craft")] [Range(0, 5)] public float DelayMoveRight;
 
         [Range(0, 5)] public float DelayMoveToArrivalPoint;
-        [Range(0, 5)] public float FadeSpeedEnding;
 
         [Header("Fades")] [Range(0, 5)] public float FadeSpeedOpening;
 
@@ -30,7 +29,5 @@ namespace SpaceMarine.Arrival
         public Vector3 StartCraftPosition;
 
         public Vector3 StartCraftScale;
-
-        [Header("Dialogs")] public TextSequence TextSequence;
     }
 }
