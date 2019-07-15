@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 5867712822567316132}
   - component: {fileID: 2758681398106257534}
   - component: {fileID: 7889307582428401761}
-  - component: {fileID: 2906001126019531407}
+  - component: {fileID: 4829084217665215547}
   m_Layer: 0
   m_Name: ButtonETriggerZone
   m_TagString: Untagged
@@ -80,7 +80,7 @@ Transform:
   m_GameObject: {fileID: 5867712822567316130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.55, y: 4.96, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children:
   - {fileID: 6264174759450828187}
   m_Father: {fileID: 0}
@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca6c7050959b1d42a634f1e46f98746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &2906001126019531407
-BoxCollider2D:
+--- !u!70 &4829084217665215547
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -137,19 +137,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.6665926, y: -0.7987652}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.1672688, y: 4.479452}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.9294021, y: 1.2483327}
+  m_Direction: 0
 --- !u!1 &5867712822717720340
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7099774946187776259}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5867712822404990662}
