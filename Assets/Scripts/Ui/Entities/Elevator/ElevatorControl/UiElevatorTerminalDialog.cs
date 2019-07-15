@@ -18,6 +18,8 @@ namespace SpaceMarine
         [Header("Dialog Parameters")]
         public TextButton ButtonToggleOn;
         public TextButton ButtonToggleOff;
+        public TextButton ButtonForgetIt;
+        
         public TextSequence TextSequenceOn;
         public TextSequence TextSequenceOff;
         private IDialogSystem DialogSystem { get; set; }
@@ -27,8 +29,9 @@ namespace SpaceMarine
             base.Awake();
             DialogSystem = GetComponentInChildren<IDialogSystem>();
             ButtonETrigger = GetComponentInChildren<UiButtonTriggerZone>();
-            ButtonToggleOn.OnPress.AddListener(ToggleElevator);
-            ButtonToggleOff.OnPress.AddListener(ToggleElevator);
+            ButtonToggleOn.OnClick.Add(DialogSystem, ToggleElevator);
+            ButtonToggleOff.OnClick.Add(DialogSystem, ToggleElevator);
+            ButtonForgetIt.OnClick.Add(DialogSystem, DialogSystem.Hide);
         }
 
         private void Start()
@@ -52,6 +55,7 @@ namespace SpaceMarine
         
         void ToggleElevator()
         {
+            DialogSystem.Hide();
             Elevator.Switch();
         }
     }

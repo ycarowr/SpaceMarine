@@ -19,6 +19,7 @@ namespace SpaceMarine
         [Header("Dialog Parameters")]
         public TextButton ButtonDown;
         public TextButton ButtonUp;
+        public TextButton ButtonForgetIt;
         public TextSequence TextSequence;
         private IDialogSystem DialogSystem { get; set; }
 
@@ -28,12 +29,14 @@ namespace SpaceMarine
             UiElevator = GetComponent<UiElevator>();
             DialogSystem = GetComponentInChildren<IDialogSystem>();
             ButtonETrigger = GetComponentInChildren<UiButtonTriggerZone>();
-            ButtonDown.OnPress.AddListener(PressDown);
-            ButtonUp.OnPress.AddListener(PressUp);
+            
         }
 
         private void Start()
         {
+            ButtonDown.OnClick.Add(DialogSystem, PressDown);
+            ButtonUp.OnClick.Add(DialogSystem, PressUp);
+            ButtonForgetIt.OnClick.Add(DialogSystem, DialogSystem.Hide);
             ButtonETrigger.AddListener(ToggleDialog);
             ButtonETrigger.Window.OnHidden += DialogSystem.Hide;
         }
@@ -57,6 +60,8 @@ namespace SpaceMarine
                 DialogSystem.OnHide -= GoTo;
                 Elevator.GoTo(nextRoom);
             }
+
+            DialogSystem.Hide();
         }
 
         void PressUp()
@@ -70,6 +75,7 @@ namespace SpaceMarine
                 DialogSystem.OnHide -= GoTo;
                 Elevator.GoTo(nextRoom);
             }
+            DialogSystem.Hide();
         }
 
         RoomId GetNextDown(RoomId current)

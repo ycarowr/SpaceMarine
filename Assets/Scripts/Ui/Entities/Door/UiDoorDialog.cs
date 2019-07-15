@@ -15,6 +15,7 @@ namespace SpaceMarine
         
         [Header("Dialog Parameters")]
         public TextButton ButtonOpenDoor;
+        public TextButton ButtonNevermind;
         public TextSequence OpenDoorSequence;
         private IDialogSystem DialogSystem { get; set; }
         private Animator Animation { get; set; }
@@ -24,7 +25,8 @@ namespace SpaceMarine
             Animation = GetComponent<Animator>();
             DialogSystem = GetComponentInChildren<IDialogSystem>();
             ButtonETrigger = GetComponentInChildren<UiButtonTriggerZone>();
-            ButtonOpenDoor.OnPress.AddListener(OpenDoor);
+            ButtonOpenDoor.OnClick.Add(DialogSystem, OpenDoor);
+            ButtonNevermind.OnClick.Add(DialogSystem, DialogSystem.Hide);
         }
 
         private void Start()
@@ -45,6 +47,7 @@ namespace SpaceMarine
         {
             Animation.Play(open);
             ButtonETrigger.Window.Hide();
+            ButtonETrigger.SwitchOff();
             ButtonETrigger.SetState(UiStateEntity.State.Inactive);
         }
     }
