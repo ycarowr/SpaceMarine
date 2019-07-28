@@ -34,7 +34,7 @@ namespace SpaceMarine.Model
             foreach (var data in room.Data.Doors)
             {
                 var door = new Door(room, data.Door);
-                room.Doors.Add(door);
+                room.AddDoor(door);
             }
         }
 

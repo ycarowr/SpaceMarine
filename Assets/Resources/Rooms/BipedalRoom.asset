@@ -15,5 +15,7 @@ MonoBehaviour:
   Name: Bipedal Room
   Id: 6
   Description: Where the bipedal robot stands on.
-  Enemies: []
+  Enemies:
+  - Enemy: {fileID: 11400000, guid: c2a819c29eb9aa04390f567c06f8ffe2, type: 2}
+    Position: {x: 0, y: 0}
   Doors: []

@@ -50,6 +50,8 @@ namespace SpaceMarine.Model
 
     public interface IEnemy : IAttackable
     {
+        EnemyId Id { get; }
+        EnemyData Data { get; }
     }
 
     public interface IRoom
@@ -58,6 +60,9 @@ namespace SpaceMarine.Model
         RoomId Id { get; }
         List<IEnemy> Enemies { get; }
         List<IDoor> Doors { get; }
+        void AddEnemy(IEnemy enemy);
+        void AddDoor(IDoor door);
+        
     }
 
     public interface IDoor : IAttackable

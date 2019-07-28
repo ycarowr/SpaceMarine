@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15d65c442480862498bddee9ae9e6d9e, type: 3}
-  m_Name: Walker
+  m_Script: {fileID: 11500000, guid: 3743210acff4c8e4fa3e373fd77b90b2, type: 3}
+  m_Name: Bipedal
   m_EditorClassIdentifier: 
-  Name: Walker
-  Id: 2
+  Name: Bipedal Robot
+  Id: 0
   Attack: 10
   Armor: 0
   Health: 10
   Speed: 5
-  Description: Creature that comes out of the cryo pods.
-  Model: {fileID: 0}
+  Description: 'It doesn''t take damage from bullets
+
+    that hit the front of its body.'
+  Model: {fileID: 74714153304073520, guid: 807d9cd9e7ce98045b4230b5c97ffc0d, type: 3}

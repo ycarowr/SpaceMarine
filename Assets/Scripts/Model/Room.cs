@@ -17,5 +17,15 @@ namespace SpaceMarine.Model
             Enemies = new List<IEnemy>();
             Doors = new List<IDoor>();
         }
+
+        public void AddEnemy(IEnemy enemy)
+        {
+            Enemies.Add(enemy);
+        }
+        
+        public void AddDoor(IDoor door)
+        {
+            Doors.Add(door);
+        }
     }
 }

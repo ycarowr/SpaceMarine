@@ -23,10 +23,10 @@ namespace SpaceMarine.Model
         
         public Game(RoomData[] roomData)
         {
+            EnemyMechanics = new EnemyMechanics(this);
             DoorsMechanics = new DoorMechanics(this);
             RoomMechanics = new RoomMechanics(this, roomData);
             ElevatorMechanics = new ElevatorMechanics(this);
-            EnemyMechanics = new EnemyMechanics(this);
             Attributes = new GameAttributes(this);
             Player = new PlayerMechanics(this);
         }

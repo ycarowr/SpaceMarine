@@ -23,6 +23,7 @@ namespace SpaceMarine.Model
                 var room = new Room(data);
                 Rooms.Add(id, room);
                 Game.DoorsMechanics.CreateDoors(room);
+                Game.EnemyMechanics.CreateEnemies(room);
             }
         }
 

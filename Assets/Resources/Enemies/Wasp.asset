@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 260952cd80d1edd49ba061fac18924eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dd7395076753004db98683b384b9ab9, type: 3}
   m_Name: Wasp
   m_EditorClassIdentifier: 
-  Name: 
-  Id: 0
-  Attack: 0
+  Name: Wasp
+  Id: 1
+  Attack: 10
   Armor: 0
-  Health: 0
-  Speed: 0
-  Description: 
+  Health: 10
+  Speed: 5
+  Description: 'Creature that comes out of cryopods. Flyes
+
+    towards the player.'
   Model: {fileID: 0}

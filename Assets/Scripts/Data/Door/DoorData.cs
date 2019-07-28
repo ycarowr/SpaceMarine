@@ -9,8 +9,14 @@ namespace SpaceMarine.Data
     [CreateAssetMenu(menuName = "Data/Door")]
     public class DoorData : ScriptableObject
     {
-        [Range(1, 20)]
-        public int Health;
+        [Tooltip("The Default Doors")]
+        public DoorData Prototype;
+        
+        [Range(0, 20), SerializeField]
+        private int health;
+        
+        [Tooltip("Instantiated object"), SerializeField]
+        private GameObject model;
         
         [Tooltip("Name shown to the user.")]
         public string Name;
@@ -21,7 +27,8 @@ namespace SpaceMarine.Data
         [Tooltip("Description of the enemy.")] 
         [Multiline] public string Description;
 
-        [Tooltip("Instantiated object")]
-        public GameObject DoorPrefab;
+
+        public int Health => Prototype.health + health;
+        public GameObject Model => Prototype.model;
     }
 }

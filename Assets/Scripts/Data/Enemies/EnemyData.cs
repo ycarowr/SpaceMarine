@@ -5,8 +5,7 @@ using UnityEngine;
 
 namespace SpaceMarine.Data
 {
-    [CreateAssetMenu(menuName = "Data/Enemy")]
-    public class EnemyData : ScriptableObject
+    public abstract class EnemyData : ScriptableObject
     {   
         [Tooltip("Name shown to the user.")]
         public string Name;
@@ -30,6 +29,9 @@ namespace SpaceMarine.Data
         [Multiline] public string Description;
 
         [Tooltip("The prefab of the creature.")]
-        public GameObject Model;   
+        public GameObject Model;
+
+
+        public abstract IEnemy GetEnemy(IRoom room);
     }
 }

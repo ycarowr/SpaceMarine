@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06089548c357db647a6b6a4e3a59dad1, type: 3}
-  m_Name: ArrivalDoor
+  m_Script: {fileID: 11500000, guid: 33dab9c6ba32aa74e84007f25eac7a10, type: 3}
+  m_Name: Tank
   m_EditorClassIdentifier: 
-  Prototype: {fileID: 11400000, guid: 83fc51cb409d2f545824fa12478fcd62, type: 2}
-  health: 0
-  model: {fileID: 0}
-  Name: Arrival
-  Id: 0
-  Description: First door to be opened.
+  Name: Tank
+  Id: 3
+  Attack: 10
+  Armor: 0
+  Health: 10
+  Speed: 0
+  Description: "The Tank vehicle, it doesn't take damage. \nBut takes a long time
+    to reload and shoot."
+  Model: {fileID: 0}

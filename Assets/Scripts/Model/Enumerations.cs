@@ -21,8 +21,10 @@ namespace SpaceMarine.Model
 
     public enum EnemyId
     {
+        Bipedal,
         Wasp, 
-        Walker
+        Walker,
+        Tank
     }
 
     public enum DoorId

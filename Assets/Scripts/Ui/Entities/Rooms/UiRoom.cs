@@ -38,16 +38,36 @@ namespace SpaceMarine.Rooms
 
         public void OnCreateGame(IGame game)
         {
-            var room = game.RoomMechanics.Get(RoomId);
-            Room = room;
-            
-            foreach (var door in room.Doors)
+            Room = game.RoomMechanics.Get(RoomId);
+            CreateUiDoors();
+            CreateUiEnemies();
+        }
+
+        private void CreateUiEnemies()
+        {
+            foreach (var enemy in Room.Enemies)
+            {
+                var id = enemy.Id;
+                var prefab = enemy.Data.Model;
+                var uiEnemyGo = UiObjectsPooler.Instance.Get(prefab);
+                var uiEnemy = uiEnemyGo.GetComponent<UiEnemy>();
+                var pair = Room.Data.Enemies.ToList().Find(x => x.Enemy.Id == id);    
+                uiEnemy.Id = id;
+                uiEnemy.Enemy = enemy; 
+                uiEnemy.transform.SetParent(transform.parent);
+                uiEnemy.transform.localPosition = pair.Position;
+            }
+        }
+
+        void CreateUiDoors()
+        {
+            foreach (var door in Room.Doors)
             {
                 var id = door.Id;
-                var prefab = door.Data.DoorPrefab;
+                var prefab = door.Data.Model;
                 var uiDoorGo = UiObjectsPooler.Instance.Get(prefab);
                 var uiDoor = uiDoorGo.GetComponent<UiDoor>();
-                var pair = room.Data.Doors.ToList().Find(x => x.Door.Id == id);    
+                var pair = Room.Data.Doors.ToList().Find(x => x.Door.Id == id);    
                 uiDoor.Id = id;
                 uiDoor.Door = door; 
                 uiDoor.transform.SetParent(transform.parent);

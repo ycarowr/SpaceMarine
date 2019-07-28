@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06089548c357db647a6b6a4e3a59dad1, type: 3}
-  m_Name: ArrivalDoor
+  m_Name: DoorPrototype
   m_EditorClassIdentifier: 
-  Prototype: {fileID: 11400000, guid: 83fc51cb409d2f545824fa12478fcd62, type: 2}
-  health: 0
-  model: {fileID: 0}
-  Name: Arrival
+  Prototype: {fileID: 0}
+  health: 15
+  model: {fileID: 477164305701957784, guid: ef6e10bd02d4b474c9593cd5c59e77eb, type: 3}
+  Name: Prototype
   Id: 0
-  Description: First door to be opened.
+  Description: Door that keeps the basic status.

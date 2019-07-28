@@ -50,4 +50,5 @@ MonoBehaviour:
   - {fileID: 477164305701957784, guid: ef6e10bd02d4b474c9593cd5c59e77eb, type: 3}
   - {fileID: 3607567276035264184, guid: 9b28ab728f14f9749adebc21a1f8047c, type: 3}
   - {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16, type: 3}
+  - {fileID: 74714153304073520, guid: 807d9cd9e7ce98045b4230b5c97ffc0d, type: 3}
   startSize: 10
