@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Patterns.GameEvents;
+using UnityEngine;
 
 namespace SpaceMarine.Model
 {
@@ -24,6 +25,12 @@ namespace SpaceMarine.Model
 
         public void CreateDoors(IRoom room)
         {
+            if (room.Data.Doors == null)
+                return;
+            
+            if (room.Data.Doors.Length < 1)
+                return;
+            
             foreach (var data in room.Data.Doors)
             {
                 var door = new Door(room, data.Door);

@@ -7,10 +7,14 @@ namespace SpaceMarine.Arrival
     [CreateAssetMenu(menuName = "Parameters/ArrivalSceneParameters")]
     public class ArrivalSceneParameters : ScriptableObject
     {
-        public Vector3 ArrivalPoint;
+        
         public bool SkipIntro;
 
-        [Header("Space Craft")] [Range(0, 5)] public float DelayMoveRight;
+        [Header("Space Craft")] public float PlayerWalkSpeed;
+        public Vector3 PlayerPosition;
+        public Vector3 PlayerFinalPosition;
+        public Vector3 ArrivalPoint;
+        [Range(0, 5)] public float DelayMoveRight;
 
         [Range(0, 5)] public float DelayMoveToArrivalPoint;
 
@@ -30,6 +34,5 @@ namespace SpaceMarine.Arrival
         public Vector3 StartCraftPosition;
 
         public Vector3 StartCraftScale;
-        public Vector3 PlayerPosition;
     }
 }

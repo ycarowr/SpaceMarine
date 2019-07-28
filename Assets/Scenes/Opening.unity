@@ -311,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 3925423265837067649}
   parameters: {fileID: 11400000, guid: 9ba47d34b2121c6419b67328be3a6483, type: 2}
+  NextButton: {fileID: 11400000, guid: 3d2513bfea202d045a1a3372c123308c, type: 2}
 --- !u!4 &1970408407
 Transform:
   m_ObjectHideFlags: 0
@@ -649,37 +650,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7919660880819320953, guid: 078df8f3886357f43b99ed655294aa30,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7919660880819320953, guid: 078df8f3886357f43b99ed655294aa30,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7919660880819320953, guid: 078df8f3886357f43b99ed655294aa30,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7919660880819320953, guid: 078df8f3886357f43b99ed655294aa30,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7919660880819320953, guid: 078df8f3886357f43b99ed655294aa30,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3925423265837067649, guid: 078df8f3886357f43b99ed655294aa30,
-        type: 3}
-      propertyPath: parameters
-      value: 
-      objectReference: {fileID: 11400000, guid: 9d3c3e55b4546a84cadffa3dbdd4bf85,
-        type: 2}
     - target: {fileID: 6010561648453889251, guid: 078df8f3886357f43b99ed655294aa30,
         type: 3}
       propertyPath: m_AnchorMin.y

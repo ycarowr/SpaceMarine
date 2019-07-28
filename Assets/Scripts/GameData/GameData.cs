@@ -27,6 +27,7 @@ namespace SpaceMarine
         
         public void CreateGame()
         {
+            Debug.Log("Create game");
             RuntimeGame = new Game(Rooms);
             OnCreateGame();
         }

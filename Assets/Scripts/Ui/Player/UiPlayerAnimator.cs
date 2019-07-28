@@ -38,7 +38,14 @@ namespace SpaceMarine
             Sprite.flipX = Attributes.IsMoving ? Attributes.IsLeft : Sprite.flipX;
         }
 
-        public void ForcePlayJump()
+        
+        public void ForceWalk()
+        {
+            Animator.SetBool(Run, true);
+            Animator.SetBool(Jump, false);
+        }
+        
+        public void ForceJump()
         {
             Animator.SetBool(Run, false);
             Animator.SetBool(Jump, true);

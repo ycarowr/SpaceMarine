@@ -60,6 +60,7 @@ namespace SpaceMarine.Arrival
 
         private void MoveSpaceCraftArrivalPoint()
         {
+            UiSpaceCraft.Motion.Movement.OnFinishMotion -= MoveSpaceCraftArrivalPoint;
             StartCoroutine(MoveToArrival());
         }
 
@@ -70,14 +71,26 @@ namespace SpaceMarine.Arrival
             yield return new WaitForSeconds(param.DelayMoveToArrivalPoint);
             UiSpaceCraft.Motion.Movement
                 .Execute(param.ArrivalPoint, param.SpaceCraftSpeedArrival, 0);
+            UiSpaceCraft.Motion.Movement.OnFinishMotion += MovePlayerToArrival;
+        }
 
-            UiSpaceCraft.Motion.Movement.OnFinishMotion += EnablePlayer;
+        private void MovePlayerToArrival()
+        {
+            UiSpaceCraft.Motion.Movement.OnFinishMotion -= MovePlayerToArrival;
+            UiPlayer.Instance.Active();
+            UiPlayer.Instance.Lock();
+            UiPlayer.Instance.Animation.ForceWalk();
+            UiPlayer.Instance.Movement.Motion.Movement.IsConstant = true;
+            UiPlayer.Instance.Movement.Motion.Movement.Execute(param.PlayerFinalPosition, param.PlayerWalkSpeed);
+            UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += EnablePlayer;
         }
 
         private void EnablePlayer()
         {
-            UiSpaceCraft.Motion.Movement.OnFinishMotion -= EnablePlayer;
-            UiPlayer.Instance.Active();
+            UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion -= EnablePlayer;
+            UiPlayer.Instance.Movement.Motion.Movement.StopMotion();
+            UiPlayer.Instance.UnLock();
+            UiPlayer.Instance.Animation.ForceIdle();
         }
     }
 }

@@ -87,7 +87,7 @@ namespace SpaceMarine
                 UiCamera.Instance.transform.SetParent(Handler.transform);
                 UiPlayer.Instance.Lock();
                 UiPlayer.Instance.transform.SetParent(Handler.transform);
-                UiPlayer.Instance.Animation.ForcePlayJump();
+                UiPlayer.Instance.Animation.ForceJump();
                 UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += UiPlayer.Instance.Animation.ForceIdle;
                 UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += MoveToDestiny;
                 UiPlayer.Instance.Movement.Motion.MoveTo(Handler.PlayerPosition.position, 10);

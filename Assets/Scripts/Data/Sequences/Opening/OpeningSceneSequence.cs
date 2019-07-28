@@ -11,11 +11,14 @@ namespace SpaceMarine.Opening
     {
         [SerializeField] private DialogSystem dialog;
         [SerializeField] private OpeningSceneParameters parameters;
+        [SerializeField] private TextButton NextButton;
+        
 
         [Button]
         private void Start()
         {
             Restart();
+            NextButton.OnClick.Add(dialog, dialog.Next);
             Fade.Instance.SetAlphaImmediatly(parameters.FadeStart);
             StartCoroutine(FadeOut());
         }
