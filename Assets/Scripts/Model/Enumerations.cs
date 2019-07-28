@@ -12,11 +12,11 @@ namespace SpaceMarine.Model
         Level1,
         Level2,
         Level3,
-        ControlRoom,
-        BipedalRoom, 
-        WaspRoom,
-        TankRoom,
-        CryoRoom
+        Control,
+        Bipedal, 
+        Wasp,
+        Tank,
+        Cryo
     }
 
     public enum EnemyId
@@ -27,6 +27,11 @@ namespace SpaceMarine.Model
 
     public enum DoorId
     {
-        Arrival
+        Arrival,
+        Bipedal,
+        Control,
+        Tank,
+        Wasp,
+        Cryo
     }
 }

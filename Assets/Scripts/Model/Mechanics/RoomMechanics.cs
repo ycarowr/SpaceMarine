@@ -17,7 +17,6 @@ namespace SpaceMarine.Model
 
         public void CreateRooms(RoomData[] roomData)
         {
-            Rooms.Clear();
             foreach (var data in roomData)
             {
                 var id = data.Id;

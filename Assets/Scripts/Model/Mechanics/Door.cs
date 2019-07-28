@@ -19,6 +19,7 @@ namespace SpaceMarine.Model
         {
             Room = room;
             Data = data;
+            Id = data.Id;
             Health = data.Health;
         }
         

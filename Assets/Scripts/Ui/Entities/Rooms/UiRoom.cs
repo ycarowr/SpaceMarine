@@ -41,6 +41,8 @@ namespace SpaceMarine.Rooms
             var room = game.RoomMechanics.Get(RoomId);
             Room = room;
             
+            Debug.Log("Room: "+ RoomId);
+            Debug.Log("Room1: "+ room.Id);
             foreach (var door in room.Doors)
             {
                 var id = door.Id;
@@ -48,7 +50,11 @@ namespace SpaceMarine.Rooms
                 var uiDoorGo = UiObjectsPooler.Instance.Get(prefab);
                 var uiDoor = uiDoorGo.GetComponent<UiDoor>();
                 var pair = room.Data.Doors.ToList().Find(x => x.Door.Id == id);
-
+                foreach(var p in room.Data.Doors)
+                    Debug.Log(p.Door +" "+p.Position);
+                
+                Debug.Log("Pair: "+ room.Data.Doors.Length);
+                
                 uiDoor.Id = id;
                 uiDoor.Door = door; 
                 uiDoor.transform.SetParent(transform.parent);

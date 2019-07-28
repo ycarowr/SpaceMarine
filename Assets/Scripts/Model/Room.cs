@@ -13,6 +13,7 @@ namespace SpaceMarine.Model
         public Room(RoomData data)
         {
             Data = data;
+            Id = data.Id;
             Enemies = new List<IEnemy>();
             Doors = new List<IDoor>();
         }

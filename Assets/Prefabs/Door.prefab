@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IntervalExplosions: {x: 0.3, y: 0.5}
   QuantityExplosions: 10
+  HitColor: {r: 1, g: 0, b: 0, a: 1}
   ExplosionPrefab: {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16,
     type: 3}
   SpriteRenderer: {fileID: 3644352948988088832}

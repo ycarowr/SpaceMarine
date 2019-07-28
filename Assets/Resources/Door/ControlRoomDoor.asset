@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06089548c357db647a6b6a4e3a59dad1, type: 3}
+  m_Name: ControlRoomDoor
+  m_EditorClassIdentifier: 
+  Health: 15
+  Name: Control Room
+  Id: 2
+  Description: Door to open the Control Room.
+  DoorPrefab: {fileID: 477164305701957784, guid: ef6e10bd02d4b474c9593cd5c59e77eb,
+    type: 3}

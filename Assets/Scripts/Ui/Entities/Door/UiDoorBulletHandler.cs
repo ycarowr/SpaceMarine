@@ -10,9 +10,10 @@ namespace SpaceMarine
 {
     public class UiDoorBulletHandler : UiGameEventListener, UiBullet.IBulletHandler, Events.IDoorTakeDamage, Events.IDestroyDoor
     {
-        [Header("Destroy Parameters")]
+        [Header("Destroyamage Parameters")]
         public Vector2 IntervalExplosions;
         public int QuantityExplosions;
+        public Color HitColor;
         
         [Header("Prefabs")]
         public GameObject ExplosionPrefab;
@@ -43,7 +44,7 @@ namespace SpaceMarine
         {
             if(door.Id == UiDoor.Id && isActiveAndEnabled)
             {
-                SpriteRenderer.color = Color.red;
+                SpriteRenderer.color = HitColor;
                 Shake.Shake();
                 StartCoroutine(MakeItWhileAgain());
             }
