@@ -7,9 +7,7 @@ namespace SpaceMarine.Model
     {
         public DoorId Id { get; private set; }
         public DoorData Data { get; private set; }
-
         public IRoom Room { get; private set; }
-
         public bool IsLocked { get; private set; }
         public bool IsDead { get; private set; }
         public int Health { get; private set; }
