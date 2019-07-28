@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fd11629b414ed6838459507b853308, type: 3}
   m_Name: MachineGun_Precision2
   m_EditorClassIdentifier: 
-  ammo: 30
+  bulletLifeSpan: 3
+  velocity: 35
+  clipAmmo: 0
   rate: 5
   reloadTime: 10
-  icon: {fileID: 0}
-  pickable: {fileID: 0}
-  bullet: {fileID: 893718200375990404, guid: b82bd7b09b72ae0418428e12fdc32d8e, type: 3}
-  velocity: 35
   precision: 0.15
   adjustment: 0.01
-  lifeSpan: 2
+  icon: {fileID: 0}
+  pickable: {fileID: 0}
+  damage: 2
+  bullet: {fileID: 893718200375990404, guid: b82bd7b09b72ae0418428e12fdc32d8e, type: 3}

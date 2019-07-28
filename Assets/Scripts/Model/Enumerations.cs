@@ -27,6 +27,6 @@ namespace SpaceMarine.Model
 
     public enum DoorId
     {
-        
+        Arrival
     }
 }

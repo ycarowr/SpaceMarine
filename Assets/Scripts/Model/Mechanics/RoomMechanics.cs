@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Patterns.GameEvents;
 using SpaceMarine.Data;
+using UnityEngine;
 
 namespace SpaceMarine.Model
 {
@@ -22,6 +23,7 @@ namespace SpaceMarine.Model
                 var id = data.Id;
                 var room = new Room(data);
                 Rooms.Add(id, room);
+                Game.DoorsMechanics.CreateDoors(room);
             }
         }
 
@@ -38,13 +40,6 @@ namespace SpaceMarine.Model
         public void PlayerLeave(RoomId id)
         {
             Game.Player.LeaveRoom(id);
-        }
-        
-        //--------------------------------------------------------------------------------------------------------------
-
-        void OnCreateRoom(IRoom room)
-        {
-            GameEvents.Instance.Notify<Events.ICreateRoom>(i=>i.OnCreateRoom(room));
         }
     }
 }

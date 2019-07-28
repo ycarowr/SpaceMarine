@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ArrivalSceneParameters
   m_EditorClassIdentifier: 
   ArrivalPoint: {x: 3.6, y: 2.89, z: -2}
+  SkipIntro: 1
   DelayMoveRight: 3
   DelayMoveToArrivalPoint: 2
-  FadeSpeedEnding: 2.5
   FadeSpeedOpening: 0.5
   FadeStart: 1
   FadeStartDelay: 1
@@ -26,4 +26,4 @@ MonoBehaviour:
   SpaceCraftSpeedRight: 6.1
   StartCraftPosition: {x: -25.4, y: 2.89, z: -2}
   StartCraftScale: {x: 18, y: 12, z: 1}
-  TextSequence: {fileID: 0}
+  PlayerPosition: {x: 3.28, y: 2.11, z: 0}

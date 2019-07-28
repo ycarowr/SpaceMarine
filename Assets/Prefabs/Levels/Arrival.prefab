@@ -353,7 +353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a810af53cfcd19942a48ee926e89d346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 0}
   param: {fileID: 11400000, guid: 8658e6b160bd5da4b9a58cad27bfd08c, type: 2}
 --- !u!1 &1229567296
 GameObject:

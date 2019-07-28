@@ -60,8 +60,9 @@ namespace SpaceMarine.Model
         List<IDoor> Doors { get; }
     }
 
-    public interface IDoor
+    public interface IDoor : IAttackable
     {
+        DoorData Data { get; }
         DoorId Id { get; }
         bool IsLocked { get; }
         void Lock();

@@ -20,6 +20,9 @@ namespace SpaceMarine.Data
 
         [Tooltip("Creatures inside the room.")]
         public EnemySpot[] Enemies;
+        
+        [Tooltip("Doors inside the room.")]
+        public DoorSpot[] Doors;
     }
 
     [Serializable]
@@ -27,6 +30,16 @@ namespace SpaceMarine.Data
     {
         [Tooltip("Creature inside the room.")]
         public EnemyData Enemy;
+
+        [Tooltip("Placed Local Position.")]
+        public Vector2 Position;
+    }
+
+    [Serializable]
+    public class DoorSpot
+    {
+        [Tooltip("Doors inside the room.")]
+        public DoorData Door;
 
         [Tooltip("Placed Local Position.")]
         public Vector2 Position;

@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e6fd619531a1d42aab750d1d039981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
+  isSilent: 1
   Rooms:
   - {fileID: 11400000, guid: 552eacefff74a0d40bf9752e6278fe26, type: 2}
   - {fileID: 11400000, guid: d4aae36115adf9648ac81927a5ea104c, type: 2}

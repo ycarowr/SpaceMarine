@@ -6,23 +6,29 @@ namespace SpaceMarine.Model
 {
     public interface IDoorMechanics
     {
-        void CreateDoors();
+        bool HasQuickFirstDoor { get; }
+        void CreateDoors(IRoom room);
         IDoor Get(DoorId id);
         void LockDoor(DoorId id);
         void UnLockDoor(DoorId id);
     }
-    
+
     public class DoorMechanics : BaseGameMechanic, IDoorMechanics
     {
+        public bool HasQuickFirstDoor { get; private set; }
         public Dictionary<DoorId, IDoor> Doors { get; }
         public DoorMechanics(IGame game) : base(game)
         {
             Doors = new Dictionary<DoorId, IDoor>();
         }
 
-        public void CreateDoors()
+        public void CreateDoors(IRoom room)
         {
-            
+            foreach (var data in room.Data.Doors)
+            {
+                var door = new Door(room, data.Door);
+                room.Doors.Add(door);
+            }
         }
 
         public IDoor Get(DoorId id)
@@ -44,6 +50,18 @@ namespace SpaceMarine.Model
             OnSwitchDoor(door);
         }
 
+        public void QuickFirstDoor()
+        {
+            HasQuickFirstDoor = true;
+            OnQuickFirstDoor();
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
+        
+        void OnQuickFirstDoor()
+        {
+            GameEvents.Instance.Notify<Events.IQuickFirstDoor>(i=>i.OnQuickFirstDoor());    
+        }
         
         void OnSwitchDoor(IDoor door)
         {

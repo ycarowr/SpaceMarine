@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b289eb2f061b14eb6c8b4a6906af91, type: 3}
-  m_Name: Arrival
+  m_Script: {fileID: 11500000, guid: 06089548c357db647a6b6a4e3a59dad1, type: 3}
+  m_Name: ArrivalDoor
   m_EditorClassIdentifier: 
+  Health: 15
   Name: Arrival
   Id: 0
-  Description: Place where the player arrives.
-  Enemies: []
+  Description: First door to be opened.
+  DoorPrefab: {fileID: 477164305701957784, guid: ef6e10bd02d4b474c9593cd5c59e77eb,
+    type: 3}

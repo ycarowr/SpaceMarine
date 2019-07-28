@@ -1,31 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Patterns.GameEvents;
 using SpaceMarine.Model;
 using Tools.Dialog;
 using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class UiDoorDialog : MonoBehaviour
+    public class UiDoorDialog : UiGameEventListener
     {
-        private readonly int open = Animator.StringToHash("Open");
-        private readonly int close = Animator.StringToHash("Close");
-        
-        private UiButtonTriggerZone ButtonETrigger { get; set; }
+        UiDoor UiDoor { get; set; }
+        UiButtonTriggerZone ButtonETrigger { get; set; }
         
         [Header("Dialog Parameters")]
         public TextButton ButtonOpenDoor;
         public TextButton ButtonNevermind;
         public TextSequence OpenDoorSequence;
-        private IDialogSystem DialogSystem { get; set; }
-        private Animator Animation { get; set; }
+        IDialogSystem DialogSystem { get; set; }
 
-        protected void Awake()
+        protected override void Awake()
         {
-            Animation = GetComponent<Animator>();
+            base.Awake();
+            UiDoor = GetComponent<UiDoor>();
             DialogSystem = GetComponentInChildren<IDialogSystem>();
             ButtonETrigger = GetComponentInChildren<UiButtonTriggerZone>();
-            ButtonOpenDoor.OnClick.Add(DialogSystem, OpenDoor);
+            ButtonOpenDoor.OnClick.Add(DialogSystem, UiDoor.OpenDoor);
             ButtonNevermind.OnClick.Add(DialogSystem, DialogSystem.Hide);
         }
 
@@ -37,18 +36,13 @@ namespace SpaceMarine
 
         public void ToggleDialog()
         {
+            if (!UiDoor.HasQuickedFirstDoor)
+                return;
+         
             if (!DialogSystem.IsOpened)
                 DialogSystem.Write(OpenDoorSequence);
             else
                 DialogSystem.Hide();
-        }
-
-        void OpenDoor()
-        {
-            Animation.Play(open);
-            ButtonETrigger.Window.Hide();
-            ButtonETrigger.SwitchOff();
-            ButtonETrigger.SetState(UiStateEntity.State.Inactive);
         }
     }
 }

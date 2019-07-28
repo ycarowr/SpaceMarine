@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fd11629b414ed6838459507b853308, type: 3}
   m_Name: MachineGun_Default
   m_EditorClassIdentifier: 
-  bulletLifeSpan: 1
+  bulletLifeSpan: 3
   velocity: 35
   clipAmmo: 30
   rate: 5
@@ -21,4 +21,5 @@ MonoBehaviour:
   adjustment: 0.2
   icon: {fileID: 0}
   pickable: {fileID: 0}
+  damage: 2
   bullet: {fileID: 893718200375990404, guid: b82bd7b09b72ae0418428e12fdc32d8e, type: 3}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b289eb2f061b14eb6c8b4a6906af91, type: 3}
+  m_Name: ArrivalRoom
+  m_EditorClassIdentifier: 
+  Name: Arrival
+  Id: 0
+  Description: Place where the player arrives.
+  Enemies: []
+  Doors:
+  - Door: {fileID: 11400000, guid: bb12e3ac49d67824c83d14ebc80ac311, type: 2}
+    Position: {x: 12, y: 2}

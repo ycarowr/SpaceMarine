@@ -39,6 +39,30 @@ namespace SpaceMarine
         {
             void OnSwitchDoor(IDoor door);
         }
+        
+        /// <summary>
+        ///     Broadcast of door damage to all the interested listeners. 
+        /// </summary>
+        public interface IDoorTakeDamage : ISubject
+        {
+            void OnTakeDamage(IDoor door, int damage);
+        }
+        
+        /// <summary>
+        ///     Broadcast of door destroy door to all the interested listeners. 
+        /// </summary>
+        public interface IDestroyDoor : ISubject
+        {
+            void OnDestroyDoor(IDoor door);
+        }
+        
+        /// <summary>
+        ///     Broadcast of quick first door to all the interested listeners. 
+        /// </summary>
+        public interface IQuickFirstDoor : ISubject
+        {
+            void OnQuickFirstDoor();
+        }
 
         /// <summary>
         ///     Broadcast of room enter to all the interested listeners. 
@@ -54,14 +78,6 @@ namespace SpaceMarine
         public interface ILeaveRoom : ISubject
         {
             void OnLeaveRoom(RoomId id);
-        }
-        
-        /// <summary>
-        ///     Broadcast of room creation to all the interested listeners. 
-        /// </summary>
-        public interface ICreateRoom : ISubject
-        {
-            void OnCreateRoom(IRoom room);
         }
         
         /// <summary>

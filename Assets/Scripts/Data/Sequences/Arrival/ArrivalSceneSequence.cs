@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Extensions;
 using Patterns.GameEvents;
 using SpaceMarine.Model;
 using Tools;
@@ -17,7 +18,8 @@ namespace SpaceMarine.Arrival
         
         public void OnStartGame(IGame runtimeGame)
         {
-//            StartProcessing();
+            if(!param.SkipIntro)
+                StartProcessing(); 
         }
         
         [Button]
@@ -26,6 +28,7 @@ namespace SpaceMarine.Arrival
             Restart();
             Fade.Instance.SetAlphaImmediatly(param.FadeStart);
             UiPlayer.Instance.Deactivate();
+            UiPlayer.Instance.Movement.Motion.Teleport(param.PlayerPosition);
             StartCoroutine(FadeOut());
         }
 

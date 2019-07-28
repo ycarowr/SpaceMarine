@@ -8,6 +8,7 @@ namespace SpaceMarine.Arrival
     public class ArrivalSceneParameters : ScriptableObject
     {
         public Vector3 ArrivalPoint;
+        public bool SkipIntro;
 
         [Header("Space Craft")] [Range(0, 5)] public float DelayMoveRight;
 
@@ -29,5 +30,6 @@ namespace SpaceMarine.Arrival
         public Vector3 StartCraftPosition;
 
         public Vector3 StartCraftScale;
+        public Vector3 PlayerPosition;
     }
 }

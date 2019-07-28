@@ -20,7 +20,7 @@ namespace SpaceMarine
         
         public IGame RuntimeGame { get; private set; }
 
-        protected override void OnAwake()
+        void Start()
         {
             CreateGame();   
         }
@@ -28,6 +28,7 @@ namespace SpaceMarine
         public void CreateGame()
         {
             RuntimeGame = new Game(Rooms);
+            OnCreateGame();
         }
 
         public void LoadGame()

@@ -101,43 +101,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wall-impact-blast_0
+      name: wall-impact-blast_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 22
+        y: 1
+        width: 10
+        height: 20
+      alignment: 9
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d260b085f8b695c49badb4573f5a6ff1
-      internalID: -8423416370110290304
+      spriteID: 13d4eeaefc7271f4bb9aab731b58dfa6
+      internalID: 4278271208336809800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall-impact-blast_1
+      name: wall-impact-blast_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 11
+        y: 5
+        width: 5
+        height: 12
+      alignment: 9
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7addb54fae3119740b772b7801d56078
-      internalID: 4278271208336809800
+      spriteID: 95fe0b61866a36e40b43292541aee49c
+      internalID: -8423416370110290304
       vertices: []
       indices: 
       edges: []
