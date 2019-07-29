@@ -18,7 +18,7 @@ namespace SpaceMarine
         /// </summary>
         public RoomData[] Rooms;
         
-        public IGame RuntimeGame { get; private set; }
+        public IGame Game { get; private set; }
 
         void Start()
         {
@@ -27,7 +27,7 @@ namespace SpaceMarine
         
         public void CreateGame()
         {
-            RuntimeGame = new Game(Rooms);
+            Game = new Game(Rooms);
             OnCreateGame();
         }
 
@@ -38,7 +38,7 @@ namespace SpaceMarine
 
         void OnCreateGame()
         {
-            GameEvents.Instance.Notify<Events.ICreateGame>(i => i.OnCreateGame(RuntimeGame));
+            GameEvents.Instance.Notify<Events.ICreateGame>(i => i.OnCreateGame(Game));
         }
     }
 }

@@ -12,7 +12,7 @@ namespace SpaceMarine
 {
     public class UiElevatorTerminalDialog : UiGameEventListener
     {
-        private IElevator Elevator => GameController.Instance.Game.ElevatorMechanics.Elevator;
+        private IElevator Elevator => GameData.Instance.Game.ElevatorMechanics.Elevator;
         private UiButtonTriggerZone ButtonETrigger { get; set; }
         
         [Header("Dialog Parameters")]

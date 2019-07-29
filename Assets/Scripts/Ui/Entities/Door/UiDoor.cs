@@ -9,7 +9,7 @@ namespace SpaceMarine
     public partial class UiDoor : UiGameEventListener, Events.IQuickFirstDoor
     {
         public bool HasQuickedFirstDoor =>
-            GameController.Instance.GameData.RuntimeGame.DoorsMechanics.HasQuickFirstDoor;
+            GameData.Instance.Game.DoorsMechanics.HasQuickFirstDoor;
         
         UiButtonTriggerZone ButtonETrigger { get; set; }
         UiDoorAnimation Animation { get; set; }

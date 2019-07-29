@@ -6,7 +6,7 @@ namespace SpaceMarine
     {
         protected override void OnTriggerEnterPlayer()
         {
-            GameController.Instance.Player.Die();
+            GameData.Instance.Game.Player.Die();
         }
     }
 }

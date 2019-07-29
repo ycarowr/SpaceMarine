@@ -11,7 +11,7 @@ namespace SpaceMarine.Rooms
 {
     public class UiRoom : UiBaseEntity, IListener, Events.ICreateGame
     {
-        private IRoomMechanics RoomMechanics => GameController.Instance.Game.RoomMechanics;
+        private IRoomMechanics RoomMechanics => GameData.Instance.Game.RoomMechanics;
         
         [Tooltip("The id of this room.")]
         public RoomId RoomId;

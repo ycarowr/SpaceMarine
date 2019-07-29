@@ -10,7 +10,7 @@ namespace SpaceMarine
     {
         private class UiGunInput
         {
-            public IPlayer Player => GameController.Instance.Player;
+            public IPlayer Player => GameData.Instance.Game.Player;
             private UiGun Parent { get; }
             private float timeRate;
             

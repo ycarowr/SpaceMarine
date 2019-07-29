@@ -8,7 +8,7 @@ namespace SpaceMarine
     public interface IGameData
     {
         
-        IGame RuntimeGame { get; }
+        IGame Game { get; }
         void CreateGame();
         void LoadGame();
     }

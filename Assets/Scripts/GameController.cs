@@ -5,9 +5,8 @@ namespace SpaceMarine
 {
     public class GameController : SingletonMB<GameController>
     {
-        public IGameData GameData => SpaceMarine.GameData.Instance;
-        public IGame Game => GameData?.RuntimeGame;
-        public IPlayer Player => GameData?.RuntimeGame.Player;
+        private IGameData GameData => SpaceMarine.GameData.Instance;
+        private IGame Game => GameData?.Game;
 
         private void Start()
         {
