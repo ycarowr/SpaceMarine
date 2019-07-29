@@ -1,3 +1,4 @@
+using System.Diagnostics.Tracing;
 using Patterns.GameEvents;
 using SpaceMarine.Input;
 using SpaceMarine.Model;
@@ -6,7 +7,7 @@ using UnityEngine;
 namespace SpaceMarine
 {
     public partial class UiGun : UiGameEventListener, 
-        Events.IPlayerEquip, Events.IPlayerShoot, Events.IPlayerReload
+        Events.IPlayerEquip, Events.IPlayerShoot, Events.IPlayerReload, Events.ICreateGame
     {
         public IGunData GunData { get; set; }
 
@@ -23,13 +24,14 @@ namespace SpaceMarine
         {
             base.Awake();
             UiPlayer = GetComponent<IUiPlayer>();
-            GunInput = new UiGunInput(this);
         }
-
-        private void Start()
+        
+        public void OnCreateGame(IGame runtimeGame)
         {
+            GunInput = new UiGunInput(this);
             TestEquip();
         }
+        
 
         //--------------------------------------------------------------------------------------------------------------
 

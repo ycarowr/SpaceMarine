@@ -17,5 +17,5 @@ MonoBehaviour:
   Description: Where the bipedal robot stands on.
   Enemies:
   - Enemy: {fileID: 11400000, guid: c2a819c29eb9aa04390f567c06f8ffe2, type: 2}
-    Position: {x: 0, y: 0}
+    Position: {x: 2, y: -8.89}
   Doors: []
