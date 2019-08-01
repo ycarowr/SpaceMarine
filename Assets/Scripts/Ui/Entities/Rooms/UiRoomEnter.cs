@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SpaceMarine.Rooms
 {
-    public class UiRoomEnter : UiGameEventListener, Events.IEnterRoom
+    public class UiRoomEnter : UiGameEventListener, GameEvent.IEnterRoom
     {
         //TODO: provide configurations for the values below.
         protected const float CameraSpeed = 3;
@@ -24,7 +24,7 @@ namespace SpaceMarine.Rooms
             UiRoom = GetComponent<UiRoom>();
         }
         
-        void Events.IEnterRoom.OnEnterRoom(RoomId id)
+        void GameEvent.IEnterRoom.OnEnterRoom(RoomId id)
         {
             if(UiRoom.RoomId == id)
                 MoveCameraHere();
