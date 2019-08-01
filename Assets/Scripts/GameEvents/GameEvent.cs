@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Patterns;
+using SpaceMarine;
 using SpaceMarine.Model;
 using UnityEngine;
 
-namespace SpaceMarine
-{
-    public class Events
+    public class GameEvent
     {
         /// <summary>
         ///     Broadcast of create game to all the interested listeners. Fired before IStartGame.
@@ -38,6 +37,22 @@ namespace SpaceMarine
         public interface IDoors : ISubject
         {
             void OnSwitchDoor(IDoor door);
+        }
+        
+        /// <summary>
+        ///     Broadcast of enemy damage to all the interested listeners. 
+        /// </summary>
+        public interface IEnemyTakeDamage : ISubject
+        {
+            void OnTakeDamage(IEnemy enemy, int damage);
+        }
+        
+        /// <summary>
+        ///     Broadcast of door destroy enemy to all the interested listeners. 
+        /// </summary>
+        public interface IDestroyEnemy : ISubject
+        {
+            void OnDestroyEnemy(IEnemy enemy);
         }
         
         /// <summary>
@@ -148,4 +163,3 @@ namespace SpaceMarine
     }
 
     // ...
-}
