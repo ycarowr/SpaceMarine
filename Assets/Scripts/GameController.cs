@@ -1,16 +1,17 @@
 ﻿using Patterns;
+using Patterns.GameEvents;
 using SpaceMarine.Model;
 
 namespace SpaceMarine
 {
-    public class GameController : SingletonMB<GameController>
+    public class GameController : SingletonMB<GameController>, Events.ICreateGame, IListener
     {
         private IGameData GameData => SpaceMarine.GameData.Instance;
         private IGame Game => GameData?.Game;
 
-        private void Start()
+        void Start()
         {
-            StartGame();
+            GameEvents.Instance.AddListener(this);
         }
 
         private void StartGame()
@@ -21,6 +22,11 @@ namespace SpaceMarine
         private void EndGame()
         {
             Game.Attributes.EndGame();
+        }
+
+        public void OnCreateGame(IGame runtimeGame)
+        {
+            StartGame();
         }
     }
 }
