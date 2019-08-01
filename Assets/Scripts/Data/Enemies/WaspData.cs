@@ -8,7 +8,7 @@ namespace SpaceMarine.Data
     [CreateAssetMenu(menuName = "Data/Wasp")]
     public class WaspData : EnemyData
     {
-        public override IEnemy GetEnemy(IRoom room)
+        public override IEnemy GetEnemy()
         {
             return new Wasp(this);
         }

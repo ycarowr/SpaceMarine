@@ -32,6 +32,6 @@ namespace SpaceMarine.Data
         public GameObject Model;
 
 
-        public abstract IEnemy GetEnemy(IRoom room);
+        public abstract IEnemy GetEnemy();
     }
 }

@@ -8,7 +8,7 @@ namespace SpaceMarine.Data
     [CreateAssetMenu(menuName = "Data/Bipedal")]
     public class BipedalData : EnemyData
     {
-        public override IEnemy GetEnemy(IRoom room)
+        public override IEnemy GetEnemy()
         {
             return new Bipedal(this);
         }
