@@ -33,12 +33,12 @@ namespace SpaceMarine.Data
 
         public void Die()
         {
-//            GameEvents.Instance.Notify<Events.IDestroyDoor>(i => i.OnDestroyDoor(this));
+            GameEvents.Instance.Notify<GameEvent.IDestroyEnemy>(i => i.OnDestroyEnemy(this));
         }
 
         void OnTakeDamage(int damage)
         {
-//            GameEvents.Instance.Notify<Events.IDoorTakeDamage>(i => i.OnTakeDamage(this, damage));
+            GameEvents.Instance.Notify<GameEvent.IEnemyTakeDamage>(i => i.OnTakeDamage(this, damage));
         }
     }
 }

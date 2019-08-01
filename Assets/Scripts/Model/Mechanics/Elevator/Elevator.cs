@@ -33,12 +33,12 @@ namespace SpaceMarine.Model
 
         void OnSwitch(bool isLocked)
         {
-            GameEvents.Instance.Notify<Events.IOnSwitchElevator>(i => i.OnSwitch(isLocked));
+            GameEvents.Instance.Notify<GameEvent.IOnSwitchElevator>(i => i.OnSwitch(isLocked));
         }
 
         void OnChangeRoom()
         {
-            GameEvents.Instance.Notify<Events.IOnElevatorChangeRoom>(i => i.OnChangeRoom(CurrentRoom));
+            GameEvents.Instance.Notify<GameEvent.IOnElevatorChangeRoom>(i => i.OnChangeRoom(CurrentRoom));
         }
     }
 }

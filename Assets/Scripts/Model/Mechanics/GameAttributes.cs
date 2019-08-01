@@ -45,7 +45,7 @@ namespace SpaceMarine.Model
         /// </summary>
         void OnStart()
         {
-            GameEvents.Instance.Notify<Events.IStartGame>(i => i.OnStartGame(Game));
+            GameEvents.Instance.Notify<GameEvent.IStartGame>(i => i.OnStartGame(Game));
         }
         
         /// <summary>
@@ -53,7 +53,7 @@ namespace SpaceMarine.Model
         /// </summary>
         void OnEnd()
         {
-            GameEvents.Instance.Notify<Events.IEndGame>(i => i.OnEndGame());
+            GameEvents.Instance.Notify<GameEvent.IEndGame>(i => i.OnEndGame());
         }
     }
 }

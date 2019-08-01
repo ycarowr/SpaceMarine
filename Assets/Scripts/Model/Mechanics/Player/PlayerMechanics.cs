@@ -94,32 +94,32 @@ namespace SpaceMarine.Model
 
         void OnEnterRoom(RoomId id)
         {
-            GameEvents.Instance.Notify<Events.IEnterRoom>(i => i.OnEnterRoom(id));
+            GameEvents.Instance.Notify<GameEvent.IEnterRoom>(i => i.OnEnterRoom(id));
         }
         
         void OnLeaveRoom(RoomId id)
         {
-            GameEvents.Instance.Notify<Events.ILeaveRoom>(i => i.OnLeaveRoom(id));
+            GameEvents.Instance.Notify<GameEvent.ILeaveRoom>(i => i.OnLeaveRoom(id));
         }
 
         void OnDie()
         {
-            GameEvents.Instance.Notify<Events.IPlayerDie>(i => i.OnDie());
+            GameEvents.Instance.Notify<GameEvent.IPlayerDie>(i => i.OnDie());
         }
 
         void OnShoot()
         {
-            GameEvents.Instance.Notify<Events.IPlayerShoot>(i => i.OnShoot(this));
+            GameEvents.Instance.Notify<GameEvent.IPlayerShoot>(i => i.OnShoot(this));
         }
 
         void OnReload()
         {
-            GameEvents.Instance.Notify<Events.IPlayerReload>(i => i.OnReload(this));
+            GameEvents.Instance.Notify<GameEvent.IPlayerReload>(i => i.OnReload(this));
         }
         
         void OnEquip()
         {
-            GameEvents.Instance.Notify<Events.IPlayerEquip>(i => i.OnEquip(this, CurrentGun));
+            GameEvents.Instance.Notify<GameEvent.IPlayerEquip>(i => i.OnEquip(this, CurrentGun));
         }
         
         #endregion

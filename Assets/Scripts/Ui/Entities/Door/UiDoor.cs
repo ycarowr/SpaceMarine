@@ -6,7 +6,7 @@ using Tools.Dialog;
 
 namespace SpaceMarine
 {
-    public partial class UiDoor : UiGameEventListener, Events.IQuickFirstDoor
+    public partial class UiDoor : UiGameEventListener, GameEvent.IQuickFirstDoor
     {
         public bool HasQuickedFirstDoor =>
             GameData.Instance.Game.DoorsMechanics.HasQuickFirstDoor;

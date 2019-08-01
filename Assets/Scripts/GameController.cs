@@ -4,7 +4,7 @@ using SpaceMarine.Model;
 
 namespace SpaceMarine
 {
-    public class GameController : SingletonMB<GameController>, Events.ICreateGame, IListener
+    public class GameController : SingletonMB<GameController>, GameEvent.ICreateGame, IListener
     {
         private IGameData GameData => SpaceMarine.GameData.Instance;
         private IGame Game => GameData?.Game;

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace SpaceMarine
 {
-    public partial class UiElevatorChangeRoom : UiGameEventListener, Events.IOnElevatorChangeRoom
+    public partial class UiElevatorChangeRoom : UiGameEventListener, GameEvent.IOnElevatorChangeRoom
     {      
         private UiElevator UiElevator { get; set; }
 
@@ -20,7 +20,7 @@ namespace SpaceMarine
         
         //--------------------------------------------------------------------------------------------------------------
         
-        void Events.IOnElevatorChangeRoom.OnChangeRoom(RoomId id)
+        void GameEvent.IOnElevatorChangeRoom.OnChangeRoom(RoomId id)
         {
             UiElevator.CurrentRoom = id;
             UiElevator.ElevatorAnimations.GoTo(id);

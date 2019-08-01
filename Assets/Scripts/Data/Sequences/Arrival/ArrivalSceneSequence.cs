@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SpaceMarine.Arrival
 {
-    public class ArrivalSceneSequence : UiGameEventListener, Events.IStartGame
+    public class ArrivalSceneSequence : UiGameEventListener, GameEvent.IStartGame
     {
         [SerializeField] private ArrivalSceneParameters param;
         

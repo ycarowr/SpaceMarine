@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class UiElevatorSwitcher : UiGameEventListener, Events.IOnSwitchElevator, Events.IStartGame
+    public class UiElevatorSwitcher : UiGameEventListener, GameEvent.IOnSwitchElevator, GameEvent.IStartGame
     {
         private UiElevator UiElevator { get; set; }
         private UiButtonTriggerZone ButtonETrigger { get; set; }
@@ -22,12 +22,12 @@ namespace SpaceMarine
         
         //--------------------------------------------------------------------------------------------------------------
         
-        void Events.IStartGame.OnStartGame(IGame game)
+        void GameEvent.IStartGame.OnStartGame(IGame game)
         {
             SwitchOff();
         }
 
-        void Events.IOnSwitchElevator.OnSwitch(bool isEnabled)
+        void GameEvent.IOnSwitchElevator.OnSwitch(bool isEnabled)
         {
             SwitchElevator(isEnabled);
         }

@@ -33,12 +33,12 @@ namespace SpaceMarine.Model
 
         void OnEmbark()
         {
-            GameEvents.Instance.Notify<Events.IPlayerEmbark>(i => i.OnEmbark(Elevator, Game.Player));
+            GameEvents.Instance.Notify<GameEvent.IPlayerEmbark>(i => i.OnEmbark(Elevator, Game.Player));
         }
         
         void OnDisembark()
         {
-            GameEvents.Instance.Notify<Events.IPlayerDisembark>(i => i.OnDisembark(Elevator, Game.Player));
+            GameEvents.Instance.Notify<GameEvent.IPlayerDisembark>(i => i.OnDisembark(Elevator, Game.Player));
         }
         
     }

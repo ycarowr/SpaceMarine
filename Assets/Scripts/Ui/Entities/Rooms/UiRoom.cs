@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SpaceMarine.Rooms
 {
-    public class UiRoom : UiBaseEntity, IListener, Events.ICreateGame
+    public class UiRoom : UiBaseEntity, IListener, GameEvent.ICreateGame
     {
         private IRoomMechanics RoomMechanics => GameData.Instance.Game.RoomMechanics;
         

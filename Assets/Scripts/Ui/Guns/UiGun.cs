@@ -7,7 +7,7 @@ using UnityEngine;
 namespace SpaceMarine
 {
     public partial class UiGun : UiGameEventListener, 
-        Events.IPlayerEquip, Events.IPlayerShoot, Events.IPlayerReload, Events.ICreateGame
+        GameEvent.IPlayerEquip, GameEvent.IPlayerShoot, GameEvent.IPlayerReload, GameEvent.ICreateGame
     {
         public IGunData GunData { get; set; }
 
@@ -42,12 +42,12 @@ namespace SpaceMarine
         
         //--------------------------------------------------------------------------------------------------------------
         
-        void Events.IPlayerEquip.OnEquip(IShooter player, IGunData gunData)
+        void GameEvent.IPlayerEquip.OnEquip(IShooter player, IGunData gunData)
         {
             Equip(gunData);
         }
 
-        void Events.IPlayerShoot.OnShoot(IShooter player)
+        void GameEvent.IPlayerShoot.OnShoot(IShooter player)
         {
             if (GunData == null)
                 return;
@@ -77,7 +77,7 @@ namespace SpaceMarine
             bullet.Fire(info);
         }
 
-        void Events.IPlayerReload.OnReload(IShooter player)
+        void GameEvent.IPlayerReload.OnReload(IShooter player)
         {
                 
         }

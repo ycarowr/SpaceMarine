@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class UiDoorBulletHandler : UiGameEventListener, UiBullet.IBulletHandler, Events.IDoorTakeDamage, Events.IDestroyDoor
+    public class UiDoorBulletHandler : UiGameEventListener, UiBullet.IBulletHandler, GameEvent.IDoorTakeDamage, GameEvent.IDestroyDoor
     {
         [Header("Destroyamage Parameters")]
         public Vector2 IntervalExplosions;

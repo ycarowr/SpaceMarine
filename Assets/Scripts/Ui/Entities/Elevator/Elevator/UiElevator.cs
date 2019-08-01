@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SpaceMarine
 {
-    public partial class UiElevator : UiGameEventListener, Events.IStartGame
+    public partial class UiElevator : UiGameEventListener, GameEvent.IStartGame
     {
         [Tooltip("All the world positions where the elevator can stop.")]
         public UiElevatorStop [] uiElevatorStops;
@@ -29,7 +29,7 @@ namespace SpaceMarine
             ElevatorAnimations = new Animations(this, uiElevatorStops);
         }
 
-        void Events.IStartGame.OnStartGame(IGame game)
+        void GameEvent.IStartGame.OnStartGame(IGame game)
         {
             ElevatorAnimations.GoToWithNoPlayer();
         }

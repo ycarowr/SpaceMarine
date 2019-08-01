@@ -4,11 +4,11 @@ namespace SpaceMarine.Model
 {
     public class EnemyMechanics : BaseGameMechanic
     {
-        public Dictionary<RoomId, List<IEnemy>> Enemies { get; }
+        public List<IEnemy> Enemies { get; }
 
         public EnemyMechanics(IGame game) : base(game)
         {
-            Enemies = new Dictionary<RoomId, List<IEnemy>>();
+            Enemies = new List<IEnemy>();
         }
 
         public void CreateEnemies(IRoom room)
@@ -22,17 +22,19 @@ namespace SpaceMarine.Model
             var roomId = room.Id;
             foreach (var enemySpot in room.Data.Enemies)
             {
-                var enemy = enemySpot.Enemy.GetEnemy(room);
+                var enemy = enemySpot.Enemy.GetEnemy();
                 
                 //add room
                 room.AddEnemy(enemy);
                 
                 //add global
-                if (!Enemies.ContainsKey(roomId))
-                    Enemies.Add(roomId, new List<IEnemy>() { enemy });
-                else 
-                    Enemies[roomId].Add(enemy);
+                AddEnemy(enemy);
             }
+        }
+
+        public void AddEnemy(IEnemy enemy)
+        {
+            Enemies.Add(enemy);
         }
     }
 }

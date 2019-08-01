@@ -38,7 +38,7 @@ namespace SpaceMarine
 
         void OnCreateGame()
         {
-            GameEvents.Instance.Notify<Events.ICreateGame>(i => i.OnCreateGame(Game));
+            GameEvents.Instance.Notify<GameEvent.ICreateGame>(i => i.OnCreateGame(Game));
         }
     }
 }

@@ -67,12 +67,12 @@ namespace SpaceMarine.Model
         
         void OnQuickFirstDoor()
         {
-            GameEvents.Instance.Notify<Events.IQuickFirstDoor>(i=>i.OnQuickFirstDoor());    
+            GameEvents.Instance.Notify<GameEvent.IQuickFirstDoor>(i=>i.OnQuickFirstDoor());    
         }
         
         void OnSwitchDoor(IDoor door)
         {
-            GameEvents.Instance.Notify<Events.IDoors>(i => i.OnSwitchDoor(door));
+            GameEvents.Instance.Notify<GameEvent.IDoors>(i => i.OnSwitchDoor(door));
         }
     }
 }
