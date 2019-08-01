@@ -6,7 +6,7 @@ namespace SpaceMarine
     {
         public Rigidbody2D Rigidbody2D { get; private set; }
         public Collider Collider { get; private set; }
-        public SpriteRenderer Sprite { get; private set; }
+        public SpriteRenderer SpriteRenderer { get; private set; }
         public Animator Animator { get; private set; }
         public IUiPlayer MyUiPlayer => UiPlayer.Instance;
 
@@ -14,7 +14,7 @@ namespace SpaceMarine
         {
             Rigidbody2D = GetComponentInChildren<Rigidbody2D>();
             Collider = GetComponentInChildren<Collider>();
-            Sprite = GetComponentInChildren<SpriteRenderer>();
+            SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
             Animator = GetComponentInChildren<Animator>();
         }
 

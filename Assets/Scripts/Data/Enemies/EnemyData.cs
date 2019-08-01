@@ -31,6 +31,17 @@ namespace SpaceMarine.Data
         [Tooltip("The prefab of the creature.")]
         public GameObject Model;
 
+        [Tooltip("Explosion when the object is destroyed"), Header("Destroy")]
+        public GameObject Explosion;
+
+        [Tooltip("Color animation when it takes damage.")]
+        public Color HitColor;
+
+        [Tooltip("Interval in seconds between explosions")]
+        public Vector2 IntervalExplosions;
+
+        [Range(0, 50)]
+        public int QuantityExplosions;
 
         public abstract IEnemy GetEnemy();
     }

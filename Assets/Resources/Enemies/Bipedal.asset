@@ -22,3 +22,8 @@ MonoBehaviour:
 
     that hit the front of its body.'
   Model: {fileID: 74714153304073520, guid: 807d9cd9e7ce98045b4230b5c97ffc0d, type: 3}
+  Explosion: {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16,
+    type: 3}
+  HitColor: {r: 1, g: 0, b: 0, a: 1}
+  IntervalExplosions: {x: 0.1, y: 0.2}
+  QuantityExplosions: 40

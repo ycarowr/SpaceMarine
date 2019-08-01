@@ -9,14 +9,5 @@ namespace SpaceMarine
     public partial class UiBipedal : UiEnemy
     {
 
-        //--------------------------------------------------------------------------------------------------------------
-
-        public BipedalData Data;
-        
-        [Button]
-        public void Test()
-        {
-            Enemy = new Bipedal(Data);
-        }
     }
 }

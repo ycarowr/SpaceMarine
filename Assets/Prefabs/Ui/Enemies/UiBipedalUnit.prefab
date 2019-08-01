@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 74714153304073523}
   - component: {fileID: 74714153304073522}
   - component: {fileID: 74714153304073521}
-  - component: {fileID: 9007819516382868241}
   - component: {fileID: 5567384867575279276}
   - component: {fileID: 6158040100954937807}
+  - component: {fileID: 5237467087839490267}
+  - component: {fileID: 5153472165893525930}
   m_Layer: 0
   m_Name: UiBipedalUnit
   m_TagString: Untagged
@@ -104,20 +105,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9007819516382868241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74714153304073520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350665cb16bc73848909f490a01a5a18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Id: 0
-  Data: {fileID: 11400000, guid: c2a819c29eb9aa04390f567c06f8ffe2, type: 2}
 --- !u!50 &5567384867575279276
 Rigidbody2D:
   serializedVersion: 4
@@ -171,6 +158,37 @@ PolygonCollider2D:
       - {x: -0.82244587, y: -0.35455394}
       - {x: -1.3587875, y: -1.0717802}
       - {x: -1.3419571, y: -1.9638385}
+--- !u!114 &5237467087839490267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74714153304073520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5169c44715bc284b8bbc94e5d6d7cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Data: {fileID: 11400000, guid: c2a819c29eb9aa04390f567c06f8ffe2, type: 2}
+--- !u!114 &5153472165893525930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74714153304073520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a678cbfd0af75c4c9262011efd8bdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.4
+  cachedTransform: {fileID: 74714153304073523}
+  duration: 0.1
+  frequency: 0.01
+  isShaking: 0
 --- !u!1 &5127550360976824881
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +199,6 @@ GameObject:
   m_Component:
   - component: {fileID: 391071650106050843}
   - component: {fileID: 61142842798148015}
-  - component: {fileID: 367855397}
   - component: {fileID: 5768113971170598939}
   m_Layer: 0
   m_Name: DamageArea
@@ -216,27 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49206b32f19ac2044a16c214d43a7e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &367855397
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5127550360976824881}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 5
 --- !u!58 &5768113971170598939
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -247,7 +243,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

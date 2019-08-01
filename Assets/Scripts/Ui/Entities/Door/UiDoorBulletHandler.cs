@@ -8,9 +8,12 @@ using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class UiDoorBulletHandler : UiGameEventListener, UiBullet.IBulletHandler, GameEvent.IDoorTakeDamage, GameEvent.IDestroyDoor
+    public class UiDoorBulletHandler : UiGameEventListener, 
+        UiBullet.IBulletHandler, 
+        GameEvent.IDoorTakeDamage, 
+        GameEvent.IDestroyDoor
     {
-        [Header("Destroyamage Parameters")]
+        [Header("Destroy damage Parameters")]
         public Vector2 IntervalExplosions;
         public int QuantityExplosions;
         public Color HitColor;
@@ -29,8 +32,10 @@ namespace SpaceMarine
             Shake = GetComponent<ShakeAnimation>();
             UiDoor = GetComponent<UiDoor>();
         }
+        
+        //--------------------------------------------------------------------------------------------------------------
 
-        public void OnCollideBullet(UiBullet bullet)
+        void UiBullet.IBulletHandler.OnCollideBullet(UiBullet bullet)
         {
             if (bullet == null)
                 return;
@@ -40,26 +45,28 @@ namespace SpaceMarine
             door.TakeDamage(dam);
         }
 
-        public void OnTakeDamage(IDoor door, int damage)
+        void GameEvent.IDoorTakeDamage.OnTakeDamage(IDoor door, int damage)
         {
             if(door.Id == UiDoor.Id && isActiveAndEnabled)
             {
                 SpriteRenderer.color = HitColor;
                 Shake.Shake();
-                StartCoroutine(MakeItWhileAgain());
+                StartCoroutine(MakeItWhiteAgain());
             }
         }
-
-        private IEnumerator MakeItWhileAgain()
-        {
-            yield return new WaitForSeconds(0.2f);
-            SpriteRenderer.color = Color.white;
-        }
-
-        public void OnDestroyDoor(IDoor door)
+        
+        void GameEvent.IDestroyDoor.OnDestroyDoor(IDoor door)
         {
             if(door.Id == UiDoor.Id && isActiveAndEnabled)
                 StartCoroutine(AnimateExplosion());
+        }
+        
+        //--------------------------------------------------------------------------------------------------------------
+
+        private IEnumerator MakeItWhiteAgain()
+        {
+            yield return new WaitForSeconds(0.2f);
+            SpriteRenderer.color = Color.white;
         }
 
         IEnumerator AnimateExplosion()
