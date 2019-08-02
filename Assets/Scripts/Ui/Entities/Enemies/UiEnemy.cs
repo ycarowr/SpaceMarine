@@ -28,8 +28,6 @@ namespace SpaceMarine
             Test();
         }
 
-
-        [Button]
         public void TryTakeDamage(int damage)
         {
             Enemy.TakeDamage(damage);
@@ -47,7 +45,7 @@ namespace SpaceMarine
         
         //--------------------------------------------------------------------------------------------------------------
         
-        void GameEvent.IDestroyEnemy.OnDestroyEnemy(IEnemy enemy)
+        public virtual void OnDestroyEnemy(IEnemy enemy)
         {
             if (enemy != Enemy)
                 return;
@@ -55,7 +53,7 @@ namespace SpaceMarine
             StartCoroutine(DestroyAnimation());
         }
 
-        void GameEvent.IEnemyTakeDamage.OnTakeDamage(IEnemy enemy, int damage)
+        public virtual void OnTakeDamage(IEnemy enemy, int damage)
         {
             if (enemy != Enemy)
                 return;
@@ -63,7 +61,7 @@ namespace SpaceMarine
             StartCoroutine(TakeDamageAnimation());
         }
         
-        void UiBullet.IBulletHandler.OnCollideBullet(UiBullet bullet)
+        public virtual void OnCollideBullet(UiBullet bullet)
         {
             
         }
@@ -73,7 +71,7 @@ namespace SpaceMarine
         IEnumerator AnimateDamage()
         {
             SpriteRenderer.color = Enemy.Data.HitColor;
-            Shake.Shake();
+            Shake?.Shake();
             yield return StartCoroutine(MakeItWhiteAgain());
         }
         
@@ -121,6 +119,12 @@ namespace SpaceMarine
         public void Test()
         {
             Enemy = Data.GetEnemy();
+        }
+
+        [Button]
+        public void TryTakeDamage()
+        {
+            TryTakeDamage(1);
         }
     }
 }

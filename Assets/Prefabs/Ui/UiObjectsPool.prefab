@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6320616479201733500}
   - component: {fileID: 1942855641824567460}
   m_Layer: 0
-  m_Name: BulletPool
+  m_Name: UiObjectsPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,4 +51,7 @@ MonoBehaviour:
   - {fileID: 3607567276035264184, guid: 9b28ab728f14f9749adebc21a1f8047c, type: 3}
   - {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16, type: 3}
   - {fileID: 74714153304073520, guid: 807d9cd9e7ce98045b4230b5c97ffc0d, type: 3}
-  startSize: 10
+  - {fileID: 8607872526053032185, guid: 87a5907d7b3fa0541ab51ef718c58050, type: 3}
+  - {fileID: 2773107739326368675, guid: 8382640fe49764148b185e978a9f1e7d, type: 3}
+  - {fileID: 6775994029455853042, guid: e4f3186554848484e8d2b09d3cef0fb6, type: 3}
+  startSize: 5
