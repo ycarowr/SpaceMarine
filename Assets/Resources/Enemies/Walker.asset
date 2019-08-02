@@ -19,4 +19,9 @@ MonoBehaviour:
   Health: 10
   Speed: 5
   Description: Creature that comes out of the cryo pods.
-  Model: {fileID: 0}
+  Model: {fileID: 2773107739326368675, guid: 8382640fe49764148b185e978a9f1e7d, type: 3}
+  Explosion: {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16,
+    type: 3}
+  HitColor: {r: 1, g: 0, b: 0, a: 1}
+  IntervalExplosions: {x: 0.1, y: 0.2}
+  QuantityExplosions: 20
