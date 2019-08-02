@@ -20,4 +20,9 @@ MonoBehaviour:
   Speed: 0
   Description: "The Tank vehicle, it doesn't take damage. \nBut takes a long time
     to reload and shoot."
-  Model: {fileID: 0}
+  Model: {fileID: 7274872000834538312, guid: 5f3c9221884a1b14b915293b54034867, type: 3}
+  Explosion: {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16,
+    type: 3}
+  HitColor: {r: 1, g: 0, b: 0, a: 1}
+  IntervalExplosions: {x: 0.05, y: 0.15}
+  QuantityExplosions: 30
