@@ -24,7 +24,8 @@ namespace SpaceMarine.Model
         Bipedal,
         Wasp, 
         Walker,
-        Tank
+        Tank,
+        Mecha
     }
 
     public enum DoorId

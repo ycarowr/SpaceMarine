@@ -21,4 +21,9 @@ MonoBehaviour:
   Description: 'Creature that comes out of cryopods. Flyes
 
     towards the player.'
-  Model: {fileID: 0}
+  Model: {fileID: 8607872526053032185, guid: 87a5907d7b3fa0541ab51ef718c58050, type: 3}
+  Explosion: {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16,
+    type: 3}
+  HitColor: {r: 1, g: 0, b: 0, a: 1}
+  IntervalExplosions: {x: 0.1, y: 0.2}
+  QuantityExplosions: 20
