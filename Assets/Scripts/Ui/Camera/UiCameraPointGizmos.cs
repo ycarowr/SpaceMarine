@@ -8,7 +8,7 @@ namespace SpaceMarine
         void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawSphere(transform.position, 0.4f);
+            Gizmos.DrawWireSphere(transform.position, 0.4f);
         }
     }
 }

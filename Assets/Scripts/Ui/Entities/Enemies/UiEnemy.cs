@@ -118,7 +118,7 @@ namespace SpaceMarine
         [Button]
         public void Test()
         {
-            Enemy = Data.GetEnemy();
+            Enemy = Data.GetEnemy(transform.position);
         }
 
         [Button]
