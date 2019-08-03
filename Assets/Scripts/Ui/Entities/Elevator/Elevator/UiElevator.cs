@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.Tracing;
 using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools;
 using Tools.Dialog;
 using Tools.UI;
 using UnityEditor;
@@ -38,20 +37,6 @@ namespace SpaceMarine
         void Update()
         {
             ElevatorAnimations?.Update();    
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            foreach(var s in uiElevatorStops)
-                Gizmos.DrawCube(s.Position.position, Vector3.one * 0.5f);
-
-            for (var i = 1; i < uiElevatorStops.Length; i++)
-            {
-                var from = uiElevatorStops[i - 1].Position.position;
-                var to = uiElevatorStops[i].Position.position;
-                Gizmos.DrawLine(from, to);
-            }
         }
     }
 }

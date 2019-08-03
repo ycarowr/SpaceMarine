@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 5825634606548901296}
   - component: {fileID: 8579938570072103819}
   - component: {fileID: 6186458072372153810}
+  - component: {fileID: 1931979145756438393}
   m_Layer: 0
   m_Name: UiElevator
   m_TagString: Untagged
@@ -358,6 +359,10 @@ MonoBehaviour:
     Position: {fileID: 0}
   - Id: 2
     Position: {fileID: 0}
+  - Id: 3
+    Position: {fileID: 0}
+  - Id: 4
+    Position: {fileID: 0}
   PlayerPosition: {fileID: 4374494245146466430}
   MovingSpeed: 1
 --- !u!114 &5825634606548901296
@@ -400,6 +405,18 @@ MonoBehaviour:
   ButtonUp: {fileID: 11400000, guid: edf4892ce791c434a84e034acfaa19c7, type: 2}
   ButtonForgetIt: {fileID: 11400000, guid: e125f157170e1e9448af0609fd810ff9, type: 2}
   TextSequence: {fileID: 11400000, guid: c932e5a5ab3949d4badc8e9f18c898cf, type: 2}
+--- !u!114 &1931979145756438393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218671036724959458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82469793e2094efa94e1ac58f41a4803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3507046539744537499
 GameObject:
   m_ObjectHideFlags: 0

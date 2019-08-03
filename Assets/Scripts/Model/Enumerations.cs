@@ -16,8 +16,9 @@ namespace SpaceMarine.Model
         Bipedal, 
         Wasp,
         Tank,
-        Cryogenic,
-        Switcher
+        Walker,
+        Switcher,
+        Mecha
     }
 
     public enum EnemyId
@@ -36,6 +37,6 @@ namespace SpaceMarine.Model
         Control,
         Tank,
         Wasp,
-        Cryogenic
+        Walker
     }
 }

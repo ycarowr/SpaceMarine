@@ -1,21 +1,15 @@
 using System;
 using SpaceMarine.Model;
+using Tools;
 using UnityEngine;
 
 namespace SpaceMarine
 {
-    [Serializable][ExecuteInEditMode]
-    public class UiElevatorStops : MonoBehaviour
+    public class UiElevatorStops : EditorComponent
     {
         public Transform Elevator;
 
-        void OnEnable()
-        {
-            if(!Application.isEditor)
-                Destroy(gameObject);
-        }
-        
-        private void Update()
+        void Update()
         {
             var current = transform.position;
             current.x = Elevator.position.x;
