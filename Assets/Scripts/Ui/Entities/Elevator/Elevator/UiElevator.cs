@@ -11,6 +11,7 @@ namespace SpaceMarine
 {
     public partial class UiElevator : UiGameEventListener, GameEvent.IStartGame
     {
+        public SpriteRenderer ElevatorSprite;
         [Tooltip("All the world positions where the elevator can stop.")]
         public UiElevatorStop [] uiElevatorStops;
         
@@ -25,7 +26,7 @@ namespace SpaceMarine
         protected override void Awake()
         {
             base.Awake();
-            CurrentRoom = RoomId.Level0;
+            CurrentRoom = RoomId.Elevator0;
             ElevatorAnimations = new Animations(this, uiElevatorStops);
         }
 

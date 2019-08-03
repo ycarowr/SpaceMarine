@@ -12,7 +12,8 @@ namespace SpaceMarine.Rooms
     public class UiRoom : UiBaseEntity, IListener, GameEvent.ICreateGame
     {
         private IRoomMechanics RoomMechanics => GameData.Instance.Game.RoomMechanics;
-        
+        public UiCameraPoint CameraPoint { get; private set; }
+
         [Tooltip("The id of this room.")]
         public RoomId RoomId;
 
@@ -22,6 +23,7 @@ namespace SpaceMarine.Rooms
         {
             base.Awake();
             GameEvents.Instance.AddListener(this);
+            CameraPoint = GetComponentInChildren<UiCameraPoint>();
         }
 
         protected override void OnTriggerEnterPlayer()

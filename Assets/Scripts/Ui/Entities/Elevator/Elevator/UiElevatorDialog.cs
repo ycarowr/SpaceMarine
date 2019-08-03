@@ -80,13 +80,13 @@ namespace SpaceMarine
 
         RoomId GetNextDown(RoomId current)
         {
-            var nextRoom = RoomId.Level0;
+            var nextRoom = RoomId.Elevator0;
             switch (current)
             {
-                case RoomId.Level0: nextRoom = RoomId.Level1; break;
-                case RoomId.Level1: nextRoom = RoomId.Level2; break;
-                case RoomId.Level2: nextRoom = RoomId.Level3; break;
-                case RoomId.Level3: nextRoom = RoomId.Level2; break;
+                case RoomId.Elevator0: nextRoom = RoomId.Elevator1; break;
+                case RoomId.Elevator1: nextRoom = RoomId.Elevator2; break;
+                case RoomId.Elevator2: nextRoom = RoomId.Elevator3; break;
+                case RoomId.Elevator3: nextRoom = RoomId.Elevator2; break;
             }
 
             return nextRoom;
@@ -94,13 +94,13 @@ namespace SpaceMarine
         
         RoomId GetNextUp(RoomId current)
         {
-            var nextRoom = RoomId.Level0;
+            var nextRoom = RoomId.Elevator0;
             switch (current)
             {
-                case RoomId.Level0: nextRoom = RoomId.Level1; break;
-                case RoomId.Level1: nextRoom = RoomId.Level0; break;
-                case RoomId.Level2: nextRoom = RoomId.Level1; break;
-                case RoomId.Level3: nextRoom = RoomId.Level2; break;
+                case RoomId.Elevator0: nextRoom = RoomId.Elevator1; break;
+                case RoomId.Elevator1: nextRoom = RoomId.Elevator0; break;
+                case RoomId.Elevator2: nextRoom = RoomId.Elevator1; break;
+                case RoomId.Elevator3: nextRoom = RoomId.Elevator2; break;
             }
 
             return nextRoom;

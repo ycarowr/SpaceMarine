@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b289eb2f061b14eb6c8b4a6906af91, type: 3}
-  m_Name: Level0
+  m_Name: ControlRoom
   m_EditorClassIdentifier: 
-  Name: Level Zero
-  Id: 1
-  Description: "Place where the player can \nswitch on/off the elevator."
+  Name: Control Room
+  Id: 5
+  Description: 'Place where the player finds the Server
+
+    that controls everything.'
   Enemies: []
+  Doors: []

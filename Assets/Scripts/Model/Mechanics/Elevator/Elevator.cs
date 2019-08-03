@@ -5,7 +5,7 @@ namespace SpaceMarine.Model
     public class Elevator : IElevator
     {
         public bool IsLocked { get; private set; }
-        public RoomId CurrentRoom { get; private set; } = RoomId.Level0;
+        public RoomId CurrentRoom { get; private set; } = RoomId.Elevator0;
         
         public void Lock()
         {

@@ -10,9 +10,6 @@ namespace SpaceMarine.Rooms
         //TODO: provide configurations for the values below.
         protected const float CameraSpeed = 3;
         protected const float CameraZ = -10;
-
-        [Tooltip("Position of the camera in this room.")] [SerializeField]
-        protected Transform CameraPosition;
         
         private UiRoom UiRoom { get; set; }
         
@@ -33,8 +30,9 @@ namespace SpaceMarine.Rooms
         [Button]
         private void MoveCameraHere()
         {
+            var cameraPoint = UiRoom.CameraPoint.transform.position;
             CameraMotion.Movement.StopMotion();
-            CameraMotion.MoveToWithZ(CameraPosition.position, CameraSpeed, CameraZ);
+            CameraMotion.MoveToWithZ(cameraPoint, CameraSpeed, CameraZ);
         }
     }
 }
