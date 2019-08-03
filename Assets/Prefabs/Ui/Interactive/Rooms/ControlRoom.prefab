@@ -62,7 +62,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3231911851436136216}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.78, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3231911851479861544}
@@ -218,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3231911852989500914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7800007, y: -3.4399996, z: -1}
+  m_LocalPosition: {x: 0, y: -3.4400005, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2541843471580648002}
@@ -297,8 +297,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -6.299999, y: 0}
-  - {x: 6.299999, y: 0}
+  - {x: -6.300001, y: 0}
+  - {x: 6.300001, y: 0}
 --- !u!114 &708711077535568159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4995664733880106592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.5199986, y: 0, z: -1}
+  m_LocalPosition: {x: 6.300001, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2541843471580648002}
@@ -407,8 +407,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0, y: 3.4399998}
-  - {x: 0, y: -3.4399998}
+  - {x: 0, y: 3.4400003}
+  - {x: 0, y: -3.4400003}
 --- !u!114 &5334843433864773324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,7 +450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5084335203359801445}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7800007, y: 3.4399998, z: -1}
+  m_LocalPosition: {x: 0, y: 3.4400005, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2541843471580648002}
@@ -517,8 +517,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -6.299999, y: 0}
-  - {x: 6.299999, y: 0}
+  - {x: -6.300001, y: 0}
+  - {x: 6.300001, y: 0}
 --- !u!114 &103704448988632803
 MonoBehaviour:
   m_ObjectHideFlags: 0
