@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eca864c79a827844bcbcaf737cb592f, type: 3}
   m_Name: ArrivalSceneParameters
   m_EditorClassIdentifier: 
-  SkipIntro: 0
+  SkipIntro: 1
   PlayerWalkSpeed: 3.3
   PlayerPosition: {x: -3, y: 2.11, z: 0}
   PlayerFinalPosition: {x: 3, y: 2.11, z: 0}

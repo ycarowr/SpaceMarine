@@ -63,9 +63,12 @@ MonoBehaviour:
   isSilent: 1
   Rooms:
   - {fileID: 11400000, guid: 552eacefff74a0d40bf9752e6278fe26, type: 2}
+  - {fileID: 11400000, guid: 151719462799b4146abfd18e99ab7773, type: 2}
+  - {fileID: 11400000, guid: b45283755d043fe489151521b6e71fdd, type: 2}
   - {fileID: 11400000, guid: d4aae36115adf9648ac81927a5ea104c, type: 2}
   - {fileID: 11400000, guid: 6aec5045a6c82654cab11e8ef1edb410, type: 2}
-  - {fileID: 11400000, guid: 151719462799b4146abfd18e99ab7773, type: 2}
+  - {fileID: 11400000, guid: 35cf5c0d519fb6844b72582102c56469, type: 2}
+  - {fileID: 11400000, guid: da1bbc758d82b654eb319b8e6f23955e, type: 2}
 --- !u!114 &2215439397427091126
 MonoBehaviour:
   m_ObjectHideFlags: 0

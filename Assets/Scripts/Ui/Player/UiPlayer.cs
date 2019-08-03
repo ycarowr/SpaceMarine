@@ -9,10 +9,11 @@ namespace SpaceMarine
     public class UiPlayer : SingletonMB<UiPlayer>, IUiPlayer
     {
         public Action<bool> OnInputChange = (isLocked) => { };
-        
+
         [SerializeField] private UiPlayerParameters parameters;
-        
+
         #region Properties
+
         public UiPlayerParameters Parameters => parameters;
         public Rigidbody2D Rigidbody2D { get; private set; }
         public Collider2D Collider2D { get; private set; }
@@ -24,7 +25,7 @@ namespace SpaceMarine
         public UiPlayerAnimator Animation { get; private set; }
         public ISpaceMarineInput Input { get; private set; }
         public bool IsLocked { get; private set; }
-        
+
         #endregion
 
 
@@ -55,7 +56,7 @@ namespace SpaceMarine
             Collider2D.enabled = false;
             OnInputChange.Invoke(IsLocked);
         }
-        
+
         [Button]
         public void UnLock()
         {
@@ -64,6 +65,7 @@ namespace SpaceMarine
             Collider2D.enabled = true;
             OnInputChange.Invoke(IsLocked);
         }
+
         [Button]
         public void Deactivate()
         {
