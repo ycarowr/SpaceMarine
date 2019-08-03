@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace SpaceMarine.Model
 {
@@ -22,7 +23,8 @@ namespace SpaceMarine.Model
             var roomId = room.Id;
             foreach (var enemySpot in room.Data.Enemies)
             {
-                var enemy = enemySpot.Enemy.GetEnemy();
+                var position = enemySpot.Position;
+                var enemy = enemySpot.Enemy.GetEnemy(position);
                 
                 //add room
                 room.AddEnemy(enemy);

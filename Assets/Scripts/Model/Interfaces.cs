@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SpaceMarine.Data;
+using UnityEngine;
 
 namespace SpaceMarine.Model
 {
@@ -52,6 +53,7 @@ namespace SpaceMarine.Model
     {
         EnemyId Id { get; }
         EnemyData Data { get; }
+        Vector3 StartLocalPosition { get; }
     }
 
     public interface IRoom

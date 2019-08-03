@@ -1,5 +1,6 @@
 using Patterns.GameEvents;
 using SpaceMarine.Model;
+using UnityEngine;
 
 namespace SpaceMarine.Data
 {
@@ -9,12 +10,15 @@ namespace SpaceMarine.Data
         public EnemyData Data { get; }
         public bool IsDead { get; private set; }
         public int Health { get; private set; }
-        
-        protected RuntimeEnemy(EnemyData data)
+
+        public Vector3 StartLocalPosition { get; private set; }
+
+        protected RuntimeEnemy(EnemyData data, Vector3 startPosition)
         {
             Data = data;
             Id = data.Id;
             Health = data.Health;
+            StartLocalPosition = startPosition;
         }
         
         public void TakeDamage(int amount)

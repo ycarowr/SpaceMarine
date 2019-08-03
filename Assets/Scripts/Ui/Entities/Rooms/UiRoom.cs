@@ -53,11 +53,10 @@ namespace SpaceMarine.Rooms
                 var prefab = enemy.Data.Model;
                 var uiEnemyGo = UiObjectsPooler.Instance.Get(prefab);
                 var uiEnemy = uiEnemyGo.GetComponent<UiEnemy>();
-                var pair = Room.Data.Enemies.ToList().Find(x => x.Enemy.Id == id);    
                 uiEnemy.Id = id;
                 uiEnemy.Enemy = enemy; 
                 uiEnemy.transform.SetParent(transform.parent);
-                uiEnemy.transform.localPosition = pair.Position;
+                uiEnemy.transform.localPosition = enemy.StartLocalPosition;
             }
         }
 

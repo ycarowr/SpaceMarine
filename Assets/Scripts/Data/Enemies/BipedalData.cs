@@ -8,9 +8,9 @@ namespace SpaceMarine.Data
     [CreateAssetMenu(menuName = "Data/Bipedal")]
     public class BipedalData : EnemyData
     {
-        public override IEnemy GetEnemy()
+        public override IEnemy GetEnemy(Vector3 startPosition)
         {
-            return new Bipedal(this);
+            return new Bipedal(this, startPosition);
         }
     }
 }

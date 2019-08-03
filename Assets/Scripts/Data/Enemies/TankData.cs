@@ -8,9 +8,9 @@ namespace SpaceMarine.Data
     [CreateAssetMenu(menuName = "Data/Tank")]
     public class TankData : EnemyData
     {
-        public override IEnemy GetEnemy()
+        public override IEnemy GetEnemy(Vector3 startPosition)
         {
-            return new Tank(this);
+            return new Tank(this, startPosition);
         }
     }
 }

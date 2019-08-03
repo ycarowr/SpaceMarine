@@ -8,9 +8,9 @@ namespace SpaceMarine.Data
     [CreateAssetMenu(menuName = "Data/Mecha")]
     public class MechaData : EnemyData
     {
-        public override IEnemy GetEnemy()
+        public override IEnemy GetEnemy(Vector3 startPosition)
         {
-            return new Mecha(this);
+            return new Mecha(this, startPosition);
         }
     }
 }

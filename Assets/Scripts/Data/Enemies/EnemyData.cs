@@ -31,6 +31,9 @@ namespace SpaceMarine.Data
         [Tooltip("The prefab of the creature.")]
         public GameObject Model;
 
+        [Tooltip("Icon of the enemy.")]
+        public Texture Icon;
+
         
         //TODO: Create a protype to hold the common data
         [Tooltip("Explosion when the object is destroyed"), Header("Destroy")]
@@ -45,6 +48,6 @@ namespace SpaceMarine.Data
         [Range(0, 50)]
         public int QuantityExplosions;
 
-        public abstract IEnemy GetEnemy();
+        public abstract IEnemy GetEnemy(Vector3 startPosition);
     }
 }
