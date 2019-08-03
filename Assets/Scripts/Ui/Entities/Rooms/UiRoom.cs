@@ -1,22 +1,27 @@
-﻿using System.Diagnostics.Tracing;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Linq;
 using Patterns;
 using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools.UI;
 using UnityEngine;
 
 namespace SpaceMarine.Rooms
 {
     public class UiRoom : UiBaseEntity, IListener, GameEvent.ICreateGame
     {
+        [Tooltip("The id of this room.")] public RoomId RoomId;
+
         IRoom Room { get; set; }
         IRoomMechanics RoomMechanics => GameData.Instance.Game.RoomMechanics;
         public UiCameraPoint CameraPoint { get; private set; }
 
-        [Tooltip("The id of this room.")]
-        public RoomId RoomId;
+        //--------------------------------------------------------------------------------------------------------------
+
+        public void OnCreateGame(IGame game)
+        {
+            Room = game.RoomMechanics.Get(RoomId);
+            CreateUiDoors();
+            CreateUiEnemies();
+        }
 
 
         protected override void Awake()
@@ -35,15 +40,6 @@ namespace SpaceMarine.Rooms
         {
             RoomMechanics.PlayerLeave(RoomId);
         }
-        
-        //--------------------------------------------------------------------------------------------------------------
-
-        public void OnCreateGame(IGame game)
-        {
-            Room = game.RoomMechanics.Get(RoomId);
-            CreateUiDoors();
-            CreateUiEnemies();
-        }
 
         void CreateUiEnemies()
         {
@@ -54,7 +50,7 @@ namespace SpaceMarine.Rooms
                 var uiEnemyGo = UiObjectsPooler.Instance.Get(prefab);
                 var uiEnemy = uiEnemyGo.GetComponent<UiEnemy>();
                 uiEnemy.Id = id;
-                uiEnemy.Enemy = enemy; 
+                uiEnemy.Enemy = enemy;
                 uiEnemy.transform.SetParent(transform.parent);
                 uiEnemy.transform.localPosition = enemy.StartLocalPosition;
             }
@@ -68,9 +64,9 @@ namespace SpaceMarine.Rooms
                 var prefab = door.Data.Model;
                 var uiDoorGo = UiObjectsPooler.Instance.Get(prefab);
                 var uiDoor = uiDoorGo.GetComponent<UiDoor>();
-                var pair = Room.Data.Doors.ToList().Find(x => x.Door.Id == id);    
+                var pair = Room.Data.Doors.ToList().Find(x => x.Door.Id == id);
                 uiDoor.Id = id;
-                uiDoor.Door = door; 
+                uiDoor.Door = door;
                 uiDoor.transform.SetParent(transform.parent);
                 uiDoor.transform.localPosition = pair.Position;
             }

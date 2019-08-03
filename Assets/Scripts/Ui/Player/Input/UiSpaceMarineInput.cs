@@ -14,12 +14,12 @@ namespace SpaceMarine.Input
 
     public class UiSpaceMarineInput : MonoBehaviour, ISpaceMarineInput
     {
-        public bool IsTracking { get; private set; }
-        private const KeyCode ShootKey = KeyCode.Space;
-        private const KeyCode JumpKey = KeyCode.W;
+        const KeyCode ShootKey = KeyCode.Space;
+        const KeyCode JumpKey = KeyCode.W;
 
-        private const string HorizontalAx = "Horizontal";
-        private const string VerticalAx = "Vertical";
+        const string HorizontalAx = "Horizontal";
+        const string VerticalAx = "Vertical";
+        public bool IsTracking { get; private set; }
 
         public float Horizontal { get; private set; }
         public float Vertical { get; private set; }
@@ -28,11 +28,21 @@ namespace SpaceMarine.Input
 
         public bool IsShootPressed { get; private set; }
 
-        private void Update()
+        public void StartTracking()
+        {
+            IsTracking = true;
+        }
+
+        public void StopTracking()
+        {
+            IsTracking = false;
+        }
+
+        void Update()
         {
             if (!IsTracking)
                 return;
-            
+
             //axis
             Horizontal = UnityEngine.Input.GetAxis(HorizontalAx);
             Vertical = UnityEngine.Input.GetAxis(VerticalAx);
@@ -42,16 +52,6 @@ namespace SpaceMarine.Input
 
             //shoot
             IsShootPressed = UnityEngine.Input.GetKey(ShootKey);
-        }
-
-        public void StartTracking()
-        {
-            IsTracking = true;
-        }
-        
-        public void StopTracking()
-        {
-            IsTracking = false;
         }
     }
 }

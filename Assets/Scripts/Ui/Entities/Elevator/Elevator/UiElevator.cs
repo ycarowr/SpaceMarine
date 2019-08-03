@@ -1,9 +1,5 @@
-﻿using System.Diagnostics.Tracing;
-using Patterns.GameEvents;
+﻿using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools.Dialog;
-using Tools.UI;
-using UnityEditor;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -11,16 +7,23 @@ namespace SpaceMarine
     public partial class UiElevator : UiGameEventListener, GameEvent.IStartGame
     {
         public SpriteRenderer ElevatorSprite;
-        [Tooltip("All the world positions where the elevator can stop.")]
-        public UiElevatorStop [] uiElevatorStops;
-        
+
+        [Range(0, 20)] public float MovingSpeed;
+
         [Tooltip("Position of the player inside the elevator.")]
         public Transform PlayerPosition;
-        
-        [Range(0, 20)] public float MovingSpeed;
+
+        [Tooltip("All the world positions where the elevator can stop.")]
+        public UiElevatorStop[] uiElevatorStops;
+
         public Animations ElevatorAnimations { get; private set; }
 
         public RoomId CurrentRoom { get; set; }
+
+        void GameEvent.IStartGame.OnStartGame(IGame game)
+        {
+            ElevatorAnimations.GoToWithNoPlayer();
+        }
 
         protected override void Awake()
         {
@@ -29,14 +32,9 @@ namespace SpaceMarine
             ElevatorAnimations = new Animations(this, uiElevatorStops);
         }
 
-        void GameEvent.IStartGame.OnStartGame(IGame game)
-        {
-            ElevatorAnimations.GoToWithNoPlayer();
-        }
-        
         void Update()
         {
-            ElevatorAnimations?.Update();    
+            ElevatorAnimations?.Update();
         }
     }
 }

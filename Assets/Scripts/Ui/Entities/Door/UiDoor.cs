@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Patterns.GameEvents;
+﻿using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools.Dialog;
 
 namespace SpaceMarine
 {
@@ -10,11 +7,18 @@ namespace SpaceMarine
     {
         public bool HasQuickedFirstDoor =>
             GameData.Instance.Game.DoorsMechanics.HasQuickFirstDoor;
-        
+
         UiButtonTriggerZone ButtonETrigger { get; set; }
         UiDoorAnimation Animation { get; set; }
         public DoorId Id { get; set; }
         public IDoor Door { get; set; }
+
+        //--------------------------------------------------------------------------------------------------------------
+
+        public void OnQuickFirstDoor()
+        {
+            ButtonETrigger.SetState(UiStateEntity.State.Off);
+        }
 
         protected override void Awake()
         {
@@ -23,7 +27,7 @@ namespace SpaceMarine
             ButtonETrigger = GetComponentInChildren<UiButtonTriggerZone>();
         }
 
-        private void Start()
+        void Start()
         {
             ButtonETrigger.SetState(UiStateEntity.State.Inactive);
         }
@@ -32,18 +36,11 @@ namespace SpaceMarine
         {
             if (!HasQuickedFirstDoor)
                 return;
-            
+
             Animation.Open();
             ButtonETrigger.Window.Hide();
             ButtonETrigger.SwitchOff();
             ButtonETrigger.SetState(UiStateEntity.State.Inactive);
-        }
-
-        //--------------------------------------------------------------------------------------------------------------
-
-        public void OnQuickFirstDoor()
-        {
-            ButtonETrigger.SetState(UiStateEntity.State.Off);
         }
     }
 }

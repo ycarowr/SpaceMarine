@@ -1,5 +1,3 @@
-using Patterns.StateMachine;
-
 namespace SpaceMarine
 {
     public partial class UiEnemy

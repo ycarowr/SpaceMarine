@@ -6,16 +6,17 @@ namespace SpaceMarine
     {
         public class BipedalAnimation
         {
-            readonly int walk = UnityEngine.Animator.StringToHash("Walk");
-            readonly int idle = UnityEngine.Animator.StringToHash("Idle");
-            Animator Animator { get; }
-            MonoBehaviour Handler { get; }
+            readonly int idle = Animator.StringToHash("Idle");
+            readonly int walk = Animator.StringToHash("Walk");
 
             public BipedalAnimation(UiBipedal handler)
             {
                 Handler = handler;
                 Animator = Handler.GetComponent<Animator>();
             }
+
+            Animator Animator { get; }
+            MonoBehaviour Handler { get; }
 
             public void Walk()
             {

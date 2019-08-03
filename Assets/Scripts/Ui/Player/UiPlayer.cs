@@ -1,32 +1,15 @@
 ﻿using System;
 using Patterns;
 using SpaceMarine.Input;
-using UnityEditor;
 using UnityEngine;
 
 namespace SpaceMarine
 {
     public class UiPlayer : SingletonMB<UiPlayer>, IUiPlayer
     {
-        public Action<bool> OnInputChange = (isLocked) => { };
+        public Action<bool> OnInputChange = isLocked => { };
 
-        [SerializeField] private UiPlayerParameters parameters;
-
-        #region Properties
-
-        public UiPlayerParameters Parameters => parameters;
-        public Rigidbody2D Rigidbody2D { get; private set; }
-        public Collider2D Collider2D { get; private set; }
-        public SpriteRenderer Sprite { get; private set; }
-        public Animator Animator { get; private set; }
-        public MonoBehaviour MonoBehavior => this;
-        public UiPlayerMovement Movement { get; private set; }
-        public UiPlayerAttributes Attributes { get; private set; }
-        public UiPlayerAnimator Animation { get; private set; }
-        public ISpaceMarineInput Input { get; private set; }
-        public bool IsLocked { get; private set; }
-
-        #endregion
+        [SerializeField] UiPlayerParameters parameters;
 
 
         protected override void OnAwake()
@@ -42,7 +25,7 @@ namespace SpaceMarine
             UnLock();
         }
 
-        private void Update()
+        void Update()
         {
             Movement?.Update();
             Animation?.Update();
@@ -77,5 +60,21 @@ namespace SpaceMarine
         {
             gameObject.SetActive(true);
         }
+
+        #region Properties
+
+        public UiPlayerParameters Parameters => parameters;
+        public Rigidbody2D Rigidbody2D { get; private set; }
+        public Collider2D Collider2D { get; private set; }
+        public SpriteRenderer Sprite { get; private set; }
+        public Animator Animator { get; private set; }
+        public MonoBehaviour MonoBehavior => this;
+        public UiPlayerMovement Movement { get; private set; }
+        public UiPlayerAttributes Attributes { get; private set; }
+        public UiPlayerAnimator Animation { get; private set; }
+        public ISpaceMarineInput Input { get; private set; }
+        public bool IsLocked { get; private set; }
+
+        #endregion
     }
 }

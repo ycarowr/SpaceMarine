@@ -1,12 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using SpaceMarine.Data;
-using SpaceMarine.Model;
-
-
-namespace SpaceMarine
+﻿namespace SpaceMarine
 {
-    public partial class UiTank : UiEnemy
+    public class UiTank : UiEnemy
     {
         public override void OnCollideBullet(UiBullet bullet)
         {

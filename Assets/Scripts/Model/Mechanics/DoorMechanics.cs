@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using Patterns.GameEvents;
-using UnityEngine;
 
 namespace SpaceMarine.Model
 {
@@ -16,21 +14,22 @@ namespace SpaceMarine.Model
 
     public class DoorMechanics : BaseGameMechanic, IDoorMechanics
     {
-        public bool HasQuickFirstDoor { get; private set; }
-        public Dictionary<DoorId, IDoor> Doors { get; }
         public DoorMechanics(IGame game) : base(game)
         {
             Doors = new Dictionary<DoorId, IDoor>();
         }
 
+        public Dictionary<DoorId, IDoor> Doors { get; }
+        public bool HasQuickFirstDoor { get; private set; }
+
         public void CreateDoors(IRoom room)
         {
             if (room.Data.Doors == null)
                 return;
-            
+
             if (room.Data.Doors.Length < 1)
                 return;
-            
+
             foreach (var data in room.Data.Doors)
             {
                 var door = new Door(room, data.Door);
@@ -64,12 +63,12 @@ namespace SpaceMarine.Model
         }
 
         //--------------------------------------------------------------------------------------------------------------
-        
+
         void OnQuickFirstDoor()
         {
-            GameEvents.Instance.Notify<GameEvent.IQuickFirstDoor>(i=>i.OnQuickFirstDoor());    
+            GameEvents.Instance.Notify<GameEvent.IQuickFirstDoor>(i => i.OnQuickFirstDoor());
         }
-        
+
         void OnSwitchDoor(IDoor door)
         {
             GameEvents.Instance.Notify<GameEvent.IDoors>(i => i.OnSwitchDoor(door));

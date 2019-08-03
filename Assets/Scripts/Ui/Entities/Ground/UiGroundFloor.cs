@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace SpaceMarine
+﻿namespace SpaceMarine
 {
     public class UiGroundFloor : UiBaseEntity
     {

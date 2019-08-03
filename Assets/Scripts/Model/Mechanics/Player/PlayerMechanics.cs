@@ -1,5 +1,4 @@
 using Patterns.GameEvents;
-using UnityEngine;
 
 namespace SpaceMarine.Model
 {
@@ -8,6 +7,10 @@ namespace SpaceMarine.Model
     /// </summary>
     public class PlayerMechanics : BaseGameMechanic, IPlayer
     {
+        public PlayerMechanics(IGame game) : base(game)
+        {
+        }
+
         public int Health { get; private set; }
         public int Ammo { get; private set; }
         public bool IsDead { get; private set; }
@@ -15,15 +18,9 @@ namespace SpaceMarine.Model
         public IGunData CurrentGun { get; private set; }
         public bool IsInsideElevator { get; set; }
 
-        public PlayerMechanics(IGame game) : base(game)
-        {
-            
-        }
-        
         //--------------------------------------------------------------------------------------------------------------
-        
+
         #region Rooms
-        
 
         public void EnterRoom(RoomId id)
         {
@@ -35,27 +32,26 @@ namespace SpaceMarine.Model
         {
             OnLeaveRoom(id);
         }
-        
+
         #endregion
-        
+
         //--------------------------------------------------------------------------------------------------------------
-        
+
         #region Damage
-        
+
         public void TakeDamage(int amount)
         {
-
         }
 
         public void Die()
         {
             OnDie();
         }
-        
+
         #endregion
-        
+
         //--------------------------------------------------------------------------------------------------------------
-        
+
         #region Shooting
 
         public void Shoot()
@@ -72,7 +68,7 @@ namespace SpaceMarine.Model
         {
             if (CurrentGun == null)
                 return;
-            
+
             Ammo = CurrentGun.ClipAmmo;
             OnReload();
         }
@@ -85,18 +81,18 @@ namespace SpaceMarine.Model
             CurrentGun = gunData;
             OnEquip();
         }
-        
+
         #endregion
-        
+
         //--------------------------------------------------------------------------------------------------------------
-        
+
         #region Events
 
         void OnEnterRoom(RoomId id)
         {
             GameEvents.Instance.Notify<GameEvent.IEnterRoom>(i => i.OnEnterRoom(id));
         }
-        
+
         void OnLeaveRoom(RoomId id)
         {
             GameEvents.Instance.Notify<GameEvent.ILeaveRoom>(i => i.OnLeaveRoom(id));
@@ -116,12 +112,12 @@ namespace SpaceMarine.Model
         {
             GameEvents.Instance.Notify<GameEvent.IPlayerReload>(i => i.OnReload(this));
         }
-        
+
         void OnEquip()
         {
             GameEvents.Instance.Notify<GameEvent.IPlayerEquip>(i => i.OnEquip(this, CurrentGun));
         }
-        
+
         #endregion
     }
 }

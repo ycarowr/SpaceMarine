@@ -1,18 +1,10 @@
-﻿using Tools;
-using Tools.Dialog;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SpaceMarine.Arrival
 {
     [CreateAssetMenu(menuName = "Parameters/ArrivalSceneParameters")]
     public class ArrivalSceneParameters : ScriptableObject
     {
-        
-        public bool SkipIntro;
-
-        [Header("Space Craft")] public float PlayerWalkSpeed;
-        public Vector3 PlayerPosition;
-        public Vector3 PlayerFinalPosition;
         public Vector3 ArrivalPoint;
         [Range(0, 5)] public float DelayMoveRight;
 
@@ -22,10 +14,16 @@ namespace SpaceMarine.Arrival
 
         [Range(0, 5)] public float FadeStart;
         [Range(0, 5)] public float FadeStartDelay;
+        public Vector3 PlayerFinalPosition;
+        public Vector3 PlayerPosition;
 
-        [Header("Space Craft Movement")] 
-        public Vector3 ReverCraftScale;
+        [Header("Space Craft")] public float PlayerWalkSpeed;
+
+        [Header("Space Craft Movement")] public Vector3 ReverCraftScale;
+
         public Vector3 RightScreenSpaceCraftPosition;
+
+        public bool SkipIntro;
 
         [Range(0, 10)] public float SpaceCraftSpeedArrival;
         [Range(0, 10)] public float SpaceCraftSpeedLeft;

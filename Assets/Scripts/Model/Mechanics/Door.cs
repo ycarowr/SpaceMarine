@@ -5,14 +5,6 @@ namespace SpaceMarine.Model
 {
     public class Door : IDoor
     {
-        public DoorId Id { get; private set; }
-        public DoorData Data { get; private set; }
-        public IRoom Room { get; private set; }
-        public bool IsLocked { get; private set; }
-        public bool IsDead { get; private set; }
-        public int Health { get; private set; }
-
-
         public Door(IRoom room, DoorData data)
         {
             Room = room;
@@ -20,7 +12,14 @@ namespace SpaceMarine.Model
             Id = data.Id;
             Health = data.Health;
         }
-        
+
+        public IRoom Room { get; }
+        public DoorId Id { get; }
+        public DoorData Data { get; }
+        public bool IsLocked { get; private set; }
+        public bool IsDead { get; private set; }
+        public int Health { get; private set; }
+
         public void Lock()
         {
             IsLocked = true;
@@ -38,16 +37,16 @@ namespace SpaceMarine.Model
             EvaluateDeath();
         }
 
-        private void EvaluateDeath()
-        {
-            IsDead = Health <= 0;
-            if(IsDead)
-                Die();
-        }
-
         public void Die()
         {
             GameEvents.Instance.Notify<GameEvent.IDestroyDoor>(i => i.OnDestroyDoor(this));
+        }
+
+        void EvaluateDeath()
+        {
+            IsDead = Health <= 0;
+            if (IsDead)
+                Die();
         }
 
         void OnTakeDamage(int damage)

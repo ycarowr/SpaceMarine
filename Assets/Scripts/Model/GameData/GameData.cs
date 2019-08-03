@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Patterns;
+﻿using Patterns;
 using Patterns.GameEvents;
 using SpaceMarine.Data;
 using SpaceMarine.Model;
-using UnityEngine;
 
 namespace SpaceMarine
 {
@@ -17,14 +14,9 @@ namespace SpaceMarine
         ///     All the static data about the rooms.
         /// </summary>
         public RoomData[] Rooms;
-        
+
         public IGame Game { get; private set; }
 
-        void Start()
-        {
-            CreateGame();   
-        }
-        
         public void CreateGame()
         {
             Game = new Game(Rooms);
@@ -34,6 +26,11 @@ namespace SpaceMarine
         public void LoadGame()
         {
             //TODO:
+        }
+
+        void Start()
+        {
+            CreateGame();
         }
 
         void OnCreateGame()

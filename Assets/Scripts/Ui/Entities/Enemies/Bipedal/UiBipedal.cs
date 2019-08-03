@@ -1,20 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Patterns.StateMachine;
-using SpaceMarine.Data;
-using SpaceMarine.Model;
+﻿using Patterns.StateMachine;
 using UnityEngine;
-
 
 namespace SpaceMarine
 {
     public partial class UiBipedal : UiEnemy, IStateMachineHandler
     {
-        public MonoBehaviour MonoBehaviour => this;
         public Transform PointA;
         public Transform PointB;
-       
+
         UiEnemyFSM Behaviors { get; set; }
+        public MonoBehaviour MonoBehaviour => this;
 
         protected override void Awake()
         {

@@ -15,7 +15,7 @@ namespace SpaceMarine
         void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
-            foreach(var s in UiElevator.uiElevatorStops)
+            foreach (var s in UiElevator.uiElevatorStops)
                 Gizmos.DrawCube(s.Position.position, Vector3.one * 0.5f);
 
             for (var i = 1; i < UiElevator.uiElevatorStops.Length; i++)

@@ -1,69 +1,67 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using Patterns.GameEvents;
 using SpaceMarine.Model;
 using Tools;
-using Tools.Dialog;
 using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class UiDoorBulletHandler : UiGameEventListener, 
-        UiBullet.IBulletHandler, 
-        GameEvent.IDoorTakeDamage, 
+    public class UiDoorBulletHandler : UiGameEventListener,
+        UiBullet.IBulletHandler,
+        GameEvent.IDoorTakeDamage,
         GameEvent.IDestroyDoor
     {
-        [Header("Destroy damage Parameters")]
-        public Vector2 IntervalExplosions;
-        public int QuantityExplosions;
+        [Header("Prefabs")] public GameObject ExplosionPrefab;
+
         public Color HitColor;
-        
-        [Header("Prefabs")]
-        public GameObject ExplosionPrefab;
+
+        [Header("Destroy damage Parameters")] public Vector2 IntervalExplosions;
+
+        public int QuantityExplosions;
         public SpriteRenderer SpriteRenderer;
-        
+
         UiDoor UiDoor { get; set; }
         ShakeAnimation Shake { get; set; }
-        
-        
-        protected override void Awake()
-        {
-            base.Awake();
-            Shake = GetComponent<ShakeAnimation>();
-            UiDoor = GetComponent<UiDoor>();
-        }
-        
+
         //--------------------------------------------------------------------------------------------------------------
 
         void UiBullet.IBulletHandler.OnCollideBullet(UiBullet bullet)
         {
             if (bullet == null)
                 return;
-            
+
             var dam = bullet.Damage;
-            var door = UiDoor.Door; 
+            var door = UiDoor.Door;
             door.TakeDamage(dam);
+        }
+
+        void GameEvent.IDestroyDoor.OnDestroyDoor(IDoor door)
+        {
+            if (door.Id == UiDoor.Id && isActiveAndEnabled)
+                StartCoroutine(AnimateExplosion());
         }
 
         void GameEvent.IDoorTakeDamage.OnTakeDamage(IDoor door, int damage)
         {
-            if(door.Id == UiDoor.Id && isActiveAndEnabled)
+            if (door.Id == UiDoor.Id && isActiveAndEnabled)
             {
                 SpriteRenderer.color = HitColor;
                 Shake.Shake();
                 StartCoroutine(MakeItWhiteAgain());
             }
         }
-        
-        void GameEvent.IDestroyDoor.OnDestroyDoor(IDoor door)
+
+
+        protected override void Awake()
         {
-            if(door.Id == UiDoor.Id && isActiveAndEnabled)
-                StartCoroutine(AnimateExplosion());
+            base.Awake();
+            Shake = GetComponent<ShakeAnimation>();
+            UiDoor = GetComponent<UiDoor>();
         }
-        
+
         //--------------------------------------------------------------------------------------------------------------
 
-        private IEnumerator MakeItWhiteAgain()
+        IEnumerator MakeItWhiteAgain()
         {
             yield return new WaitForSeconds(0.2f);
             SpriteRenderer.color = Color.white;
@@ -80,16 +78,16 @@ namespace SpaceMarine
                 var rndPosWithin = new Vector3(x, y, 0);
                 explosion.transform.position = rndPosWithin;
             }
-            
+
             Explode();
-            
+
             for (var i = 1; i < QuantityExplosions; i++)
             {
                 var delayUntilNext = Random.Range(IntervalExplosions.x, IntervalExplosions.y);
                 yield return new WaitForSeconds(delayUntilNext);
                 Explode();
-                
-                if(i == QuantityExplosions -1)
+
+                if (i == QuantityExplosions - 1)
                     UiObjectsPooler.Instance.Release(gameObject);
             }
         }

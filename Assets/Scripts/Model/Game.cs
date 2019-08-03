@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using SpaceMarine.Data;
-using UnityEngine;
+﻿using SpaceMarine.Data;
 
 namespace SpaceMarine.Model
 {
@@ -10,17 +7,6 @@ namespace SpaceMarine.Model
     /// </summary>
     public class Game : IGame
     {
-        #region Mechanics
-        public IPlayer Player { get; }
-        public ElevatorMechanics ElevatorMechanics { get; }
-        public IRoomMechanics RoomMechanics { get; }
-        public EnemyMechanics EnemyMechanics { get; }
-        public IDoorMechanics DoorsMechanics { get; }
-        public GameAttributes Attributes { get; }
-        
-        #endregion
-        
-        
         public Game(RoomData[] roomData)
         {
             EnemyMechanics = new EnemyMechanics(this);
@@ -30,5 +16,16 @@ namespace SpaceMarine.Model
             Attributes = new GameAttributes(this);
             Player = new PlayerMechanics(this);
         }
+
+        #region Mechanics
+
+        public IPlayer Player { get; }
+        public ElevatorMechanics ElevatorMechanics { get; }
+        public IRoomMechanics RoomMechanics { get; }
+        public EnemyMechanics EnemyMechanics { get; }
+        public IDoorMechanics DoorsMechanics { get; }
+        public GameAttributes Attributes { get; }
+
+        #endregion
     }
 }

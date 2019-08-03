@@ -6,27 +6,27 @@ namespace SpaceMarine
 {
     public class GameController : SingletonMB<GameController>, GameEvent.ICreateGame, IListener
     {
-        private IGameData GameData => SpaceMarine.GameData.Instance;
-        private IGame Game => GameData?.Game;
+        IGameData GameData => SpaceMarine.GameData.Instance;
+        IGame Game => GameData?.Game;
+
+        public void OnCreateGame(IGame runtimeGame)
+        {
+            StartGame();
+        }
 
         void Start()
         {
             GameEvents.Instance.AddListener(this);
         }
 
-        private void StartGame()
+        void StartGame()
         {
             Game.Attributes.StartGame();
         }
 
-        private void EndGame()
+        void EndGame()
         {
             Game.Attributes.EndGame();
-        }
-
-        public void OnCreateGame(IGame runtimeGame)
-        {
-            StartGame();
         }
     }
 }

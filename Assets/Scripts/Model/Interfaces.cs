@@ -25,8 +25,8 @@ namespace SpaceMarine.Model
     public interface IShooter
     {
         IGunData CurrentGun { get; }
-        void Equip(IGunData gun);
         int Ammo { get; }
+        void Equip(IGunData gun);
         bool CanShoot();
         void Shoot();
     }
@@ -64,7 +64,6 @@ namespace SpaceMarine.Model
         List<IDoor> Doors { get; }
         void AddEnemy(IEnemy enemy);
         void AddDoor(IDoor door);
-        
     }
 
     public interface IDoor : IAttackable

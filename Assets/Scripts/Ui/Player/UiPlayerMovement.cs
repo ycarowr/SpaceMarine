@@ -10,7 +10,7 @@ namespace SpaceMarine
         UiPlayerParameters Parameters { get; }
         ISpaceMarineInput Input { get; }
     }
-    
+
     public class UiPlayerMovement : IPlayerMovement
     {
         public UiPlayerMovement(IUiPlayer uiPlayer)
@@ -22,15 +22,16 @@ namespace SpaceMarine
             Motion = new UiMotion(this);
         }
 
+        Rigidbody2D Rigidbody2D { get; }
+        float JumpTime { get; set; }
+        float vSpeed { get; set; }
+        float hSpeed { get; set; }
+
         public UiMotion Motion { get; }
         public MonoBehaviour MonoBehaviour => UiPlayer.MonoBehavior;
         public IUiPlayer UiPlayer { get; }
-        public  UiPlayerParameters Parameters { get; }
-        public  ISpaceMarineInput Input { get; }
-        private Rigidbody2D Rigidbody2D { get; }
-        private float JumpTime { get; set; }
-        private float vSpeed { get; set; }
-        private float hSpeed { get; set; }
+        public UiPlayerParameters Parameters { get; }
+        public ISpaceMarineInput Input { get; }
 
         public void Update()
         {
@@ -38,11 +39,11 @@ namespace SpaceMarine
             Move();
         }
 
-        private void Move()
+        void Move()
         {
             if (UiPlayer.IsLocked)
                 return;
-            
+
             if (UiPlayer.Attributes.IsShotting && UiPlayer.Attributes.IsGrounded)
                 return;
 
@@ -54,7 +55,7 @@ namespace SpaceMarine
             Rigidbody2D.MovePosition(position + speed);
         }
 
-        private float GetVerticalSpeed(Vector3 position)
+        float GetVerticalSpeed(Vector3 position)
         {
             if (!Input.IsJumpPressed)
             {

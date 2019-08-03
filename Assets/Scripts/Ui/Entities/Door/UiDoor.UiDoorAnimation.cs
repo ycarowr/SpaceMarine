@@ -6,14 +6,15 @@ namespace SpaceMarine
     {
         public class UiDoorAnimation
         {
+            readonly int close = Animator.StringToHash("Close");
             readonly int open = Animator.StringToHash("Open");
-            readonly int close = Animator.StringToHash("Close");    
-            Animator Animator { get; }
 
             public UiDoorAnimation(MonoBehaviour handler)
             {
                 Animator = handler.GetComponent<Animator>();
             }
+
+            Animator Animator { get; }
 
             public void Open()
             {

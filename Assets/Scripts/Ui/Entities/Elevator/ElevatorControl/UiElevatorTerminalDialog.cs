@@ -1,28 +1,23 @@
-﻿using System;
-using System.Diagnostics.Tracing;
-using Patterns.GameEvents;
+﻿using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools;
 using Tools.Dialog;
-using Tools.UI;
-using UnityEditor;
 using UnityEngine;
 
 namespace SpaceMarine
 {
     public class UiElevatorTerminalDialog : UiGameEventListener
     {
-        private IElevator Elevator => GameData.Instance.Game.ElevatorMechanics.Elevator;
-        private UiButtonTriggerZone ButtonETrigger { get; set; }
-        
-        [Header("Dialog Parameters")]
-        public TextButton ButtonToggleOn;
-        public TextButton ButtonToggleOff;
         public TextButton ButtonForgetIt;
-        
-        public TextSequence TextSequenceOn;
+        public TextButton ButtonToggleOff;
+
+        [Header("Dialog Parameters")] public TextButton ButtonToggleOn;
+
         public TextSequence TextSequenceOff;
-        private IDialogSystem DialogSystem { get; set; }
+
+        public TextSequence TextSequenceOn;
+        IElevator Elevator => GameData.Instance.Game.ElevatorMechanics.Elevator;
+        UiButtonTriggerZone ButtonETrigger { get; set; }
+        IDialogSystem DialogSystem { get; set; }
 
         protected override void Awake()
         {
@@ -34,7 +29,7 @@ namespace SpaceMarine
             ButtonForgetIt.OnClick.Add(DialogSystem, DialogSystem.Hide);
         }
 
-        private void Start()
+        void Start()
         {
             ButtonETrigger.AddListener(ToggleDialog);
             ButtonETrigger.Window.OnHidden += DialogSystem.Hide;
@@ -44,15 +39,17 @@ namespace SpaceMarine
         {
             if (!DialogSystem.IsOpened)
             {
-                if(Elevator.IsLocked)
+                if (Elevator.IsLocked)
                     DialogSystem.Write(TextSequenceOff);
                 else
                     DialogSystem.Write(TextSequenceOn);
             }
             else
+            {
                 DialogSystem.Hide();
+            }
         }
-        
+
         void ToggleElevator()
         {
             DialogSystem.Hide();

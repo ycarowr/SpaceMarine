@@ -1,13 +1,12 @@
 ﻿using System;
 using Tools;
-using UnityEngine;
 
 namespace SpaceMarine
 {
     public class UiButtonTriggerZone : UiStateEntity
     {
+        IKeyboardInput Input;
         public Window Window { get; private set; }
-        private IKeyboardInput Input;
 
         protected override void Awake()
         {
@@ -18,10 +17,10 @@ namespace SpaceMarine
 
         public void AddListener(Action action)
         {
-            if(action != null)
+            if (action != null)
                 Input.OnKeyDown += action;
         }
-        
+
         protected override void OnStartProcessing()
         {
             Window.Show();
@@ -32,6 +31,6 @@ namespace SpaceMarine
         {
             Window.Hide();
             Input.StopTracking();
-        }      
+        }
     }
 }

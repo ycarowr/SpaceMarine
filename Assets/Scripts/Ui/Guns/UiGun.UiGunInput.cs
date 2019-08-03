@@ -1,6 +1,3 @@
-using System.Diagnostics.Tracing;
-using Patterns;
-using Patterns.GameEvents;
 using SpaceMarine.Model;
 using UnityEngine;
 
@@ -8,20 +5,21 @@ namespace SpaceMarine
 {
     public partial class UiGun
     {
-        private class UiGunInput
+        class UiGunInput
         {
-            public IPlayer Player => GameData.Instance.Game.Player;
-            private UiGun Parent { get; }
-            private float timeRate;
-            
+            float timeRate;
+
             public UiGunInput(UiGun parent)
             {
                 Parent = parent;
             }
-            
+
+            public IPlayer Player => GameData.Instance.Game.Player;
+            UiGun Parent { get; }
+
             public void TryEquip(GunData data)
             {
-                Player.Equip(data);   
+                Player.Equip(data);
             }
 
             public void Update()
@@ -42,10 +40,12 @@ namespace SpaceMarine
                 }
 
                 var isUnderRate = timeRate < 1f / Parent.GunData.Rate;
-                
+
                 //has fire rate
-                if(isUnderRate)
+                if (isUnderRate)
+                {
                     timeRate += Time.deltaTime;
+                }
                 else
                 {
                     timeRate = 0;

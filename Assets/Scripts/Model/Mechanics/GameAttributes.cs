@@ -1,17 +1,16 @@
 using Patterns.GameEvents;
-using UnityEngine;
 
 namespace SpaceMarine.Model
 {
     public class GameAttributes : BaseGameMechanic
     {
-        public bool IsStarted { get; private set; }
-        public bool IsFinished { get; private set; }
-        
         public GameAttributes(IGame game) : base(game)
         {
         }
-        
+
+        public bool IsStarted { get; private set; }
+        public bool IsFinished { get; private set; }
+
         //--------------------------------------------------------------------------------------------------------------
 
         public void StartGame()
@@ -30,14 +29,14 @@ namespace SpaceMarine.Model
         {
             if (!IsStarted)
                 return;
-            
+
             if (IsFinished)
                 return;
-            
+
             IsFinished = true;
             OnEnd();
         }
-        
+
         //--------------------------------------------------------------------------------------------------------------
 
         /// <summary>
@@ -47,7 +46,7 @@ namespace SpaceMarine.Model
         {
             GameEvents.Instance.Notify<GameEvent.IStartGame>(i => i.OnStartGame(Game));
         }
-        
+
         /// <summary>
         ///     Dispatch end game.
         /// </summary>

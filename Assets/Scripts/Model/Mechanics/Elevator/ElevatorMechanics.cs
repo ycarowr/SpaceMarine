@@ -2,16 +2,14 @@ using Patterns.GameEvents;
 
 namespace SpaceMarine.Model
 {
-   
     public class ElevatorMechanics : BaseGameMechanic
     {
-        public IElevator Elevator { get; }
-        
-        
         public ElevatorMechanics(IGame game) : base(game)
         {
             Elevator = new Elevator();
         }
+
+        public IElevator Elevator { get; }
 
         public void PlayerEmbark()
         {
@@ -22,24 +20,23 @@ namespace SpaceMarine.Model
         {
             Game.Player.IsInsideElevator = false;
         }
-        
+
         public void GoTo(RoomId id)
         {
             Elevator.GoTo(id);
             PlayerEmbark();
         }
-        
+
         //--------------------------------------------------------------------------------------------------------------
 
         void OnEmbark()
         {
             GameEvents.Instance.Notify<GameEvent.IPlayerEmbark>(i => i.OnEmbark(Elevator, Game.Player));
         }
-        
+
         void OnDisembark()
         {
             GameEvents.Instance.Notify<GameEvent.IPlayerDisembark>(i => i.OnDisembark(Elevator, Game.Player));
         }
-        
     }
 }

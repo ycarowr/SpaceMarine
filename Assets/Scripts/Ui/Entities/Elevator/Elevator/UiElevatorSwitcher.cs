@@ -1,17 +1,24 @@
-﻿using System.Diagnostics.Tracing;
-using Patterns.GameEvents;
+﻿using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools;
-using Tools.UI;
-using UnityEditor;
-using UnityEngine;
 
 namespace SpaceMarine
 {
     public class UiElevatorSwitcher : UiGameEventListener, GameEvent.IOnSwitchElevator, GameEvent.IStartGame
     {
-        private UiElevator UiElevator { get; set; }
-        private UiButtonTriggerZone ButtonETrigger { get; set; }
+        UiElevator UiElevator { get; set; }
+        UiButtonTriggerZone ButtonETrigger { get; set; }
+
+        void GameEvent.IOnSwitchElevator.OnSwitch(bool isEnabled)
+        {
+            SwitchElevator(isEnabled);
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
+
+        void GameEvent.IStartGame.OnStartGame(IGame game)
+        {
+            SwitchOff();
+        }
 
         protected override void Awake()
         {
@@ -19,29 +26,17 @@ namespace SpaceMarine
             UiElevator = GetComponent<UiElevator>();
             ButtonETrigger = GetComponentInChildren<UiButtonTriggerZone>();
         }
-        
-        //--------------------------------------------------------------------------------------------------------------
-        
-        void GameEvent.IStartGame.OnStartGame(IGame game)
-        {
-            SwitchOff();
-        }
 
-        void GameEvent.IOnSwitchElevator.OnSwitch(bool isEnabled)
-        {
-            SwitchElevator(isEnabled);
-        }
-        
         //--------------------------------------------------------------------------------------------------------------
-        
+
         public void SwitchElevator(bool isEnabled)
         {
-            if(isEnabled)
+            if (isEnabled)
                 SwitchOn();
             else
                 SwitchOff();
         }
-        
+
         public void SwitchOn()
         {
             ButtonETrigger.SetState(UiStateEntity.State.Off);

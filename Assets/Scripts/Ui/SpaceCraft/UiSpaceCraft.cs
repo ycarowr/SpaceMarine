@@ -16,7 +16,7 @@ namespace SpaceMarine
             Motion.Movement.IsConstant = false;
         }
 
-        private void Update()
+        void Update()
         {
             Motion?.Update();
         }

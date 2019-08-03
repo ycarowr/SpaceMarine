@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using SpaceMarine.Input;
+﻿using SpaceMarine.Input;
 using UnityEngine;
 
 namespace SpaceMarine

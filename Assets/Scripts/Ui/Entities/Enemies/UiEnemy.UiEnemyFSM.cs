@@ -1,19 +1,17 @@
 using Patterns.StateMachine;
-using UnityEngine;
 
 namespace SpaceMarine
 {
     public partial class UiEnemy
     {
-        public abstract partial class UiEnemyFSM : BaseStateMachine 
+        public abstract partial class UiEnemyFSM : BaseStateMachine
         {
-            public abstract Patrol PatrolState { get; protected set; }
-            public abstract Alert AlertState { get; protected set; }
-
             protected UiEnemyFSM(IStateMachineHandler handler) : base(handler)
             {
-                
             }
+
+            public abstract Patrol PatrolState { get; protected set; }
+            public abstract Alert AlertState { get; protected set; }
 
             /// <summary>
             ///     Patrols the area.

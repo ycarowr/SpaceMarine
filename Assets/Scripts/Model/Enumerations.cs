@@ -4,16 +4,16 @@ namespace SpaceMarine.Model
     {
         MachineGun
     }
-    
+
     public enum RoomId
     {
-        Arrival, 
+        Arrival,
         Elevator0,
         Elevator1,
         Elevator2,
         Elevator3,
         Control,
-        Bipedal, 
+        Bipedal,
         Wasp,
         Tank,
         Walker,
@@ -24,7 +24,7 @@ namespace SpaceMarine.Model
     public enum EnemyId
     {
         Bipedal,
-        Wasp, 
+        Wasp,
         Walker,
         Tank,
         Mecha

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using FullSerializer;
 using Tools.UI;
 using UnityEngine;
 
@@ -15,23 +13,9 @@ namespace SpaceMarine
             /// </summary>
             class BipedalPatrol : Patrol, IUiMotionHandler
             {
-                enum State
-                {
-                    PointA,
-                    PointB,
-                    WalkA,
-                    WalkB
-                }
-                
-                Transform PointA { get; }
-                Transform PointB { get; }
-                State Current { get; set; }
                 const float IdleTime = 3;
                 const float Speed = 5;
-                Coroutine IdleRoutine { get; set; }
-                public UiMotion Motion { get; }
-                public MonoBehaviour MonoBehaviour => Fsm.Handler.MonoBehaviour;
-                
+
 
                 public BipedalPatrol(UiEnemyFSM fsm, Transform pointA, Transform pointB) : base(fsm)
                 {
@@ -41,7 +25,14 @@ namespace SpaceMarine
                     Motion = new UiMotion(this);
                     Motion.Movement.IsConstant = true;
                 }
-                
+
+                Transform PointA { get; }
+                Transform PointB { get; }
+                State Current { get; set; }
+                Coroutine IdleRoutine { get; set; }
+                public UiMotion Motion { get; }
+                public MonoBehaviour MonoBehaviour => Fsm.Handler.MonoBehaviour;
+
                 //------------------------------------------------------------------------------------------------------
 
                 public override void OnEnterState()
@@ -53,9 +44,17 @@ namespace SpaceMarine
                 {
                     Motion.Update();
                 }
-                
+
+                enum State
+                {
+                    PointA,
+                    PointB,
+                    WalkA,
+                    WalkB
+                }
+
                 //------------------------------------------------------------------------------------------------------
-                
+
                 #region Sub State Machine
 
                 /// <summary>
@@ -67,7 +66,7 @@ namespace SpaceMarine
                     yield return new WaitForSeconds(IdleTime);
                     GoTo(State.WalkB);
                 }
-                
+
                 /// <summary>
                 ///     Patrol point B.
                 /// </summary>
@@ -88,7 +87,7 @@ namespace SpaceMarine
                         Motion.Movement.OnFinishMotion -= MoveA;
                         GoTo(State.PointA);
                     }
-                    
+
                     Motion.Movement.OnFinishMotion += MoveA;
                     Motion.MoveTo(PointA.position, Speed);
                 }
@@ -103,7 +102,7 @@ namespace SpaceMarine
                         Motion.Movement.OnFinishMotion -= MoveB;
                         GoTo(State.PointB);
                     }
-                    
+
                     Motion.Movement.OnFinishMotion += MoveB;
                     Motion.MoveTo(PointB.position, Speed);
                 }
@@ -122,17 +121,24 @@ namespace SpaceMarine
                 {
                     switch (Current)
                     {
-                        case State.PointA: IdleRoutine = MonoBehaviour.StartCoroutine(StayA()); break;
-                        case State.PointB: IdleRoutine = MonoBehaviour.StartCoroutine(StayB()); break;
-                        case State.WalkA: WalkTowardsA(); break;
-                        case State.WalkB: WalkTowardsB(); break;
+                        case State.PointA:
+                            IdleRoutine = MonoBehaviour.StartCoroutine(StayA());
+                            break;
+                        case State.PointB:
+                            IdleRoutine = MonoBehaviour.StartCoroutine(StayB());
+                            break;
+                        case State.WalkA:
+                            WalkTowardsA();
+                            break;
+                        case State.WalkB:
+                            WalkTowardsB();
+                            break;
                     }
                 }
-                
+
                 #endregion
-                
+
                 //------------------------------------------------------------------------------------------------------
-                
             }
         }
     }

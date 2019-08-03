@@ -4,12 +4,12 @@ namespace SpaceMarine
 {
     public class UiPlayerAnimator
     {
-        private readonly int Die = Animator.StringToHash("Die");
+        readonly int Die = Animator.StringToHash("Die");
 
-        private readonly int Idle = Animator.StringToHash("Idle");
-        private readonly int Jump = Animator.StringToHash("Jump");
-        private readonly int Run = Animator.StringToHash("Run");
-        private readonly int Shoot = Animator.StringToHash("Shoot");
+        readonly int Idle = Animator.StringToHash("Idle");
+        readonly int Jump = Animator.StringToHash("Jump");
+        readonly int Run = Animator.StringToHash("Run");
+        readonly int Shoot = Animator.StringToHash("Shoot");
 
         public UiPlayerAnimator(IUiPlayer uiPlayer)
         {
@@ -19,16 +19,16 @@ namespace SpaceMarine
             Animator = uiPlayer.Animator;
         }
 
-        private IUiPlayer UiPlayer { get; }
-        private UiPlayerAttributes Attributes { get; }
-        private Animator Animator { get; }
-        private SpriteRenderer Sprite { get; }
+        IUiPlayer UiPlayer { get; }
+        UiPlayerAttributes Attributes { get; }
+        Animator Animator { get; }
+        SpriteRenderer Sprite { get; }
 
         public void Update()
         {
             if (UiPlayer.IsLocked)
                 return;
-            
+
             Animator.SetBool(Jump, !Attributes.IsGrounded);
             Animator.SetBool(Idle, Attributes.IsIdle);
             Animator.SetBool(Run, Attributes.IsMoving);
@@ -38,13 +38,13 @@ namespace SpaceMarine
             Sprite.flipX = Attributes.IsMoving ? Attributes.IsLeft : Sprite.flipX;
         }
 
-        
+
         public void ForceWalk()
         {
             Animator.SetBool(Run, true);
             Animator.SetBool(Jump, false);
         }
-        
+
         public void ForceJump()
         {
             Animator.SetBool(Run, false);

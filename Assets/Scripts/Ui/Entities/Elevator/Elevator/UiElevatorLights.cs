@@ -1,25 +1,20 @@
-﻿using System;
-using System.Diagnostics;
-using Tools;
-using Tools.UI.Fade;
-using UnityEngine;
-using Debug = UnityEngine.Debug;
+﻿using Tools.UI.Fade;
 
 namespace SpaceMarine
 {
     public class UiElevatorLights : UiBaseEntity
     {
-        private const float LightsOn = 0;
-        private const float LightsOff = 0.7f;
-        
-        private FadeComponent Lights { get; set; }
+        const float LightsOn = 0;
+        const float LightsOff = 0.7f;
+
+        FadeComponent Lights { get; set; }
 
         protected override void Awake()
         {
             base.Awake();
             Lights = transform.parent.GetComponentInChildren<FadeComponent>();
         }
-        
+
         protected override void OnTriggerEnterPlayer()
         {
             Lights.SetAlpha(LightsOn);

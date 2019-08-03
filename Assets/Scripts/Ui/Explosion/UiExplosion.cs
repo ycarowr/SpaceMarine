@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SpaceMarine
 {
     public class UiExplosion : MonoBehaviour
     {
         readonly int explosion = Animator.StringToHash("Explosion");
-        private Animator Animator { get; set; }
+        Animator Animator { get; set; }
 
         void Awake()
         {

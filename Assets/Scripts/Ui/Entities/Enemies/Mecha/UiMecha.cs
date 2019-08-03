@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using SpaceMarine;
-using UnityEngine;
-
-namespace SpaceMarine
+﻿namespace SpaceMarine
 {
     public class UiMecha : UiEnemy
     {

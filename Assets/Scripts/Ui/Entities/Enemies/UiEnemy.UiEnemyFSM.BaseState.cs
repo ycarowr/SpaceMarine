@@ -6,19 +6,18 @@ namespace SpaceMarine
     {
         public partial class UiEnemyFSM
         {
-            public abstract class BaseEnemyState <T>: IState where T : BaseStateMachine
+            public abstract class BaseEnemyState<T> : IState where T : BaseStateMachine
             {
-                public T Fsm { get; }
-                public bool IsInitialized { get; }
-
                 protected BaseEnemyState(T fsm)
                 {
                     Fsm = fsm;
                 }
-                
+
+                public T Fsm { get; }
+                public bool IsInitialized { get; }
+
                 public virtual void OnInitialize()
                 {
-
                 }
 
                 public virtual void OnEnterState()

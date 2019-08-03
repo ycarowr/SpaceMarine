@@ -1,9 +1,6 @@
 ﻿using System.Collections;
-using Extensions;
 using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools;
-using Tools.Dialog;
 using Tools.UI.Fade;
 using UnityEngine;
 
@@ -11,19 +8,19 @@ namespace SpaceMarine.Arrival
 {
     public class ArrivalSceneSequence : UiGameEventListener, GameEvent.IStartGame
     {
-        [SerializeField] private ArrivalSceneParameters param;
-        
-        private UiSpaceCraft UiSpaceCraft => UiSpaceCraft.Instance;
-        
-        
+        [SerializeField] ArrivalSceneParameters param;
+
+        UiSpaceCraft UiSpaceCraft => UiSpaceCraft.Instance;
+
+
         public void OnStartGame(IGame runtimeGame)
         {
-            if(!param.SkipIntro)
-                StartProcessing(); 
+            if (!param.SkipIntro)
+                StartProcessing();
         }
-        
+
         [Button]
-        private void StartProcessing()
+        void StartProcessing()
         {
             Restart();
             Fade.Instance.SetAlphaImmediatly(param.FadeStart);
@@ -33,7 +30,7 @@ namespace SpaceMarine.Arrival
         }
 
         [Button]
-        private void Restart()
+        void Restart()
         {
             UiSpaceCraft.Motion.Movement.StopMotion();
             UiSpaceCraft.Motion.Movement.OnFinishMotion = () => { };
@@ -43,14 +40,14 @@ namespace SpaceMarine.Arrival
             Fade.Instance.SetAlphaImmediatly(1);
         }
 
-        private IEnumerator FadeOut()
+        IEnumerator FadeOut()
         {
             yield return new WaitForSeconds(param.FadeStartDelay);
             Fade.Instance.SetAlpha(0, param.FadeSpeedOpening);
             StartCoroutine(MoveSpaceCraftScreenRight());
         }
 
-        private IEnumerator MoveSpaceCraftScreenRight()
+        IEnumerator MoveSpaceCraftScreenRight()
         {
             yield return new WaitForSeconds(param.DelayMoveRight);
 
@@ -58,13 +55,13 @@ namespace SpaceMarine.Arrival
             UiSpaceCraft.Motion.Movement.OnFinishMotion += MoveSpaceCraftArrivalPoint;
         }
 
-        private void MoveSpaceCraftArrivalPoint()
+        void MoveSpaceCraftArrivalPoint()
         {
             UiSpaceCraft.Motion.Movement.OnFinishMotion -= MoveSpaceCraftArrivalPoint;
             StartCoroutine(MoveToArrival());
         }
 
-        private IEnumerator MoveToArrival()
+        IEnumerator MoveToArrival()
         {
             UiSpaceCraft.Instance.transform.localScale = param.ReverCraftScale;
             UiSpaceCraft.Instance.DisableNumber();
@@ -74,7 +71,7 @@ namespace SpaceMarine.Arrival
             UiSpaceCraft.Motion.Movement.OnFinishMotion += MovePlayerToArrival;
         }
 
-        private void MovePlayerToArrival()
+        void MovePlayerToArrival()
         {
             UiSpaceCraft.Motion.Movement.OnFinishMotion -= MovePlayerToArrival;
             UiPlayer.Instance.Active();
@@ -85,7 +82,7 @@ namespace SpaceMarine.Arrival
             UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion += EnablePlayer;
         }
 
-        private void EnablePlayer()
+        void EnablePlayer()
         {
             UiPlayer.Instance.Movement.Motion.Movement.OnFinishMotion -= EnablePlayer;
             UiPlayer.Instance.Movement.Motion.Movement.StopMotion();

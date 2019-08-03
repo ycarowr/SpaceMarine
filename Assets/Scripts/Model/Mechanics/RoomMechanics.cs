@@ -1,19 +1,17 @@
 using System.Collections.Generic;
-using Patterns.GameEvents;
 using SpaceMarine.Data;
-using UnityEngine;
 
 namespace SpaceMarine.Model
 {
     public class RoomMechanics : BaseGameMechanic, IRoomMechanics
     {
-        public Dictionary<RoomId, IRoom> Rooms { get; }
-        
         public RoomMechanics(IGame game, RoomData[] roomData) : base(game)
         {
             Rooms = new Dictionary<RoomId, IRoom>();
             CreateRooms(roomData);
         }
+
+        public Dictionary<RoomId, IRoom> Rooms { get; }
 
         public void CreateRooms(RoomData[] roomData)
         {

@@ -1,5 +1,4 @@
-﻿using Tools;
-using Tools.Dialog;
+﻿using Tools.Dialog;
 using UnityEngine;
 
 namespace SpaceMarine.Opening

@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SpaceMarine
 {
-    public class UiBulletSplash: MonoBehaviour
+    public class UiBulletSplash : MonoBehaviour
     {
-        private readonly int splashBullet = Animator.StringToHash("BulletSplash");
-        private Animator Animator { get; set; }
-        private SpriteRenderer SpriteRenderer { get; set; }
+        readonly int splashBullet = Animator.StringToHash("BulletSplash");
+        Animator Animator { get; set; }
+        SpriteRenderer SpriteRenderer { get; set; }
 
-        private void Awake()
+        void Awake()
         {
             Animator = GetComponent<Animator>();
             SpriteRenderer = GetComponent<SpriteRenderer>();

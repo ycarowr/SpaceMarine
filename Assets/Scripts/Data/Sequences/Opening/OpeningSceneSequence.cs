@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Tools;
 using Tools.Dialog;
 using Tools.UI.Fade;
 using UnityEngine;
@@ -9,13 +8,13 @@ namespace SpaceMarine.Opening
 {
     public class OpeningSceneSequence : MonoBehaviour
     {
-        [SerializeField] private DialogSystem dialog;
-        [SerializeField] private OpeningSceneParameters parameters;
-        [SerializeField] private TextButton NextButton;
-        
+        [SerializeField] DialogSystem dialog;
+        [SerializeField] TextButton NextButton;
+        [SerializeField] OpeningSceneParameters parameters;
+
 
         [Button]
-        private void Start()
+        void Start()
         {
             Restart();
             NextButton.OnClick.Add(dialog, dialog.Next);
@@ -24,7 +23,7 @@ namespace SpaceMarine.Opening
         }
 
         [Button]
-        private void Restart()
+        void Restart()
         {
             UiSpaceCraft.Instance.transform.localScale = parameters.StartCraftScale;
             UiSpaceCraft.Instance.Motion.Movement.StopMotion();
@@ -35,14 +34,14 @@ namespace SpaceMarine.Opening
             dialog.Hide();
         }
 
-        private IEnumerator FadeOut()
+        IEnumerator FadeOut()
         {
             yield return new WaitForSeconds(parameters.FadeStartDelay);
             Fade.Instance.SetAlpha(0, parameters.FadeSpeedOpening);
             StartCoroutine(MoveSpaceCraftScreenCenter());
         }
 
-        private IEnumerator MoveSpaceCraftScreenCenter()
+        IEnumerator MoveSpaceCraftScreenCenter()
         {
             yield return new WaitForSeconds(parameters.DelayMoveCraftCenter);
             var cameraPos = Camera.main.transform.position;
@@ -57,7 +56,7 @@ namespace SpaceMarine.Opening
             UiSpaceCraft.Instance.Motion.Movement.OnFinishMotion += MoveLeftRoutine;
         }
 
-        private void MoveSpaceCraftLeftScreenSide()
+        void MoveSpaceCraftLeftScreenSide()
         {
             UiSpaceCraft.Instance.Motion.Movement
                 .Execute(parameters.LeftScreenSpaceCraftPosition, parameters.SpaceCraftSpeedLeft, 0);
@@ -73,7 +72,7 @@ namespace SpaceMarine.Opening
             UiSpaceCraft.Instance.Motion.Movement.OnFinishMotion += ShowDialog;
         }
 
-        private void MoveSpaceCraftRightScreenSide()
+        void MoveSpaceCraftRightScreenSide()
         {
             dialog.OnHide -= MoveSpaceCraftRightScreenSide;
             UiSpaceCraft.Instance.Motion.Movement
@@ -83,7 +82,7 @@ namespace SpaceMarine.Opening
             Fade.Instance.OnFinishFade += LoadLevel;
         }
 
-        private void LoadLevel()
+        void LoadLevel()
         {
             SceneManager.LoadScene(parameters.NextLevel.name);
         }

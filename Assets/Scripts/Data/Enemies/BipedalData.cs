@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using SpaceMarine.Model;
+﻿using SpaceMarine.Model;
 using UnityEngine;
 
 namespace SpaceMarine.Data

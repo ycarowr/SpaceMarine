@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Patterns.GameEvents;
-using SpaceMarine.Model;
+﻿using Patterns.GameEvents;
 using Tools.Dialog;
 using UnityEngine;
 
@@ -9,13 +6,13 @@ namespace SpaceMarine
 {
     public class UiDoorDialog : UiGameEventListener
     {
+        public TextButton ButtonNevermind;
+
+        [Header("Dialog Parameters")] public TextButton ButtonOpenDoor;
+
+        public TextSequence OpenDoorSequence;
         UiDoor UiDoor { get; set; }
         UiButtonTriggerZone ButtonETrigger { get; set; }
-        
-        [Header("Dialog Parameters")]
-        public TextButton ButtonOpenDoor;
-        public TextButton ButtonNevermind;
-        public TextSequence OpenDoorSequence;
         IDialogSystem DialogSystem { get; set; }
 
         protected override void Awake()
@@ -28,7 +25,7 @@ namespace SpaceMarine
             ButtonNevermind.OnClick.Add(DialogSystem, DialogSystem.Hide);
         }
 
-        private void Start()
+        void Start()
         {
             ButtonETrigger.AddListener(ToggleDialog);
             ButtonETrigger.Window.OnHidden += DialogSystem.Hide;
@@ -38,7 +35,7 @@ namespace SpaceMarine
         {
             if (!UiDoor.HasQuickedFirstDoor)
                 return;
-         
+
             if (!DialogSystem.IsOpened)
                 DialogSystem.Write(OpenDoorSequence);
             else

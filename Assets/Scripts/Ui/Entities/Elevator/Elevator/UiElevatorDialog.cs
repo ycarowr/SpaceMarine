@@ -1,27 +1,21 @@
-﻿using System;
-using System.Diagnostics.Tracing;
-using Patterns.GameEvents;
+﻿using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools;
 using Tools.Dialog;
-using Tools.UI;
-using UnityEditor;
 using UnityEngine;
 
 namespace SpaceMarine
 {
     public class UiElevatorDialog : UiGameEventListener
     {
-        private ElevatorMechanics Elevator => GameData.Instance.Game.ElevatorMechanics;
-        private UiElevator UiElevator { get; set; }
-        private UiButtonTriggerZone ButtonETrigger { get; set; }
-        
-        [Header("Dialog Parameters")]
-        public TextButton ButtonDown;
-        public TextButton ButtonUp;
+        [Header("Dialog Parameters")] public TextButton ButtonDown;
+
         public TextButton ButtonForgetIt;
+        public TextButton ButtonUp;
         public TextSequence TextSequence;
-        private IDialogSystem DialogSystem { get; set; }
+        ElevatorMechanics Elevator => GameData.Instance.Game.ElevatorMechanics;
+        UiElevator UiElevator { get; set; }
+        UiButtonTriggerZone ButtonETrigger { get; set; }
+        IDialogSystem DialogSystem { get; set; }
 
         protected override void Awake()
         {
@@ -29,10 +23,9 @@ namespace SpaceMarine
             UiElevator = GetComponent<UiElevator>();
             DialogSystem = GetComponentInChildren<IDialogSystem>();
             ButtonETrigger = GetComponentInChildren<UiButtonTriggerZone>();
-            
         }
 
-        private void Start()
+        void Start()
         {
             ButtonDown.OnClick.Add(DialogSystem, PressDown);
             ButtonUp.OnClick.Add(DialogSystem, PressUp);
@@ -43,12 +36,12 @@ namespace SpaceMarine
 
         public void ToggleDialog()
         {
-            if(!DialogSystem.IsOpened)
+            if (!DialogSystem.IsOpened)
                 DialogSystem.Write(TextSequence);
             else
                 DialogSystem.Hide();
         }
-        
+
         void PressDown()
         {
             var current = UiElevator.CurrentRoom;
@@ -75,6 +68,7 @@ namespace SpaceMarine
                 DialogSystem.OnHide -= GoTo;
                 Elevator.GoTo(nextRoom);
             }
+
             DialogSystem.Hide();
         }
 
@@ -83,24 +77,40 @@ namespace SpaceMarine
             var nextRoom = RoomId.Elevator0;
             switch (current)
             {
-                case RoomId.Elevator0: nextRoom = RoomId.Elevator1; break;
-                case RoomId.Elevator1: nextRoom = RoomId.Elevator2; break;
-                case RoomId.Elevator2: nextRoom = RoomId.Elevator3; break;
-                case RoomId.Elevator3: nextRoom = RoomId.Elevator2; break;
+                case RoomId.Elevator0:
+                    nextRoom = RoomId.Elevator1;
+                    break;
+                case RoomId.Elevator1:
+                    nextRoom = RoomId.Elevator2;
+                    break;
+                case RoomId.Elevator2:
+                    nextRoom = RoomId.Elevator3;
+                    break;
+                case RoomId.Elevator3:
+                    nextRoom = RoomId.Elevator2;
+                    break;
             }
 
             return nextRoom;
         }
-        
+
         RoomId GetNextUp(RoomId current)
         {
             var nextRoom = RoomId.Elevator0;
             switch (current)
             {
-                case RoomId.Elevator0: nextRoom = RoomId.Elevator1; break;
-                case RoomId.Elevator1: nextRoom = RoomId.Elevator0; break;
-                case RoomId.Elevator2: nextRoom = RoomId.Elevator1; break;
-                case RoomId.Elevator3: nextRoom = RoomId.Elevator2; break;
+                case RoomId.Elevator0:
+                    nextRoom = RoomId.Elevator1;
+                    break;
+                case RoomId.Elevator1:
+                    nextRoom = RoomId.Elevator0;
+                    break;
+                case RoomId.Elevator2:
+                    nextRoom = RoomId.Elevator1;
+                    break;
+                case RoomId.Elevator3:
+                    nextRoom = RoomId.Elevator2;
+                    break;
             }
 
             return nextRoom;

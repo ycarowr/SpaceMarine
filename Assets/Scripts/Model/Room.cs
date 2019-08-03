@@ -5,11 +5,6 @@ namespace SpaceMarine.Model
 {
     public class Room : IRoom
     {
-        public RoomData Data { get; }
-        public RoomId Id { get; }
-        public List<IEnemy> Enemies { get; } 
-        public List<IDoor> Doors { get; }
-
         public Room(RoomData data)
         {
             Data = data;
@@ -18,11 +13,16 @@ namespace SpaceMarine.Model
             Doors = new List<IDoor>();
         }
 
+        public RoomData Data { get; }
+        public RoomId Id { get; }
+        public List<IEnemy> Enemies { get; }
+        public List<IDoor> Doors { get; }
+
         public void AddEnemy(IEnemy enemy)
         {
             Enemies.Add(enemy);
         }
-        
+
         public void AddDoor(IDoor door)
         {
             Doors.Add(door);
