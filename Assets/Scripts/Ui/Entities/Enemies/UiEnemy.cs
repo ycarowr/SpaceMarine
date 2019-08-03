@@ -11,7 +11,7 @@ using UnityEngine.Analytics;
 
 namespace SpaceMarine
 {
-    public class UiEnemy : UiBaseEntity, IListener,
+    public partial class UiEnemy : UiBaseEntity, IListener,
         UiBullet.IBulletHandler, 
         GameEvent.IDestroyEnemy, 
         GameEvent.IEnemyTakeDamage
@@ -21,7 +21,7 @@ namespace SpaceMarine
         ShakeAnimation Shake { get; set; }
 
 
-        private void Start()
+        void Start()
         {
             GameEvents.Instance.AddListener(this);
             Shake = GetComponent<ShakeAnimation>();
