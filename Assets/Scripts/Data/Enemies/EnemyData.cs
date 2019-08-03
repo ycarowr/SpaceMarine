@@ -6,7 +6,7 @@ using UnityEngine;
 namespace SpaceMarine.Data
 {
     public abstract class EnemyData : ScriptableObject
-    {   
+    {      
         [Tooltip("Name shown to the user.")]
         public string Name;
         
@@ -31,6 +31,8 @@ namespace SpaceMarine.Data
         [Tooltip("The prefab of the creature.")]
         public GameObject Model;
 
+        
+        //TODO: Create a protype to hold the common data
         [Tooltip("Explosion when the object is destroyed"), Header("Destroy")]
         public GameObject Explosion;
 

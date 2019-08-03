@@ -11,13 +11,13 @@ namespace SpaceMarine.Rooms
 {
     public class UiRoom : UiBaseEntity, IListener, GameEvent.ICreateGame
     {
-        private IRoomMechanics RoomMechanics => GameData.Instance.Game.RoomMechanics;
+        IRoom Room { get; set; }
+        IRoomMechanics RoomMechanics => GameData.Instance.Game.RoomMechanics;
         public UiCameraPoint CameraPoint { get; private set; }
 
         [Tooltip("The id of this room.")]
         public RoomId RoomId;
 
-        private IRoom Room { get; set; }
 
         protected override void Awake()
         {
@@ -45,7 +45,7 @@ namespace SpaceMarine.Rooms
             CreateUiEnemies();
         }
 
-        private void CreateUiEnemies()
+        void CreateUiEnemies()
         {
             foreach (var enemy in Room.Enemies)
             {

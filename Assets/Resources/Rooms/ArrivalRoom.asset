@@ -18,4 +18,4 @@ MonoBehaviour:
   Enemies: []
   Doors:
   - Door: {fileID: 11400000, guid: bb12e3ac49d67824c83d14ebc80ac311, type: 2}
-    Position: {x: 12, y: 2}
+    Position: {x: 7, y: 0}
