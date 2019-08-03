@@ -1,22 +1,17 @@
 ﻿using Patterns.GameEvents;
 using SpaceMarine.Data;
 using SpaceMarine.Model;
+using Tools;
 using Tools.UI;
 using UnityEngine;
 
 namespace SpaceMarine.Rooms
 {
-    public class UiRoomTest : MonoBehaviour
+    public class UiRoomGizmos : EditorComponent
     {
         public RoomData Data;
         readonly Vector3 gizmosDoorSize = new Vector3(0.4f, 3.5f);
         const float gizmosEnemySize = 0.4f;
-        
-        void OnEnable()
-        {
-            if(!Application.isEditor)
-                Destroy(gameObject);
-        }
 
         void OnDrawGizmos()
         {

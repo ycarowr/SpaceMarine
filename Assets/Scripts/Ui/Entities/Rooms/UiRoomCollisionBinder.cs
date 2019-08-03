@@ -6,13 +6,14 @@ using System.Runtime.CompilerServices;
 using Patterns;
 using Patterns.GameEvents;
 using SpaceMarine.Model;
+using Tools;
 using Tools.UI;
 using UnityEngine;
 
 namespace SpaceMarine.Rooms
 {
     [ExecuteInEditMode]
-    public class UiRoomCollisionBinder : MonoBehaviour
+    public class UiRoomCollisionBinder : EditorComponent
     {
         public enum BoundEdge
         {
@@ -23,13 +24,9 @@ namespace SpaceMarine.Rooms
         Bounds RoomBounds => Room.bounds;
         EdgeCollider2D Ground { get; set; }
         public BoundEdge Bound;
-        
 
-        private void OnEnable()
+        void Awake()
         {
-            if(!Application.isEditor && !Debug.isDebugBuild)
-                Destroy(this);
-            
             Ground = GetComponent<EdgeCollider2D>();
             var room = transform.parent.GetComponentInChildren<UiRoom>();
             Room = room.GetComponent<Collider2D>();

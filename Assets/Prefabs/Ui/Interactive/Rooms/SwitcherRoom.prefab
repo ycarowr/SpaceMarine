@@ -73,6 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3082235835533816052}
   - component: {fileID: 5467166596669075396}
+  - component: {fileID: 4323545397187903954}
   m_Layer: 0
   m_Name: CameraPosition
   m_TagString: Untagged
@@ -104,6 +105,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eb9bfc2246f2e24c88bc220291827a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4323545397187903954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2513693073321134186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9087558fd40a4a6cacac898cf685a8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3630130696273721674
@@ -543,6 +556,7 @@ GameObject:
   - component: {fileID: 2360923132179236971}
   - component: {fileID: 9190149674721588627}
   - component: {fileID: 4032129892087258819}
+  - component: {fileID: 1908879673357293019}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -616,3 +630,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e041e7c72c3b6b84f80ca2f0a7900bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1908879673357293019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9025261296338323479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7773fe8b6085e9e45b2b4ffd5ddeef8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: da1bbc758d82b654eb319b8e6f23955e, type: 2}

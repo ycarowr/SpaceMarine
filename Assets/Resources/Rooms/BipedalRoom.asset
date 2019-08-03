@@ -17,13 +17,13 @@ MonoBehaviour:
   Description: Where the bipedal robot stands on.
   Enemies:
   - Enemy: {fileID: 11400000, guid: c2a819c29eb9aa04390f567c06f8ffe2, type: 2}
-    Position: {x: 2, y: -8.89}
+    Position: {x: -6.91, y: 0}
   - Enemy: {fileID: 11400000, guid: 6122a72dc4f96b040a7d5b0abebb7721, type: 2}
-    Position: {x: 4.02, y: -8.89}
+    Position: {x: -3.51, y: 0}
   - Enemy: {fileID: 11400000, guid: e00d8a174b439fb4b81b0c6f477fbb13, type: 2}
-    Position: {x: 7.91, y: -8.89}
+    Position: {x: -0.47, y: 0}
   - Enemy: {fileID: 11400000, guid: 18c9db205bb3f6e46a5c14bda2bfb797, type: 2}
-    Position: {x: 5.88, y: -8.89}
+    Position: {x: 2.45, y: 0}
   - Enemy: {fileID: 11400000, guid: 3095a083678d9484e818588dbd6daba6, type: 2}
-    Position: {x: 8.59, y: -8.89}
+    Position: {x: 5.67, y: 0}
   Doors: []

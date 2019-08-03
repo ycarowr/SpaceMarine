@@ -16,4 +16,8 @@ MonoBehaviour:
   Id: 2
   Description: "Level which the player can access \nbipeal and control rooms."
   Enemies: []
-  Doors: []
+  Doors:
+  - Door: {fileID: 11400000, guid: e3621d14d94f5044d99d1d37f353cb66, type: 2}
+    Position: {x: -4.7, y: 0}
+  - Door: {fileID: 11400000, guid: c9d779fe52443d84e8920f99c2558114, type: 2}
+    Position: {x: 4.7, y: 0}

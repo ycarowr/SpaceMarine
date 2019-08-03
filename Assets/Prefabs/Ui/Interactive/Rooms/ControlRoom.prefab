@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 3231911851436136220}
   - component: {fileID: 3231911851436136218}
   - component: {fileID: 1447037609239603570}
+  - component: {fileID: 5713532704800487720}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -119,6 +120,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.6, y: 6.88}
   m_EdgeRadius: 0
+--- !u!114 &5713532704800487720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231911851436136216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7773fe8b6085e9e45b2b4ffd5ddeef8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: b45283755d043fe489151521b6e71fdd, type: 2}
 --- !u!1 &3231911851479861545
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3231911851479861544}
   - component: {fileID: 3988850783776880072}
+  - component: {fileID: 6823473124309024462}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -160,6 +175,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eb9bfc2246f2e24c88bc220291827a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6823473124309024462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231911851479861545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9087558fd40a4a6cacac898cf685a8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3231911852989500914
