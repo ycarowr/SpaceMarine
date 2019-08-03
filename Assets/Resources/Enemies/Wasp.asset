@@ -22,6 +22,7 @@ MonoBehaviour:
 
     towards the player.'
   Model: {fileID: 8607872526053032185, guid: 87a5907d7b3fa0541ab51ef718c58050, type: 3}
+  Icon: {fileID: 2800000, guid: cb22d8dad399a1449a436ab22041b39a, type: 3}
   Explosion: {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16,
     type: 3}
   HitColor: {r: 1, g: 0, b: 0, a: 1}

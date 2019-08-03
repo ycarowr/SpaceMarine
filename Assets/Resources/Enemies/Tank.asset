@@ -21,6 +21,7 @@ MonoBehaviour:
   Description: "The Tank vehicle, it doesn't take damage. \nBut takes a long time
     to reload and shoot."
   Model: {fileID: 7274872000834538312, guid: 5f3c9221884a1b14b915293b54034867, type: 3}
+  Icon: {fileID: 2800000, guid: 21b6565828e8c7f43989393724bd2e13, type: 3}
   Explosion: {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16,
     type: 3}
   HitColor: {r: 1, g: 0, b: 0, a: 1}
