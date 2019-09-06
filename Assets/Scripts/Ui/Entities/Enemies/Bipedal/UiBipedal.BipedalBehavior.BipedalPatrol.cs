@@ -17,7 +17,7 @@ namespace SpaceMarine
                 const float Speed = 5;
 
 
-                public BipedalPatrol(UiEnemyFSM fsm, Transform pointA, Transform pointB) : base(fsm)
+                public BipedalPatrol(UiEnemyFSM fsm, Vector3 pointA, Vector3 pointB) : base(fsm)
                 {
                     PointA = pointA;
                     PointB = pointB;
@@ -26,8 +26,8 @@ namespace SpaceMarine
                     Motion.Movement.IsConstant = true;
                 }
 
-                Transform PointA { get; }
-                Transform PointB { get; }
+                Vector3 PointA { get; }
+                Vector3 PointB { get; }
                 State Current { get; set; }
                 Coroutine IdleRoutine { get; set; }
                 public UiMotion Motion { get; }
@@ -89,7 +89,7 @@ namespace SpaceMarine
                     }
 
                     Motion.Movement.OnFinishMotion += MoveA;
-                    Motion.MoveTo(PointA.position, Speed);
+                    Motion.MoveTo(PointA, Speed);
                 }
 
                 /// <summary>
@@ -104,7 +104,7 @@ namespace SpaceMarine
                     }
 
                     Motion.Movement.OnFinishMotion += MoveB;
-                    Motion.MoveTo(PointB.position, Speed);
+                    Motion.MoveTo(PointB, Speed);
                 }
 
                 /// <summary>

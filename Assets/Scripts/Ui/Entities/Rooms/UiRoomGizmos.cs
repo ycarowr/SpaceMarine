@@ -10,7 +10,7 @@ namespace SpaceMarine.Rooms
         readonly Vector3 size = new Vector2(2, -2.3f);
         public RoomData Data;
 
-        void OnDrawGizmos()
+        protected virtual void OnDrawGizmos()
         {
             Gizmos.color = Color.blue;
             foreach (var doorSpot in Data?.Doors)

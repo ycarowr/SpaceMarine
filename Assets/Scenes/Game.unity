@@ -10431,26 +10431,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 610405098560027761, guid: 1c360157a4a2ff7478418569042863a9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.4399996
-      objectReference: {fileID: 0}
-    - target: {fileID: 610405096487193946, guid: 1c360157a4a2ff7478418569042863a9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.4399996
-      objectReference: {fileID: 0}
-    - target: {fileID: 610405096570369176, guid: 1c360157a4a2ff7478418569042863a9,
-        type: 3}
-      propertyPath: m_Points.Array.data[0].y
-      value: 3.4399998
-      objectReference: {fileID: 0}
-    - target: {fileID: 610405096570369176, guid: 1c360157a4a2ff7478418569042863a9,
-        type: 3}
-      propertyPath: m_Points.Array.data[1].y
-      value: -3.4399998
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c360157a4a2ff7478418569042863a9, type: 3}
 --- !u!4 &610405097943739975 stripped
@@ -10476,6 +10456,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UiElevatorStops
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767709549135788323, guid: db726f4d425c7024a86bbbbd44343aac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -37.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785832301229086807, guid: db726f4d425c7024a86bbbbd44343aac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -24.9
       objectReference: {fileID: 0}
     - target: {fileID: 939853490662788048, guid: db726f4d425c7024a86bbbbd44343aac,
         type: 3}
@@ -10537,16 +10527,6 @@ PrefabInstance:
       propertyPath: Elevator
       value: 
       objectReference: {fileID: 745554500}
-    - target: {fileID: 1785832301229086807, guid: db726f4d425c7024a86bbbbd44343aac,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -24.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767709549135788323, guid: db726f4d425c7024a86bbbbd44343aac,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -37.14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db726f4d425c7024a86bbbbd44343aac, type: 3}
 --- !u!1001 &1497042708461419560

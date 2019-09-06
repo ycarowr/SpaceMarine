@@ -1,20 +1,22 @@
 ﻿using Patterns.StateMachine;
+using SpaceMarine.Data;
+using SpaceMarine.Model;
 using UnityEngine;
 
 namespace SpaceMarine
 {
     public partial class UiBipedal : UiEnemy, IStateMachineHandler
     {
-        public Transform PointA;
-        public Transform PointB;
-
-        UiEnemyFSM Behaviors { get; set; }
         public MonoBehaviour MonoBehaviour => this;
-
-        protected override void Awake()
+        UiEnemyFSM Behaviors { get; set; }
+        
+        public override void Initialize(IEnemy runtimeData)
         {
-            base.Awake();
-            Behaviors = new BipedalBehavior(this, PointA, PointB);
+            base.Initialize(runtimeData);
+            var dataBipedal = Data as BipedalData;
+            var pa = (Vector3) dataBipedal.PointA + transform.parent.position;
+            var pb = (Vector3) dataBipedal.PointB + transform.parent.position;
+            Behaviors = new BipedalBehavior(this, pa, pb);
         }
 
         void Update()

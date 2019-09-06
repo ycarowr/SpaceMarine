@@ -53,6 +53,7 @@ namespace SpaceMarine.Rooms
                 uiEnemy.Enemy = enemy;
                 uiEnemy.transform.SetParent(transform.parent);
                 uiEnemy.transform.localPosition = enemy.StartLocalPosition;
+                uiEnemy.Initialize(enemy);
             }
         }
 

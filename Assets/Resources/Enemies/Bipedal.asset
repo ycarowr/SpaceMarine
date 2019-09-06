@@ -12,19 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3743210acff4c8e4fa3e373fd77b90b2, type: 3}
   m_Name: Bipedal
   m_EditorClassIdentifier: 
-  Name: Bipedal Robot
-  Id: 0
-  Attack: 10
   Armor: 0
-  Health: 10
-  Speed: 5
+  Attack: 10
   Description: 'It doesn''t take damage from bullets
 
     that hit the front of its body.'
-  Model: {fileID: 74714153304073520, guid: 807d9cd9e7ce98045b4230b5c97ffc0d, type: 3}
-  Icon: {fileID: 2800000, guid: ff55f77122f1b6b4fb44822c770cf244, type: 3}
   Explosion: {fileID: 3335967099309453412, guid: e0aa257b4f95da64ca37cf28f8575b16,
     type: 3}
+  Health: 10
   HitColor: {r: 1, g: 0, b: 0, a: 1}
+  Icon: {fileID: 2800000, guid: ff55f77122f1b6b4fb44822c770cf244, type: 3}
+  Id: 0
   IntervalExplosions: {x: 0.1, y: 0.2}
+  Model: {fileID: 74714153304073520, guid: 807d9cd9e7ce98045b4230b5c97ffc0d, type: 3}
+  Name: Bipedal Robot
   QuantityExplosions: 40
+  Speed: 5
+  PointA: {x: 5.5, y: -2.33}
+  PointB: {x: -4.5, y: -2.33}

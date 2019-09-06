@@ -10,7 +10,7 @@ namespace SpaceMarine
         /// </summary>
         partial class BipedalBehavior : UiEnemyFSM
         {
-            public BipedalBehavior(IStateMachineHandler handler, Transform pointA, Transform pointB) : base(handler)
+            public BipedalBehavior(IStateMachineHandler handler, Vector3 pointA, Vector3 pointB) : base(handler)
             {
                 PointA = pointA;
                 PointB = pointB;
@@ -19,8 +19,8 @@ namespace SpaceMarine
 
             public override Patrol PatrolState { get; protected set; }
             public override Alert AlertState { get; protected set; }
-            Transform PointA { get; }
-            Transform PointB { get; }
+            Vector3 PointA { get; }
+            Vector3 PointB { get; }
 
             protected override void OnBeforeInitialize()
             {

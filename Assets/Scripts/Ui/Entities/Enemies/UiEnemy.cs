@@ -19,6 +19,19 @@ namespace SpaceMarine
         public EnemyId Id;
         public IEnemy Enemy { get; set; }
         ShakeAnimation Shake { get; set; }
+        
+        void Start()
+        {
+            GameEvents.Instance.AddListener(this);
+            Shake = GetComponent<ShakeAnimation>();
+            Test();
+        }
+
+        public virtual void Initialize(IEnemy runtimeData)
+        {
+            Enemy = runtimeData;
+            Data = Enemy.Data;
+        }
 
         public virtual void OnCollideBullet(UiBullet bullet)
         {
@@ -40,14 +53,6 @@ namespace SpaceMarine
                 return;
 
             StartCoroutine(TakeDamageAnimation());
-        }
-
-
-        void Start()
-        {
-            GameEvents.Instance.AddListener(this);
-            Shake = GetComponent<ShakeAnimation>();
-            Test();
         }
 
         public void TryTakeDamage(int damage)
