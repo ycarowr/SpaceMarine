@@ -11,7 +11,7 @@ Since there are a few things to cover I split it into four parts which I will ta
 2. The [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) of the game;
 3. The entity system: player, enemies, doors, bullets and the game mechanics;
 4. The initialization of the systems;
-5. [Submodule](https://github.com/ycarowr/ToolsTest) with Tools to speed up the implementation and make every thing more generic.
+5. [Submodule](https://github.com/ycarowr/Tools) with Tools to speed up the implementation and make every thing more generic.
 
 
 ### Scenes
