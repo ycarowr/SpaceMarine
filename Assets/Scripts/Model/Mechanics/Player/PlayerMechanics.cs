@@ -43,7 +43,7 @@ namespace SpaceMarine.Model
         {
         }
 
-        public void Die()
+        public void Destroy()
         {
             OnDie();
         }

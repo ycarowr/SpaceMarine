@@ -28,7 +28,7 @@ namespace SpaceMarine.Data
             EvaluateDeath();
         }
 
-        public void Die()
+        public void Destroy()
         {
             GameEvents.Instance.Notify<GameEvent.IDestroyEnemy>(i => i.OnDestroyEnemy(this));
         }
@@ -37,7 +37,7 @@ namespace SpaceMarine.Data
         {
             IsDead = Health <= 0;
             if (IsDead)
-                Die();
+                Destroy();
         }
 
         void OnTakeDamage(int damage)

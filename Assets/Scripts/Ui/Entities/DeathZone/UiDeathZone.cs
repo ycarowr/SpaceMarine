@@ -4,7 +4,7 @@
     {
         protected override void OnTriggerEnterPlayer()
         {
-            GameData.Instance.Game.Player.Die();
+            GameData.Instance.Game.Player.Destroy();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace SpaceMarine.Model
         bool IsDead { get; }
         int Health { get; }
         void TakeDamage(int amount);
-        void Die();
+        void Destroy();
     }
 
     public interface IElevator
