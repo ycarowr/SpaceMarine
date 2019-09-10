@@ -1,12 +1,12 @@
 # SpaceMarine and why I made it.
 
-The repository contains the game ilustrated by the video below, the assets are free and come from (PixelGameArt)[http://pixelgameart.org/web/]:
+The repository contains the game ilustrated by the video below, the assets are free and come from [PixelGameArt](http://pixelgameart.org/web/)
 
 ![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/spacemarine.gif)
 
 My main goal when I first started this game was to make a 2d-platformer with a decent code architecture, which I would be able to reuse code in the future or extend to a "real project". 
 
-By no means I wanna say every real project has to have a perfect architecture or be completely extendable, I believe every project has its own purpose in life and by the time I started this one I wanted to make it with code that is maintainable, manageable, clean, applying some (design patterns)[https://github.com/ycarowr/Unity-Design-Pattern] and trying to respect the (SOLID)[https://en.wikipedia.org/wiki/SOLID] principles of (OOP)[https://en.wikipedia.org/wiki/Object-oriented_programming]. 
+By no means I wanna say every real project has to have a perfect architecture or be completely extendable, I believe every project has its own purpose in life and by the time I started this one I wanted to make it with code that is maintainable, manageable, clean, applying some [design patterns](https://github.com/ycarowr/Unity-Design-Pattern) and trying to respect the [SOLID](https://en.wikipedia.org/wiki/SOLID) principles of [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming). 
 However, as I progressed with it overtime, I've found more things to do in my life and I believe I couldn't really keep the same excitement as I had on the beginning. Here you can also count the fact that, this is a project done in a few months during my free time at the weekends or early mornings/evenings after work 8h with no hopes to make money with it.
 
 ## Game's Architecture:
@@ -28,7 +28,7 @@ The game is separated in two different [scenes](https://github.com/ycarowr/Space
 
 I won't be able to get into what is a [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) here, there is a ton of content regarding this subject online, it for sure won't be difficult to find information.
   
-The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) and [UI/View](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) communication is done using the following [interfaces/Events](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameEvents/GameEvent.cs) and the [Observer Pattern](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) which allows to remove the (coupling)[https://en.wikipedia.org/wiki/Coupling_(computer_programming)] between these layers of the application. In shorter words, the UI scripts implement an interface and subscribe the events they are interested into, the Model classes dispatch those events when they happen.
+The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) and [UI/View](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) communication is done using the following [interfaces/Events](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameEvents/GameEvent.cs) and the [Observer Pattern](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) which allows to remove the [coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) between these layers of the application. In shorter words, the UI scripts implement an interface and subscribe the events they are interested into, the Model classes dispatch those events when they happen.
 
 As the [Observer](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) code shows, once a listener subscribes the event register, all its events/interfaces are now ready to be notified by the game model.
 
