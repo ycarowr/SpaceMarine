@@ -4,7 +4,7 @@ The repository contains the game illustrated by the video below, the assets are 
 
 ![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/spacemarine.gif)
 
-My main goal when I first started this game was to make a 2d-platformer with a decent code architecture, something which I would be able to reuse code in the future or extend to a "real project", by no means I wanna say a real project has to have a perfect architecture or be completely extendable. I believe every project has it's purpose in life and by the time I started this one I wanted to make it as much maintainable, manageable and clean as possible. Something 100% doable!
+My main goal when I first started this game was to make a 2d-platformer with a decent code architecture, something which I would be able to reuse code in the future or extend to a "real project". By no means I wanna say a real project has to have a perfect architecture or be completely extendable. I believe every project has it's purpose in life and by the time I started this one I wanted to make it as much maintainable, manageable and clean as possible. Something 100% doable!
 
 I wanted as well to apply the appropriated [design patterns](https://github.com/ycarowr/Unity-Design-Pattern) to the common problems I would have during the development. Because its super easy to do, they are very well documented everywhere! 
 
