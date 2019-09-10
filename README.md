@@ -16,7 +16,7 @@ With that being said, let's get into it.
 
 ## The Game's Architecture Overview:
 
-Since there are a few things to cover I split it into four parts which I will talk separately:
+Since there are a few things to cover I split it into different parts which I will talk separately:
 1. The Scenes of the game;
 2. The [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) of the game;
 3. The entity system: player, enemies, doors, bullets and game mechanics;
