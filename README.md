@@ -1,22 +1,20 @@
 # SpaceMarine and why I made it.
 
-The repository contains the game illustrated by the video below, the assets are free and come from [PixelGameArt](http://pixelgameart.org/web/)
+The repository contains the game illustrated by the video below, the assets are free and can be found on [PixelGameArt](http://pixelgameart.org/web/)
 
 ![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/spacemarine.gif)
 
-My main goal when I first started this game was to make a 2d-platformer with a decent code architecture, which I would be able to reuse code in the future or extend to a "real project". 
+My main goal when I first started this game was to make a 2d-platformer with a decent code architecture, something which I would be able to reuse code in the future or extend to a "real project", by no means I wanna say a real project has to have a perfect architecture or be completely extendable. I believe every project has it's purpose in life and by the time I started this one I wanted to make it as much maintainable, manageable and clean as possible. Something 100% doable!
 
-By no means I wanna say every real project has to have a perfect architecture or be completely extendable, I believe every project has it's purpose in life and by the time I started this one I wanted to make it as much maintainable, manageable and clean as possible. 100% doable!
-
-I wanted as well to apply the [design patterns](https://github.com/ycarowr/Unity-Design-Pattern) appropriated to the problems I would have during the development. Because its super easy to do, they are very well documented everywhere! 
+I wanted as well to apply the appropriated [design patterns](https://github.com/ycarowr/Unity-Design-Pattern) to the common problems I would have during the development. Because its super easy to do, they are very well documented everywhere! 
 
 All of it respecting perfectly the [SOLID](https://en.wikipedia.org/wiki/SOLID) principles of [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming).
 
-As you can tell this point, as I progressed with it over time, I've found more things to do in my life and I believe I couldn't keep the same excitement as I had at the beginning. The project definitely doesn't have the "best ofs", but in my point of view its good enough to be maintainable and extendable, the code is also clean and organized, I have implemented a few patterns but not all, I tried to respect SOLID as much as possible but for sure someone can find mistakes here and there. 
+As you can tell this point, as I progressed over time, I've found more things to do in my life and I couldn't keep the same excitement as I had at the beginning. The project definitely doesn't have the "best ofs", but in my point of view its good enough to be maintainable and extendable, the code is also enough clean and organized, I have implemented a few patterns for common problems and I tried to respect SOLID as much as possible, but for sure someone can find mistakes here and there. In my defense, a few facts have to be taken into account: this is a project done in a few months during my free time on the weekends, early mornings or evenings after working 8h with no hopes to make money from it. Its all for learning purposes.
 
-Here you can also count the fact that this is a project done in a few months during my free time at the weekends, early mornings or evenings after work 8h. And no hopes to make money with it. All for learning purposes.
+With that being said, let's get into it.
 
-## The Game's Architecture:
+## The Game's Architecture Overview:
 
 Since there are a few things to cover I split it into four parts which I will talk separately:
 1. The Scenes of the game;
@@ -27,15 +25,15 @@ Since there are a few things to cover I split it into four parts which I will ta
 
 
 ### Scenes
-The game is separated into two different [scenes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scenes) that work indenpendenly: 
-  1. __Opening__ - It contains a short introduction of the game, displaying a cut scene with a background, a spacecraft and text dialogs that receives input to go ahead and write the next piece of text. The scene ends with a dark screen fade which makes the transition to the playable game. The scene is mostly driven by the script [OpenSceneSequence](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Data/Sequences/Opening/OpeningSceneSequence.cs), which contains the instructions to move the spacecraft and show the text dialog.
+The game is separated into two different [scenes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scenes) that work independently: 
+  1. __Opening__ - It contains a short introduction of the game, displays a cut scene with a background, a spacecraft and text dialogs that receive input to go ahead and write the next sentence. The presentation ends with a dark screen fade which makes the transition to the playable part of the game. The scene is mostly driven by the script [OpenSceneSequence](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Data/Sequences/Opening/OpeningSceneSequence.cs), which contains the instructions to move the spacecraft and show the text dialog.
   2. __Game__ - Contains the playable part of the game: monsters, player, doors, rooms and elevator are all here. 
   
 ### The MVC and Communication between Model and View
 
-I won't be able to get into what is a [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) here, there is a ton of content regarding this subject online, it for sure won't be difficult to find information.
+I won't cover what is a [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) here, there is a ton of content regarding this subject online, for sure won't be difficult to find more information about it.
   
-The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) and [UI/View](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) communication is done using the following [interfaces/Events](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameEvents/GameEvent.cs) and the [Observer Pattern](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) which allows to remove the [coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) between these layers of the application. In shorter words, the UI scripts implement an interface and subscribe to the events they are interested in, the Model classes dispatch those events when they happen.
+The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) and [UI/View](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) communication is done using the following [Interfaces/Events](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameEvents/GameEvent.cs) and the [Observer Pattern](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) which allows to remove the [coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) between both layers of the application. In shorter words, the UI scripts implement an interface and subscribe to the events they are interested in, and the Model classes dispatch those events when they happen.
 
 As the [Observer](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) code shows, once a listener subscribes the event register, all its events/interfaces are now ready to be notified by the game model.
 
