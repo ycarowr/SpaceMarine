@@ -17,7 +17,7 @@ With that being said, let's get into it.
 ## The Game's Architecture Overview:
 
 Since there are a few things to cover I split it into different parts which I will talk separately:
-1. The Scenes of the game;
+1. The [Scenes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scenes) of the game;
 2. The [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) of the game;
 3. The entity system: player, enemies, doors, bullets and game mechanics;
 4. The initialization of the systems;
@@ -33,7 +33,9 @@ The game is separated into two different [scenes](https://github.com/ycarowr/Spa
 
 I won't cover what is a [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) here, there is a ton of content regarding this subject online, for sure won't be difficult to find more information about it.
   
-The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) and [UI/View](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) communication is done using the following [Interfaces/Events](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameEvents/GameEvent.cs) and the [Observer Pattern](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) which allows to remove the [coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) between both layers of the application. In shorter words, the UI scripts implement an interface and subscribe to the events they are interested in, and the Model classes dispatch those events when they happen.
+The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) is mostly driven by the pure C# class named [Game](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Game.cs) and the implementation follows the composition pattern splitting all the [game mechanics](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model/Mechanics) into smaller classes injecting their dependencies using the constructor.
+  
+The Model and [UI/View](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) communication is done using the following [Interfaces/Events](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameEvents/GameEvent.cs) and the [Observer Pattern](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) which allows to remove the [coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) between both layers of the application. In shorter words, the UI scripts implement an interface and subscribe to the events they are interested in, and the Model classes dispatch those events when they happen.
 
 As the [Observer](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) code shows, once a listener subscribes the event register, all its events/interfaces are now ready to be notified by the game model.
 
