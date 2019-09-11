@@ -11,6 +11,8 @@ All of it respecting perfectly the [SOLID](https://en.wikipedia.org/wiki/SOLID) 
 
 As you can tell this point, as I progressed over time, I've found more things to do in my life and I couldn't keep the same excitement as I had at the beginning. The project definitely doesn't have the "best ofs", but in my point of view its good enough to be maintainable and extendable, the code is also enough clean and organized, I have implemented a few patterns for common problems and I tried to respect SOLID as much as possible, but for sure someone can find mistakes here and there. In my defense, a few facts have to be taken into account: this is a project done in a few months during my free time on the weekends, early mornings or evenings after working 8h and with no hopes to make money from it. It was all for learning purposes.
 
+A final note, the game is still unfinished, there are plenty of stuff that can be done regarding the behaviors or the enemies, guns, upgrades, achievements, craft system... all the game design stuff that demands a lot of tweaks and is time consuming. Feel free to download the repo and implement them all. I eventually will make some progress on my own, but don't expect a release date.
+
 With that being said, let's get into it.
 
 ## The Game's Architecture Overview:
