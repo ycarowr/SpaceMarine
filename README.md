@@ -20,7 +20,7 @@ Since there are a few things to cover I split it into different parts which I wi
 1. The [Scenes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scenes) of the game;
 2. The [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) of the game;
 3. The entity system: player, enemies, doors, bullets and game mechanics;
-4. The initialization of the systems;
+4. The initialization of the systems and the static data;
 5. [Submodule](https://github.com/ycarowr/Tools) with Tools to speed up the implementation and make everything more generic.
 
 ### Scenes
@@ -62,10 +62,19 @@ Other [four enemies](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/S
 Currently the game has no audio.
   
 ### The Initialization
-  Besides the internal initialization of each Monobehavior done on the _Awake()_ method. The initialization of the game systems happen when the object [GameController](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Prefabs) receives the unity callback _Start()_ it creates a game instance and broadcasts the game event _ICreateGame_.
-  
-The game controller object also contains the GameEvents script which is the Observer Pattern that manages all the events of the game and the script that holds the [game data](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameController/GameData.cs), see below:
 
-[!alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/gamecontroller.JPG)
+Besides the internal initialization of each Monobehavior done on the _Awake()_ method, the main initialization is done by the __GameController__ instance placed in the scene, see below:
+
+![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/gamecontroller.JPG)
+
+The script [GameData](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameController/GameData.cs) receives the unity callback _Start()_, it creates a game instance and broadcasts the game event _ICreateGame_.
+  
+The game controller script receives the _ICreateGame_ event and then starts the game properly.
+
+In order to 
+
+
+
+
   
 
