@@ -31,7 +31,7 @@ The game is separated into two different [scenes](https://github.com/ycarowr/Spa
 ### The MVC and Communication between Model and View
 I won't cover what is a [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) here, there is a ton of content regarding this subject online, for sure won't be difficult to find more information about it.
   
-The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) is mostly driven by the pure C# class named [Game](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Game.cs) and the implementation follows the composition pattern splitting all the [game mechanics](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model/Mechanics) into smaller classes and injecting their dependencies throught the constructor.
+The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) is mostly driven by the pure C# class named [Game](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Game.cs) and the implementation follows the composition pattern splitting all the [game mechanics](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model/Mechanics) into smaller classes and injecting their dependencies through the constructor.
 
 The [UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) elements that in someways interact with the player inherit from these two [base classes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Base), the first always interact with the player and the second has states and can by switched on, off or inactive.
   
@@ -45,8 +45,15 @@ Quick examples:
 
 2. At the bottom of the class [Door](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Door.cs) we have an example of the model code notifying the events that handle the door damage and destruction, _OnTakeDamage()_ and _Destroy()_ methods respectively.
   
-### The Entity System
-  //TODO
+### The Game Entities
+
+Inside the model, enemies inherit from base class [RuntimeEnemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) conceiving the [Subclass Sandbox Pattern](https://gameprogrammingpatterns.com/subclass-sandbox.html).
+
+Doors and Enemies can be shot, in that way, both implement [IAttackable](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Interfaces.cs) interface.
+
+The rooms are populated with doors and enemies during the initialization, then an events are emmited to the UI in order to instantiate the views of these entities which are [Prefabs](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Prefabs/Ui) kept by a pooler [Object Pool Pattern](https://gameprogrammingpatterns.com/object-pool.html) where the code can be found [here](https://github.com/ycarowr/Tools/tree/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/GenericPrefabPooler).
+
+In order to use some gizmos and make the placing of the objects in the world easier all the UI of the rooms are already in the scene with their own IDs set when the editor starts, with that and reading the static used to initialize each room [Data](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Data/Room/RoomData.cs) the [gizmos objects](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/img_gizmos.png) appear in the scene.
   
 ### The Mechanics
   //TODO
