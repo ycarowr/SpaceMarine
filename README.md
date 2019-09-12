@@ -3,7 +3,7 @@ The repository contains the game illustrated by the video below, the assets are 
 
 ![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/spacemarine.gif)
 
-My main goal when I first started this game was to make a 2d-platformer with a decent code architecture, something which I would be able to reuse code in the future or extend to a "real project". By no means I wanna say a real project has to have a perfect architecture or be completely extendable. I believe every project has it's purpose in life and by the time I started this one I wanted to make it as much maintainable, manageable and clean as possible. Something 100% doable!
+My main goal when I first started this game was to make a 2d-platformer with a decent code architecture, something which I would be able to reuse code in the future or extend to a "real project". By no means, I wanna say a real project has to have a perfect architecture or be completely extendable. I believe every project has its purpose in life and by the time I started this one I wanted to make it as much maintainable, manageable and clean as possible. Something 100% doable!
 
 I wanted as well to apply the appropriated [design patterns](https://github.com/ycarowr/Unity-Design-Pattern) to the common problems I would have during the development. Because its super easy to do, they are very well documented everywhere! 
 
@@ -11,7 +11,7 @@ All of it respecting perfectly the [SOLID](https://en.wikipedia.org/wiki/SOLID) 
 
 As you can tell this point, as I progressed over time, I've found more things to do in my life and I couldn't keep the same excitement as I had at the beginning. The project definitely doesn't have the "best ofs", but in my point of view its good enough to be maintainable and extendable, the code is also enough clean and organized, I have implemented a few patterns for common problems and I tried to respect SOLID as much as possible, but for sure someone can find mistakes here and there. In my defense, a few facts have to be taken into account: this is a project done in a few months during my free time on the weekends, early mornings or evenings after working 8h and with no hopes to make money from it. It was all for learning purposes.
 
-A final note, the game is still unfinished, there are plenty of stuff that can be done regarding the behaviors or the enemies, guns, upgrades, achievements, craft system... all the game design stuff that demands a lot of tweaks and is time consuming. Feel free to download the repo and implement them all. I eventually will make some progress on my own, but don't expect a release date.
+A final note, the game is still unfinished, there is plenty of stuff that can be done regarding the behaviors or the enemies, guns, upgrades, achievements, craft system... all the game design stuff that demands a lot of tweaks and is time consuming. Feel free to download the repo and implement them all. I eventually will make some progress on my own, but don't expect a release date.
 
 With that being said, let's get into it.
 
@@ -33,7 +33,7 @@ I won't cover what is a [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E
   
 The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) is mostly driven by the pure C# class named [Game](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Game.cs) and the implementation follows the [component pattern](https://github.com/QianMo/Unity-Design-Pattern/blob/master/Assets/Game%20Programming%20Patterns/Component%20Pattern/Example/ComponentPatternExample.cs) splitting all the [game mechanics](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model/Mechanics) into smaller classes and injecting their dependencies through the constructor.
 
-The [UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) elements that in someways interact with the player inherit from these two [base classes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Base), the first always interact with the player and the second has states and can by switched on, off or inactive.
+The [UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) elements that in someways interact with the player inherit from these two [base classes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Base), the first always interact with the player and the second has states and can be switched on, off or inactive.
   
 The Model and UI communication is done using the following [Interfaces/Events](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameEvents/GameEvent.cs) and the [Observer Pattern](https://github.com/ycarowr/Tools/blob/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/Observer/Observer.cs) which allows to remove the [coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) between both layers of the application. In shorter words, the UI scripts implement an interface and subscribe to the events they are interested in, and the Model classes dispatch those events when they happen.
 
@@ -47,17 +47,13 @@ Quick examples:
   
 ### The Game Entities
 
-Inside the model, enemies inherit from base class [RuntimeEnemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) conceiving the [Subclass Sandbox Pattern](https://gameprogrammingpatterns.com/subclass-sandbox.html). Doors and Enemies can be shot, in that way, both implement [IAttackable](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Interfaces.cs) interface. Rooms are populated with doors and enemies during the initialization, then events are emmited in order to instantiate the views of these entities which are [Prefabs](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Prefabs/Ui) kept by a pooler [Object Pool Pattern](https://gameprogrammingpatterns.com/object-pool.html) where the code can be found [here](https://github.com/ycarowr/Tools/tree/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/GenericPrefabPooler).
+Inside the model, enemies inherit from base class [RuntimeEnemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) conceiving the [Subclass Sandbox Pattern](https://gameprogrammingpatterns.com/subclass-sandbox.html). Doors and Enemies can be shot, in that way, both implement [IAttackable](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Interfaces.cs) interface. Rooms are populated with doors and enemies during the initialization, then events are emitted to instantiate the views of these entities which are [Prefabs](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Prefabs/Ui) kept by a pooler [Object Pool Pattern](https://gameprogrammingpatterns.com/object-pool.html) where the code can be found [here](https://github.com/ycarowr/Tools/tree/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/GenericPrefabPooler).
 
 In order to use some gizmos and make the placing of the objects in the world easier all the UI of the rooms are already in the scene with their own IDs set when the editor starts, with that and reading the static [Data](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Data/Room/RoomData.cs) used to initialize each room the gizmos elements appear in the scene according to each door, enemy, floor, position of the camera and walls present in the UIRoom. See picture below.
 
 ![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/img_gizmos.png) 
 
-The [player UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Player) is mostly done, however I didn't tweak values of the jump, movement and gun. 
-
-Not all the enemies are implemented, currently I am working on the [Bipedal UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Enemies/Bipedal) behaviors.
-
-Other [four enemies](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Enemies) still have to be done. 
+Although I didn't tweak values of the jump, movement and gun, The [player UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Player) is mostly done. Not all the enemies are implemented, I stop the work on the [Bipedal UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Enemies/Bipedal) behaviors and other [four enemies](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Enemies) still have to be done. 
 
 The game has no audio still.
   
@@ -71,7 +67,7 @@ The script [GameData](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/
   
 The [GameController](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameController/GameController.cs) script receives the _ICreateGame_ event and then starts the game properly.
 
-In order to initialize most of the game entities some external information is needed, that data could be the position where it would be placed, total health, speed, character model, ids etc. All these [meta data](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Data) about an object is stored into a specific scriptable object which is shared across all the entities of that type, as the constructor of the class [enemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) illustrates, the data is a dependecy injected during the creation of the object.
+To initialize most of the game entities some external information is needed, these data could be the position where it would be placed, total health, speed, character model, ids, etc. All these [meta data](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Data) about an object is stored into a specific scriptable object which is shared across all the entities of that type, as the constructor of the class [enemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) illustrates, the data is a dependency injected during the creation of the object.
 
 And that's all for now. 
 
