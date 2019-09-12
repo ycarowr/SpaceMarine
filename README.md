@@ -21,7 +21,6 @@ Since there are a few things to cover I split it into different parts which I wi
 2. The [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) of the game;
 3. The entity system: player, enemies, doors, bullets and game mechanics;
 4. The initialization of the systems and the static data;
-5. [Submodule](https://github.com/ycarowr/Tools) with Tools to speed up the implementation and make everything more generic.
 
 ### Scenes
 The game is separated into two different [scenes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scenes) that work independently: 
