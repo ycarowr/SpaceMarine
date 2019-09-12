@@ -59,7 +59,7 @@ Not all the enemies are implemented, currently I am working on the [Bipedal UI](
 
 Other [four enemies](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Enemies) still have to be done. 
 
-Currently the game has no audio.
+The game has no audio still.
   
 ### The Initialization
 
@@ -67,11 +67,12 @@ Besides the internal initialization of each Monobehavior done on the _Awake()_ m
 
 ![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/gamecontroller.JPG)
 
-The script [GameData](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameController/GameData.cs) receives the unity callback _Start()_, it creates a game instance and broadcasts the game event _ICreateGame_.
+The script [GameData](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameController/GameData.cs) receives the unity callback _Start()_, then creates an instance of the game model and broadcasts the game event _ICreateGame_.
   
 The game controller script receives the _ICreateGame_ event and then starts the game properly.
 
-In order to 
+In order to initialize most of the game entities some external information is needed, that data could be the position where it would be placed, total health, speed, character model, ids etc. All these [meta data](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Data) about an object is stored into a specific scriptable object which is shared across all the entities of that type, as the constructor of the class [enemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) illustrates, the data is a dependecy injected during the creating of the object.
+
 
 
 
