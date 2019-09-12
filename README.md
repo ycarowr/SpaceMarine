@@ -31,7 +31,7 @@ The game is separated into two different [scenes](https://github.com/ycarowr/Spa
 ### The MVC and Communication between Model and View
 I won't cover what is a [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) here, there is a ton of content regarding this subject online, for sure won't be difficult to find more information about it.
   
-The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) is mostly driven by the pure C# class named [Game](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Game.cs) and the implementation follows the composition pattern splitting all the [game mechanics](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model/Mechanics) into smaller classes and injecting their dependencies through the constructor.
+The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) is mostly driven by the pure C# class named [Game](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Game.cs) and the implementation follows the [component pattern](https://github.com/QianMo/Unity-Design-Pattern/blob/master/Assets/Game%20Programming%20Patterns/Component%20Pattern/Example/ComponentPatternExample.cs) splitting all the [game mechanics](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model/Mechanics) into smaller classes and injecting their dependencies through the constructor.
 
 The [UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) elements that in someways interact with the player inherit from these two [base classes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Base), the first always interact with the player and the second has states and can by switched on, off or inactive.
   
@@ -52,11 +52,20 @@ Inside the model, enemies inherit from base class [RuntimeEnemy](https://github.
 In order to use some gizmos and make the placing of the objects in the world easier all the UI of the rooms are already in the scene with their own IDs set when the editor starts, with that and reading the static [Data](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Data/Room/RoomData.cs) used to initialize each room the gizmos elements appear in the scene according to each door, enemy, floor, position of the camera and walls present in the UIRoom. See picture below.
 
 ![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/img_gizmos.png) 
-  
-### The Mechanics
-  //TODO
+
+The [player UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Player) is mostly done, however I didn't tweak values of the jump, movement and gun. 
+
+Not all the enemies are implemented, currently I am working on the [Bipedal UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Enemies/Bipedal) behaviors.
+
+Other [four enemies](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Enemies) still have to be done. 
+
+Currently the game has no audio.
   
 ### The Initialization
-  //TODO
+  Besides the internal initialization of each Monobehavior done on the _Awake()_ method. The initialization of the game systems happen when the object [GameController](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Prefabs) receives the unity callback _Start()_ it creates a game instance and broadcasts the game event _ICreateGame_.
+  
+The game controller object also contains the GameEvents script which is the Observer Pattern that manages all the events of the game and the script that holds the [game data](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameController/GameData.cs), see below:
+
+[!alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/gamecontroller.JPG)
   
 
