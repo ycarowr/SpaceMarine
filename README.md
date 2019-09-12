@@ -69,7 +69,7 @@ Besides the internal initialization of each Monobehavior done on the _Awake()_ m
 
 The script [GameData](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameController/GameData.cs) receives the unity callback _Start()_, then creates an instance of the game model and broadcasts the game event _ICreateGame_.
   
-The game controller script receives the _ICreateGame_ event and then starts the game properly.
+The [GameController](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/GameController/GameController.cs) script receives the _ICreateGame_ event and then starts the game properly.
 
 In order to initialize most of the game entities some external information is needed, that data could be the position where it would be placed, total health, speed, character model, ids etc. All these [meta data](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Data) about an object is stored into a specific scriptable object which is shared across all the entities of that type, as the constructor of the class [enemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) illustrates, the data is a dependecy injected during the creation of the object.
 
