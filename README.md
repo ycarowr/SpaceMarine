@@ -31,7 +31,7 @@ The game is separated into two different [scenes](https://github.com/ycarowr/Spa
 ### The MVC and Communication between Model and View
 I won't cover what is a [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) here, there is a ton of content regarding this subject online, for sure won't be difficult to find more information about it.
   
-The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) is mostly driven by the pure C# class named [Game](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Game.cs) and the implementation follows the composition pattern splitting all the [game mechanics](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model/Mechanics) into smaller classes injecting their dependencies using the constructor.
+The [Model](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model) is mostly driven by the pure C# class named [Game](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Game.cs) and the implementation follows the composition pattern splitting all the [game mechanics](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Model/Mechanics) into smaller classes and injecting their dependencies throught the constructor.
 
 The [UI](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui) elements that in someways interact with the player inherit from these two [base classes](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Ui/Entities/Base), the first always interact with the player and the second has states and can by switched on, off or inactive.
   
