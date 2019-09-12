@@ -47,13 +47,11 @@ Quick examples:
   
 ### The Game Entities
 
-Inside the model, enemies inherit from base class [RuntimeEnemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) conceiving the [Subclass Sandbox Pattern](https://gameprogrammingpatterns.com/subclass-sandbox.html).
+Inside the model, enemies inherit from base class [RuntimeEnemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) conceiving the [Subclass Sandbox Pattern](https://gameprogrammingpatterns.com/subclass-sandbox.html). Doors and Enemies can be shot, in that way, both implement [IAttackable](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Interfaces.cs) interface. Rooms are populated with doors and enemies during the initialization, then events are emmited in order to instantiate the views of these entities which are [Prefabs](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Prefabs/Ui) kept by a pooler [Object Pool Pattern](https://gameprogrammingpatterns.com/object-pool.html) where the code can be found [here](https://github.com/ycarowr/Tools/tree/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/GenericPrefabPooler).
 
-Doors and Enemies can be shot, in that way, both implement [IAttackable](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Interfaces.cs) interface.
+In order to use some gizmos and make the placing of the objects in the world easier all the UI of the rooms are already in the scene with their own IDs set when the editor starts, with that and reading the static used to initialize each room [Data](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Data/Room/RoomData.cs) gizmos appear in the scene according to each door, enemy, floor and wall present in the UIRoom. See picture below.
 
-The rooms are populated with doors and enemies during the initialization, then an events are emmited to the UI in order to instantiate the views of these entities which are [Prefabs](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Prefabs/Ui) kept by a pooler [Object Pool Pattern](https://gameprogrammingpatterns.com/object-pool.html) where the code can be found [here](https://github.com/ycarowr/Tools/tree/3be2788408fd80bcd3c4a849bb0a7161230d944a/Patterns/GenericPrefabPooler).
-
-In order to use some gizmos and make the placing of the objects in the world easier all the UI of the rooms are already in the scene with their own IDs set when the editor starts, with that and reading the static used to initialize each room [Data](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Data/Room/RoomData.cs) the [gizmos objects](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/img_gizmos.png) appear in the scene.
+![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/img_gizmos.png) 
   
 ### The Mechanics
   //TODO
