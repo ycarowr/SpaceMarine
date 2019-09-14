@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SpaceMarine.Arrival;
+using SpaceMarine.Opening;
 using Tools;
 using Tools.Dialog;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
-    public TextSequence sequence;
-    public DialogSystem dialogl;
-    
-    [Button]
-    public void Wraite()
+    public ArrivalSceneParameters parameters;
+    public TextMesh text;
+
+    void Update()
     {
-        dialogl.Write(sequence);    
+        text.text = parameters.SkipIntro.ToString();
     }
 }
