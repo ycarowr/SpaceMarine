@@ -1,5 +1,5 @@
 # Space Marine Project.
-The repository contains the game illustrated by the video below, the assets are free and can be found on [PixelGameArt](http://pixelgameart.org/web/)
+The repository contains the game illustrated by the video below, the assets are free and can be found on [PixelGameArt](http://pixelgameart.org/web/). You can find a playable demo on [itch](https://github.com/ycarowr/SpaceMarine).
 
 ![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/spacemarine.gif)
 
@@ -65,12 +65,8 @@ The [GameController](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/S
 
 To initialize most of the game entities some external information is needed, this data means different things for different entities, they could be the position where a enemy would be placed, the total health, an ids or all the enemies inside the room. All these [meta data](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Data) about an object is stored into a specific scriptable object which is shared across all the entities of that type, as the constructor of the class [enemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) illustrates, the data is a dependency injected during the creation of the object.
 
-And that's all for now. 
+And that's all for now.
 
-![img](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/seeyouspacecowboy.JPEG)
-
-
-
-
+See you space cowboy
   
 
