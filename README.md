@@ -67,7 +67,7 @@ To initialize most of the game entities some external information is needed, thi
 
 And that's all for now. 
 
-![img](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/seeyouspacecowboy.JPG)
+![img](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/seeyouspacecowboy.gif)
 
 
 
