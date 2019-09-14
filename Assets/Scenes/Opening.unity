@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 3925423265837067649}
-  parameters: {fileID: 11400000, guid: 9ba47d34b2121c6419b67328be3a6483, type: 2}
   NextButton: {fileID: 11400000, guid: 3d2513bfea202d045a1a3372c123308c, type: 2}
+  parameters: {fileID: 11400000, guid: 9ba47d34b2121c6419b67328be3a6483, type: 2}
 --- !u!4 &1970408407
 Transform:
   m_ObjectHideFlags: 0
@@ -674,6 +674,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925423265837067654, guid: 078df8f3886357f43b99ed655294aa30,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 229
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925423265837067654, guid: 078df8f3886357f43b99ed655294aa30,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925423265837067654, guid: 078df8f3886357f43b99ed655294aa30,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925423265837067654, guid: 078df8f3886357f43b99ed655294aa30,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 078df8f3886357f43b99ed655294aa30, type: 3}

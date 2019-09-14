@@ -92,9 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b077b06db7972774ea7f8151fde2e0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DisableOnAwake: 0
   Renderer: {fileID: 951187631}
   speed: 1.5
-  DisableOnAwake: 0
 --- !u!1 &1218671035543376961
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ElevatorSprite: {fileID: 5214502566779817088}
+  MovingSpeed: 1
+  PlayerPosition: {fileID: 4374494245146466430}
   uiElevatorStops:
   - Id: 1
     Position: {fileID: 0}
@@ -363,8 +365,6 @@ MonoBehaviour:
     Position: {fileID: 0}
   - Id: 4
     Position: {fileID: 0}
-  PlayerPosition: {fileID: 4374494245146466430}
-  MovingSpeed: 1
 --- !u!114 &5825634606548901296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,8 +402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonDown: {fileID: 11400000, guid: e6204f424fcb1a946a5db78af84ed55e, type: 2}
-  ButtonUp: {fileID: 11400000, guid: edf4892ce791c434a84e034acfaa19c7, type: 2}
   ButtonForgetIt: {fileID: 11400000, guid: e125f157170e1e9448af0609fd810ff9, type: 2}
+  ButtonUp: {fileID: 11400000, guid: edf4892ce791c434a84e034acfaa19c7, type: 2}
   TextSequence: {fileID: 11400000, guid: c932e5a5ab3949d4badc8e9f18c898cf, type: 2}
 --- !u!114 &1931979145756438393
 MonoBehaviour:
@@ -628,7 +628,7 @@ RectTransform:
   m_GameObject: {fileID: 3507046540372705640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 3507046541022303200}
   m_Father: {fileID: 3507046539966318372}
@@ -636,7 +636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 477, y: 0}
+  m_AnchoredPosition: {x: 258, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3507046540372705646

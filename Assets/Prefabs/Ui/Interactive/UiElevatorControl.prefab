@@ -121,7 +121,7 @@ RectTransform:
   m_GameObject: {fileID: 1198780602287344373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 612967501619914763}
   m_Father: {fileID: 2484203874796950011}
@@ -129,7 +129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 477, y: 0}
+  m_AnchoredPosition: {x: 258, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8621189098935472429
@@ -241,9 +241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b077b06db7972774ea7f8151fde2e0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DisableOnAwake: 0
   Renderer: {fileID: 5856305796738127677}
   speed: 2.5
-  DisableOnAwake: 0
 --- !u!1 &1601500781502027641
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,11 +627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f042e8fbc66ed046b97b631ab922163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonToggleOn: {fileID: 11400000, guid: 20d0e0201f0485345ad1e73c8d386e64, type: 2}
-  ButtonToggleOff: {fileID: 11400000, guid: 6fad401799a77234f8444b40491c4ca8, type: 2}
   ButtonForgetIt: {fileID: 11400000, guid: 0379764341135e84698f180e5cc729d5, type: 2}
-  TextSequenceOn: {fileID: 11400000, guid: 7b63c521cb7dd44429cde326026bcd05, type: 2}
+  ButtonToggleOff: {fileID: 11400000, guid: 6fad401799a77234f8444b40491c4ca8, type: 2}
+  ButtonToggleOn: {fileID: 11400000, guid: 20d0e0201f0485345ad1e73c8d386e64, type: 2}
   TextSequenceOff: {fileID: 11400000, guid: 79a56d088ffb6d14a880821569a705d8, type: 2}
+  TextSequenceOn: {fileID: 11400000, guid: 7b63c521cb7dd44429cde326026bcd05, type: 2}
 --- !u!1 &6167244298183690789
 GameObject:
   m_ObjectHideFlags: 0
