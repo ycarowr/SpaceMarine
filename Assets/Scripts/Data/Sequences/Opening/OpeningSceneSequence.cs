@@ -84,7 +84,9 @@ namespace SpaceMarine.Opening
 
         void LoadLevel()
         {
-            SceneManager.LoadScene(parameters.NextLevel.name);
+            Fade.Instance.OnFinishFade -= LoadLevel;
+            Debug.Log("LoadLevel");
+            SceneManager.LoadScene(OpeningSceneParameters.NextLevel);
         }
     }
 }

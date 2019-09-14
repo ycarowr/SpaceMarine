@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eca864c79a827844bcbcaf737cb592f, type: 3}
   m_Name: ArrivalSceneParameters
   m_EditorClassIdentifier: 
-  SkipIntro: 1
-  PlayerWalkSpeed: 3.3
-  PlayerPosition: {x: -3, y: 2.11, z: 0}
-  PlayerFinalPosition: {x: 3, y: 2.11, z: 0}
   ArrivalPoint: {x: -3, y: 2.89, z: -2}
   DelayMoveRight: 3
   DelayMoveToArrivalPoint: 2
   FadeSpeedOpening: 0.5
   FadeStart: 1
   FadeStartDelay: 1
+  PlayerFinalPosition: {x: 3, y: 2.11, z: 0}
+  PlayerPosition: {x: -3, y: 2.11, z: 0}
+  PlayerWalkSpeed: 3.3
   ReverCraftScale: {x: -6, y: 4, z: 1}
   RightScreenSpaceCraftPosition: {x: 25, y: 2.89, z: -2}
+  SkipIntro: 0
   SpaceCraftSpeedArrival: 1.5
   SpaceCraftSpeedLeft: 5.5
   SpaceCraftSpeedRight: 6.1
