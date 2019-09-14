@@ -1,7 +1,13 @@
 # Space Marine Project.
-The repository contains the game illustrated by the video below, the assets are free and can be found on [PixelGameArt](http://pixelgameart.org/web/). You can find a playable demo on [itch](https://ycarowr.itch.io/space-marine).
+The repository contains the game illustrated gifs below, the assets are free and can be found on [PixelGameArt](http://pixelgameart.org/web/). 
 
-![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/spacemarine.gif)
+![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/door.gif)
+![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/elevator.gif)
+![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/level2.gif)
+![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/level3.gif)
+![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/robot.gif)
+![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/spacecraft.gif)
+![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/terminal.gif)
 
 My main goal when I first started this game was to make a 2d-platformer with a decent code architecture, something which I would be able to reuse code in the future or extend to a "real project". By no means, I wanna say a real project has to have a perfect architecture or be completely extendable. I believe every project has its purpose and by the time I started this one I wanted to make it as much maintainable, manageable and clean as possible. Something 100% doable!
 
@@ -65,7 +71,7 @@ The [GameController](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/S
 
 To initialize most of the game entities some external information is needed, this data means different things for different entities, they could be the position where a enemy would be placed, the total health, an ids or all the enemies inside the room. All these [meta data](https://github.com/ycarowr/SpaceMarine/tree/master/Assets/Scripts/Data) about an object is stored into a specific scriptable object which is shared across all the entities of that type, as the constructor of the class [enemy](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Scripts/Model/Entities/Enemies/RuntimeEnemy.cs) illustrates, the data is a dependency injected during the creation of the object.
 
-And that's all for now.
+A playable version is available [here](https://ycarowr.itch.io/space-marine).
 
 See you space cowboy
   
