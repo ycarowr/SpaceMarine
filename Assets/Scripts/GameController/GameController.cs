@@ -1,6 +1,7 @@
 ﻿using Patterns;
 using Patterns.GameEvents;
 using SpaceMarine.Model;
+using UnityEngine;
 
 namespace SpaceMarine
 {
@@ -14,7 +15,7 @@ namespace SpaceMarine
             StartGame();
         }
 
-        void Start()
+        protected override void OnAwake()
         {
             GameEvents.Instance.AddListener(this);
         }
