@@ -1,5 +1,5 @@
 # Space Marine Project.
-The repository contains the game illustrated by the video below, the assets are free and can be found on [PixelGameArt](http://pixelgameart.org/web/). You can find a playable demo on [itch](https://github.com/ycarowr/SpaceMarine).
+The repository contains the game illustrated by the video below, the assets are free and can be found on [PixelGameArt](http://pixelgameart.org/web/). You can find a playable demo on [itch](https://ycarowr.itch.io/space-marine).
 
 ![alt text](https://github.com/ycarowr/SpaceMarine/blob/master/Assets/Textures/spacemarine.gif)
 
