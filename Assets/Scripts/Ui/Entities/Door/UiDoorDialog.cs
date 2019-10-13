@@ -1,5 +1,5 @@
-﻿using Patterns.GameEvents;
-using Tools.Dialog;
+﻿using Tools.DialogSystem;
+using Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace SpaceMarine

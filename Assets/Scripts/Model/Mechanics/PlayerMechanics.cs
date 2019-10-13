@@ -1,4 +1,4 @@
-using Patterns.GameEvents;
+using Tools.Patterns.GameEvents;
 
 namespace SpaceMarine.Model
 {
@@ -28,10 +28,7 @@ namespace SpaceMarine.Model
             OnEnterRoom(id);
         }
 
-        public void LeaveRoom(RoomId id)
-        {
-            OnLeaveRoom(id);
-        }
+        public void LeaveRoom(RoomId id) => OnLeaveRoom(id);
 
         #endregion
 
@@ -43,10 +40,7 @@ namespace SpaceMarine.Model
         {
         }
 
-        public void Destroy()
-        {
-            OnDie();
-        }
+        public void Destroy() => OnDie();
 
         #endregion
 
@@ -54,15 +48,9 @@ namespace SpaceMarine.Model
 
         #region Shooting
 
-        public void Shoot()
-        {
-            OnShoot();
-        }
+        public void Shoot() => OnShoot();
 
-        public bool CanShoot()
-        {
-            return Ammo > 0;
-        }
+        public bool CanShoot() => Ammo > 0;
 
         public void Reload()
         {
@@ -88,35 +76,17 @@ namespace SpaceMarine.Model
 
         #region Events
 
-        void OnEnterRoom(RoomId id)
-        {
-            GameEvents.Instance.Notify<GameEvent.IEnterRoom>(i => i.OnEnterRoom(id));
-        }
+        void OnEnterRoom(RoomId id) => GameEvents.Instance.Notify<GameEvent.IEnterRoom>(i => i.OnEnterRoom(id));
 
-        void OnLeaveRoom(RoomId id)
-        {
-            GameEvents.Instance.Notify<GameEvent.ILeaveRoom>(i => i.OnLeaveRoom(id));
-        }
+        void OnLeaveRoom(RoomId id) => GameEvents.Instance.Notify<GameEvent.ILeaveRoom>(i => i.OnLeaveRoom(id));
 
-        void OnDie()
-        {
-            GameEvents.Instance.Notify<GameEvent.IPlayerDie>(i => i.OnDie());
-        }
+        void OnDie() => GameEvents.Instance.Notify<GameEvent.IPlayerDie>(i => i.OnDie());
 
-        void OnShoot()
-        {
-            GameEvents.Instance.Notify<GameEvent.IPlayerShoot>(i => i.OnShoot(this));
-        }
+        void OnShoot() => GameEvents.Instance.Notify<GameEvent.IPlayerShoot>(i => i.OnShoot(this));
 
-        void OnReload()
-        {
-            GameEvents.Instance.Notify<GameEvent.IPlayerReload>(i => i.OnReload(this));
-        }
+        void OnReload() => GameEvents.Instance.Notify<GameEvent.IPlayerReload>(i => i.OnReload(this));
 
-        void OnEquip()
-        {
-            GameEvents.Instance.Notify<GameEvent.IPlayerEquip>(i => i.OnEquip(this, CurrentGun));
-        }
+        void OnEquip() => GameEvents.Instance.Notify<GameEvent.IPlayerEquip>(i => i.OnEquip(this, CurrentGun));
 
         #endregion
     }

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Patterns;
-using Patterns.GameEvents;
 using SpaceMarine.Model;
+using Tools.Patterns.GameEvents;
+using Tools.Patterns.Observer;
 using UnityEngine;
 
 namespace SpaceMarine.Rooms
@@ -31,15 +31,9 @@ namespace SpaceMarine.Rooms
             CameraPoint = GetComponentInChildren<UiCameraPoint>();
         }
 
-        protected override void OnTriggerEnterPlayer()
-        {
-            RoomMechanics.PlayerEnter(RoomId);
-        }
+        protected override void OnTriggerEnterPlayer() => RoomMechanics.PlayerEnter(RoomId);
 
-        protected override void OnTriggerExitPlayer()
-        {
-            RoomMechanics.PlayerLeave(RoomId);
-        }
+        protected override void OnTriggerExitPlayer() => RoomMechanics.PlayerLeave(RoomId);
 
         void CreateUiEnemies()
         {

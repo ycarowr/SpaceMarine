@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools.UI.Fade;
+using Tools.Fade;
+using Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace SpaceMarine.Arrival
@@ -51,7 +51,7 @@ namespace SpaceMarine.Arrival
         {
             yield return new WaitForSeconds(param.DelayMoveRight);
 
-            UiSpaceCraft.Motion.Movement.Execute(param.RightScreenSpaceCraftPosition, param.SpaceCraftSpeedRight, 0);
+            UiSpaceCraft.Motion.Movement.Execute(param.RightScreenSpaceCraftPosition, param.SpaceCraftSpeedRight);
             UiSpaceCraft.Motion.Movement.OnFinishMotion += MoveSpaceCraftArrivalPoint;
         }
 
@@ -67,7 +67,7 @@ namespace SpaceMarine.Arrival
             UiSpaceCraft.Instance.DisableNumber();
             yield return new WaitForSeconds(param.DelayMoveToArrivalPoint);
             UiSpaceCraft.Motion.Movement
-                .Execute(param.ArrivalPoint, param.SpaceCraftSpeedArrival, 0);
+                .Execute(param.ArrivalPoint, param.SpaceCraftSpeedArrival);
             UiSpaceCraft.Motion.Movement.OnFinishMotion += MovePlayerToArrival;
         }
 

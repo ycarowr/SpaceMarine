@@ -9,23 +9,14 @@ namespace SpaceMarine
         {
             float timeRate;
 
-            public UiGunInput(UiGun parent)
-            {
-                Parent = parent;
-            }
+            public UiGunInput(UiGun parent) => Parent = parent;
 
             public IPlayer Player => GameData.Instance.Game.Player;
             UiGun Parent { get; }
 
-            public void TryEquip(GunData data)
-            {
-                Player.Equip(data);
-            }
+            public void TryEquip(GunData data) => Player.Equip(data);
 
-            public void Update()
-            {
-                TryShoot();
-            }
+            public void Update() => TryShoot();
 
             void TryShoot()
             {

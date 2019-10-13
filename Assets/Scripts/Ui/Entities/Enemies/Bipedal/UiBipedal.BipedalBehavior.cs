@@ -1,4 +1,4 @@
-using Patterns.StateMachine;
+using Tools.Patterns.StateMachine;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -30,10 +30,7 @@ namespace SpaceMarine
                 RegisterState(AlertState);
             }
 
-            protected override void OnInitialize()
-            {
-                PatrolArea();
-            }
+            protected override void OnInitialize() => PatrolArea();
         }
     }
 }

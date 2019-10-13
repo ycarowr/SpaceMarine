@@ -1,7 +1,7 @@
-﻿using Patterns;
-using Patterns.GameEvents;
-using SpaceMarine.Data;
+﻿using SpaceMarine.Data;
 using SpaceMarine.Model;
+using Tools.Patterns.GameEvents;
+using Tools.Patterns.Singleton;
 
 namespace SpaceMarine
 {
@@ -28,14 +28,8 @@ namespace SpaceMarine
             //TODO:
         }
 
-        void Start()
-        {
-            CreateGame();
-        }
+        void Start() => CreateGame();
 
-        void OnCreateGame()
-        {
-            GameEvents.Instance.Notify<GameEvent.ICreateGame>(i => i.OnCreateGame(Game));
-        }
+        void OnCreateGame() => GameEvents.Instance.Notify<GameEvent.ICreateGame>(i => i.OnCreateGame(Game));
     }
 }

@@ -1,5 +1,5 @@
-using Patterns.GameEvents;
 using SpaceMarine.Model;
+using Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -26,10 +26,7 @@ namespace SpaceMarine
 
         //--------------------------------------------------------------------------------------------------------------
 
-        void GameEvent.IPlayerEquip.OnEquip(IShooter player, IGunData gunData)
-        {
-            Equip(gunData);
-        }
+        void GameEvent.IPlayerEquip.OnEquip(IShooter player, IGunData gunData) => Equip(gunData);
 
         void GameEvent.IPlayerReload.OnReload(IShooter player)
         {
@@ -77,20 +74,11 @@ namespace SpaceMarine
 
         //--------------------------------------------------------------------------------------------------------------
 
-        public void Update()
-        {
-            GunInput?.Update();
-        }
+        public void Update() => GunInput?.Update();
 
-        void Equip(IGunData gunData)
-        {
-            GunData = gunData;
-        }
+        void Equip(IGunData gunData) => GunData = gunData;
 
         [Button]
-        void TestEquip()
-        {
-            GunInput?.TryEquip(testGun);
-        }
+        void TestEquip() => GunInput?.TryEquip(testGun);
     }
 }

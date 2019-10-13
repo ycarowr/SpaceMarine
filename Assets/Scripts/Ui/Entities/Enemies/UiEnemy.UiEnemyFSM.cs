@@ -1,4 +1,4 @@
-using Patterns.StateMachine;
+using Tools.Patterns.StateMachine;
 
 namespace SpaceMarine
 {
@@ -16,18 +16,12 @@ namespace SpaceMarine
             /// <summary>
             ///     Patrols the area.
             /// </summary>
-            public void PatrolArea()
-            {
-                PushState(PatrolState);
-            }
+            public void PatrolArea() => PushState(PatrolState);
 
             /// <summary>
             ///     Stay alert. Fired when the player reaches its range.
             /// </summary>
-            public void StayAlert()
-            {
-                PushState(AlertState);
-            }
+            public void StayAlert() => PushState(AlertState);
         }
     }
 }

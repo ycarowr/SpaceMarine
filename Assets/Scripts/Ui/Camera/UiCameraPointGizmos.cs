@@ -1,4 +1,4 @@
-using Tools;
+using Tools.EditorComponent;
 using UnityEngine;
 
 namespace SpaceMarine

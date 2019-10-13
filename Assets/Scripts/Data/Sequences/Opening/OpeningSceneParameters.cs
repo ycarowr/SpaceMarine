@@ -1,4 +1,4 @@
-﻿using Tools.Dialog;
+﻿using Tools.DialogSystem;
 using UnityEngine;
 
 namespace SpaceMarine.Opening
@@ -7,7 +7,7 @@ namespace SpaceMarine.Opening
     public class OpeningSceneParameters : ScriptableObject
     {
         public const string NextLevel = "Game";
-            
+
         [Range(0, 5)] public float DelayMoveCraftCenter = 3;
         [Range(0, 5)] public float FadeSpeedEnding = 2.5f;
 

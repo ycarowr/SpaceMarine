@@ -1,4 +1,4 @@
-using Patterns.GameEvents;
+using Tools.Patterns.GameEvents;
 
 namespace SpaceMarine.Model
 {
@@ -31,14 +31,10 @@ namespace SpaceMarine.Model
             OnChangeRoom();
         }
 
-        void OnSwitch(bool isLocked)
-        {
+        void OnSwitch(bool isLocked) =>
             GameEvents.Instance.Notify<GameEvent.IOnSwitchElevator>(i => i.OnSwitch(isLocked));
-        }
 
-        void OnChangeRoom()
-        {
+        void OnChangeRoom() =>
             GameEvents.Instance.Notify<GameEvent.IOnElevatorChangeRoom>(i => i.OnChangeRoom(CurrentRoom));
-        }
     }
 }

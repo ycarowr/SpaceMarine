@@ -1,7 +1,7 @@
-﻿using Patterns;
-using Patterns.GameEvents;
-using SpaceMarine.Model;
-using UnityEngine;
+﻿using SpaceMarine.Model;
+using Tools.Patterns.GameEvents;
+using Tools.Patterns.Observer;
+using Tools.Patterns.Singleton;
 
 namespace SpaceMarine
 {
@@ -10,24 +10,12 @@ namespace SpaceMarine
         IGameData GameData => SpaceMarine.GameData.Instance;
         IGame Game => GameData?.Game;
 
-        public void OnCreateGame(IGame runtimeGame)
-        {
-            StartGame();
-        }
+        public void OnCreateGame(IGame runtimeGame) => StartGame();
 
-        protected override void OnAwake()
-        {
-            GameEvents.Instance.AddListener(this);
-        }
+        protected override void OnAwake() => GameEvents.Instance.AddListener(this);
 
-        void StartGame()
-        {
-            Game.Attributes.StartGame();
-        }
+        void StartGame() => Game.Attributes.StartGame();
 
-        void EndGame()
-        {
-            Game.Attributes.EndGame();
-        }
+        void EndGame() => Game.Attributes.EndGame();
     }
 }

@@ -32,10 +32,7 @@ namespace SpaceMarine
             KeepAliveRoutine = StartCoroutine(KeepAlive(lifeSpan));
         }
 
-        float GetAccuracy(float precision)
-        {
-            return Random.Range(-precision, precision);
-        }
+        float GetAccuracy(float precision) => Random.Range(-precision, precision);
 
         IEnumerator KeepAlive(float delay)
         {
@@ -43,10 +40,7 @@ namespace SpaceMarine
             Deactivate();
         }
 
-        void Activate()
-        {
-            gameObject.SetActive(true);
-        }
+        void Activate() => gameObject.SetActive(true);
 
         void Deactivate()
         {

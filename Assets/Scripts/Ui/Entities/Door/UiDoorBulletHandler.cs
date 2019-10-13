@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using Patterns.GameEvents;
 using SpaceMarine.Model;
-using Tools;
+using Tools.Patterns.GameEvents;
+using Tools.Shake;
 using UnityEngine;
 
 namespace SpaceMarine

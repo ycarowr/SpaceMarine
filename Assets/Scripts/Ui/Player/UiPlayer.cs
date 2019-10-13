@@ -1,6 +1,6 @@
 ﻿using System;
-using Patterns;
 using SpaceMarine.Input;
+using Tools.Patterns.Singleton;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -50,16 +50,10 @@ namespace SpaceMarine
         }
 
         [Button]
-        public void Deactivate()
-        {
-            gameObject.SetActive(false);
-        }
+        public void Deactivate() => gameObject.SetActive(false);
 
         [Button]
-        public void Active()
-        {
-            gameObject.SetActive(true);
-        }
+        public void Active() => gameObject.SetActive(true);
 
         #region Properties
 

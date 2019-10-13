@@ -2,9 +2,6 @@
 {
     public class UiArrivalRoom : UiRoom
     {
-        void Start()
-        {
-            UiCamera.Instance.Motion.Teleport(CameraPoint.transform.position);
-        }
+        void Start() => UiCamera.Instance.Motion.Teleport(CameraPoint.transform.position);
     }
 }

@@ -1,5 +1,5 @@
 using System.Collections;
-using Tools.UI;
+using Tools.UiTransform;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -35,15 +35,9 @@ namespace SpaceMarine
 
                 //------------------------------------------------------------------------------------------------------
 
-                public override void OnEnterState()
-                {
-                    Next();
-                }
+                public override void OnEnterState() => Next();
 
-                public override void OnUpdate()
-                {
-                    Motion.Update();
-                }
+                public override void OnUpdate() => Motion.Update();
 
                 enum State
                 {

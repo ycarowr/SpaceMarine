@@ -1,4 +1,4 @@
-using Tools;
+using Tools.EditorComponent;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -7,10 +7,7 @@ namespace SpaceMarine
     {
         UiElevator UiElevator { get; set; }
 
-        void Awake()
-        {
-            UiElevator = GetComponent<UiElevator>();
-        }
+        void Awake() => UiElevator = GetComponent<UiElevator>();
 
         void OnDrawGizmos()
         {

@@ -18,15 +18,9 @@ namespace SpaceMarine
             Animator Animator { get; }
             MonoBehaviour Handler { get; }
 
-            public void Walk()
-            {
-                Animator.Play(walk);
-            }
+            public void Walk() => Animator.Play(walk);
 
-            public void Idle()
-            {
-                Animator.Play(idle);
-            }
+            public void Idle() => Animator.Play(idle);
 
             public void Disable()
             {

@@ -17,9 +17,6 @@
         public bool IsShotting => UiPlayer.Input.IsShootPressed;
         public bool IsGrounded { get; private set; }
 
-        public void SetGrounded(bool isGrounded)
-        {
-            IsGrounded = isGrounded;
-        }
+        public void SetGrounded(bool isGrounded) => IsGrounded = isGrounded;
     }
 }

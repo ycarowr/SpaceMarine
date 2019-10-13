@@ -1,4 +1,4 @@
-using Patterns.GameEvents;
+using Tools.Patterns.GameEvents;
 
 namespace SpaceMarine.Model
 {
@@ -42,17 +42,11 @@ namespace SpaceMarine.Model
         /// <summary>
         ///     Dispatch start game
         /// </summary>
-        void OnStart()
-        {
-            GameEvents.Instance.Notify<GameEvent.IStartGame>(i => i.OnStartGame(Game));
-        }
+        void OnStart() => GameEvents.Instance.Notify<GameEvent.IStartGame>(i => i.OnStartGame(Game));
 
         /// <summary>
         ///     Dispatch end game.
         /// </summary>
-        void OnEnd()
-        {
-            GameEvents.Instance.Notify<GameEvent.IEndGame>(i => i.OnEndGame());
-        }
+        void OnEnd() => GameEvents.Instance.Notify<GameEvent.IEndGame>(i => i.OnEndGame());
     }
 }

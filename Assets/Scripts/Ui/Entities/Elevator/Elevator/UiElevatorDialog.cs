@@ -1,6 +1,6 @@
-﻿using Patterns.GameEvents;
-using SpaceMarine.Model;
-using Tools.Dialog;
+﻿using SpaceMarine.Model;
+using Tools.DialogSystem;
+using Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace SpaceMarine

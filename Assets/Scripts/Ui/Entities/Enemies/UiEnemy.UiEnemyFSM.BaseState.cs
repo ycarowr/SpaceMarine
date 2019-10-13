@@ -1,4 +1,4 @@
-using Patterns.StateMachine;
+using Tools.Patterns.StateMachine;
 
 namespace SpaceMarine
 {
@@ -8,10 +8,7 @@ namespace SpaceMarine
         {
             public abstract class BaseEnemyState<T> : IState where T : BaseStateMachine
             {
-                protected BaseEnemyState(T fsm)
-                {
-                    Fsm = fsm;
-                }
+                protected BaseEnemyState(T fsm) => Fsm = fsm;
 
                 public T Fsm { get; }
                 public bool IsInitialized { get; }

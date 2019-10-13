@@ -25,19 +25,10 @@ namespace SpaceMarine.Model
             }
         }
 
-        public IRoom Get(RoomId id)
-        {
-            return Rooms?[id];
-        }
+        public IRoom Get(RoomId id) => Rooms?[id];
 
-        public void PlayerEnter(RoomId id)
-        {
-            Game.Player.EnterRoom(id);
-        }
+        public void PlayerEnter(RoomId id) => Game.Player.EnterRoom(id);
 
-        public void PlayerLeave(RoomId id)
-        {
-            Game.Player.LeaveRoom(id);
-        }
+        public void PlayerLeave(RoomId id) => Game.Player.LeaveRoom(id);
     }
 }

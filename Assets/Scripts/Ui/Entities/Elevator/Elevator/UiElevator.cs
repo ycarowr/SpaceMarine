@@ -1,5 +1,5 @@
-﻿using Patterns.GameEvents;
-using SpaceMarine.Model;
+﻿using SpaceMarine.Model;
+using Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -20,10 +20,7 @@ namespace SpaceMarine
 
         public RoomId CurrentRoom { get; set; }
 
-        void GameEvent.IStartGame.OnStartGame(IGame game)
-        {
-            ElevatorAnimations.GoToWithNoPlayer();
-        }
+        void GameEvent.IStartGame.OnStartGame(IGame game) => ElevatorAnimations.GoToWithNoPlayer();
 
         protected override void Awake()
         {
@@ -32,9 +29,6 @@ namespace SpaceMarine
             ElevatorAnimations = new Animations(this, uiElevatorStops);
         }
 
-        void Update()
-        {
-            ElevatorAnimations?.Update();
-        }
+        void Update() => ElevatorAnimations?.Update();
     }
 }

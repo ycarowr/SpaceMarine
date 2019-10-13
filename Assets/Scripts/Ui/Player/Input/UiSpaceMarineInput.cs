@@ -28,15 +28,9 @@ namespace SpaceMarine.Input
 
         public bool IsShootPressed { get; private set; }
 
-        public void StartTracking()
-        {
-            IsTracking = true;
-        }
+        public void StartTracking() => IsTracking = true;
 
-        public void StopTracking()
-        {
-            IsTracking = false;
-        }
+        public void StopTracking() => IsTracking = false;
 
         void Update()
         {

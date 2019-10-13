@@ -6,9 +6,6 @@ namespace SpaceMarine.Data
     [CreateAssetMenu(menuName = "Data/Walker")]
     public class WalkerData : EnemyData
     {
-        public override IEnemy GetEnemy(Vector3 startPosition)
-        {
-            return new Walker(this, startPosition);
-        }
+        public override IEnemy GetEnemy(Vector3 startPosition) => new Walker(this, startPosition);
     }
 }

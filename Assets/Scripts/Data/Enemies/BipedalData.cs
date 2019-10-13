@@ -8,10 +8,7 @@ namespace SpaceMarine.Data
     {
         public Vector2 PointA;
         public Vector2 PointB;
-        
-        public override IEnemy GetEnemy(Vector3 startPosition)
-        {
-            return new Bipedal(this, startPosition);
-        }
+
+        public override IEnemy GetEnemy(Vector3 startPosition) => new Bipedal(this, startPosition);
     }
 }

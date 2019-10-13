@@ -1,15 +1,15 @@
-﻿using Patterns.StateMachine;
-using SpaceMarine.Data;
+﻿using SpaceMarine.Data;
 using SpaceMarine.Model;
+using Tools.Patterns.StateMachine;
 using UnityEngine;
 
 namespace SpaceMarine
 {
     public partial class UiBipedal : UiEnemy, IStateMachineHandler
     {
-        public MonoBehaviour MonoBehaviour => this;
         UiEnemyFSM Behaviors { get; set; }
-        
+        public MonoBehaviour MonoBehaviour => this;
+
         public override void Initialize(IEnemy runtimeData)
         {
             base.Initialize(runtimeData);
@@ -19,9 +19,6 @@ namespace SpaceMarine
             Behaviors = new BipedalBehavior(this, pa, pb);
         }
 
-        void Update()
-        {
-            Behaviors.Update();
-        }
+        void Update() => Behaviors.Update();
     }
 }

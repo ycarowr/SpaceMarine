@@ -2,9 +2,6 @@
 {
     public class UiDeathZone : UiBaseEntity
     {
-        protected override void OnTriggerEnterPlayer()
-        {
-            GameData.Instance.Game.Player.Destroy();
-        }
+        protected override void OnTriggerEnterPlayer() => GameData.Instance.Game.Player.Destroy();
     }
 }

@@ -1,5 +1,5 @@
-﻿using Patterns.GameEvents;
-using SpaceMarine.Model;
+﻿using SpaceMarine.Model;
+using Tools.Patterns.GameEvents;
 
 namespace SpaceMarine
 {
@@ -15,10 +15,7 @@ namespace SpaceMarine
 
         //--------------------------------------------------------------------------------------------------------------
 
-        public void OnQuickFirstDoor()
-        {
-            ButtonETrigger.SetState(UiStateEntity.State.Off);
-        }
+        public void OnQuickFirstDoor() => ButtonETrigger.SetState(UiStateEntity.State.Off);
 
         protected override void Awake()
         {
@@ -27,10 +24,7 @@ namespace SpaceMarine
             ButtonETrigger = GetComponentInChildren<UiButtonTriggerZone>();
         }
 
-        void Start()
-        {
-            ButtonETrigger.SetState(UiStateEntity.State.Inactive);
-        }
+        void Start() => ButtonETrigger.SetState(UiStateEntity.State.Inactive);
 
         public void OpenDoor()
         {

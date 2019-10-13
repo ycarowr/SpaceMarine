@@ -1,5 +1,6 @@
 ﻿using System;
-using Tools;
+using Tools.GenericWindow;
+using Tools.Input.KeyBoard;
 
 namespace SpaceMarine
 {

@@ -1,5 +1,5 @@
-﻿using Patterns.GameEvents;
-using SpaceMarine.Model;
+﻿using SpaceMarine.Model;
+using Tools.Patterns.GameEvents;
 
 namespace SpaceMarine
 {
@@ -8,17 +8,11 @@ namespace SpaceMarine
         UiElevator UiElevator { get; set; }
         UiButtonTriggerZone ButtonETrigger { get; set; }
 
-        void GameEvent.IOnSwitchElevator.OnSwitch(bool isEnabled)
-        {
-            SwitchElevator(isEnabled);
-        }
+        void GameEvent.IOnSwitchElevator.OnSwitch(bool isEnabled) => SwitchElevator(isEnabled);
 
         //--------------------------------------------------------------------------------------------------------------
 
-        void GameEvent.IStartGame.OnStartGame(IGame game)
-        {
-            SwitchOff();
-        }
+        void GameEvent.IStartGame.OnStartGame(IGame game) => SwitchOff();
 
         protected override void Awake()
         {

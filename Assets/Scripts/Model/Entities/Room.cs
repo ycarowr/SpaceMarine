@@ -18,14 +18,8 @@ namespace SpaceMarine.Model
         public List<IEnemy> Enemies { get; }
         public List<IDoor> Doors { get; }
 
-        public void AddEnemy(IEnemy enemy)
-        {
-            Enemies.Add(enemy);
-        }
+        public void AddEnemy(IEnemy enemy) => Enemies.Add(enemy);
 
-        public void AddDoor(IDoor door)
-        {
-            Doors.Add(door);
-        }
+        public void AddDoor(IDoor door) => Doors.Add(door);
     }
 }

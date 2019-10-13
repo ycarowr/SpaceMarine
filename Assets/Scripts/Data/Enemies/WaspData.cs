@@ -6,9 +6,6 @@ namespace SpaceMarine.Data
     [CreateAssetMenu(menuName = "Data/Wasp")]
     public class WaspData : EnemyData
     {
-        public override IEnemy GetEnemy(Vector3 startPosition)
-        {
-            return new Wasp(this, startPosition);
-        }
+        public override IEnemy GetEnemy(Vector3 startPosition) => new Wasp(this, startPosition);
     }
 }

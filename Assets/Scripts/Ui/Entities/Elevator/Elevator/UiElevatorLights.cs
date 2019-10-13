@@ -1,4 +1,4 @@
-﻿using Tools.UI.Fade;
+﻿using Tools.Fade;
 
 namespace SpaceMarine
 {
@@ -15,14 +15,8 @@ namespace SpaceMarine
             Lights = transform.parent.GetComponentInChildren<FadeComponent>();
         }
 
-        protected override void OnTriggerEnterPlayer()
-        {
-            Lights.SetAlpha(LightsOn);
-        }
+        protected override void OnTriggerEnterPlayer() => Lights.SetAlpha(LightsOn);
 
-        protected override void OnTriggerExitPlayer()
-        {
-            Lights.SetAlpha(LightsOff);
-        }
+        protected override void OnTriggerExitPlayer() => Lights.SetAlpha(LightsOff);
     }
 }

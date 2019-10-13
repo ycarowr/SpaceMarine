@@ -1,6 +1,6 @@
-﻿using Patterns;
-using SpaceMarine;
+﻿using SpaceMarine;
 using SpaceMarine.Model;
+using Tools.Patterns.Observer;
 
 public class GameEvent
 {

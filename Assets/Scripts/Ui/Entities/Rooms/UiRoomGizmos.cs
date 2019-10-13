@@ -1,5 +1,5 @@
 ﻿using SpaceMarine.Data;
-using Tools;
+using Tools.EditorComponent;
 using UnityEngine;
 
 namespace SpaceMarine.Rooms

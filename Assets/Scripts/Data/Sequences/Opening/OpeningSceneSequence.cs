@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using Tools.Dialog;
-using Tools.UI.Fade;
+using Tools.DialogSystem;
+using Tools.Fade;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -45,7 +45,7 @@ namespace SpaceMarine.Opening
         {
             yield return new WaitForSeconds(parameters.DelayMoveCraftCenter);
             var cameraPos = Camera.main.transform.position;
-            UiSpaceCraft.Instance.Motion.Movement.Execute(cameraPos, parameters.SpaceCraftSpeedCenter, 0);
+            UiSpaceCraft.Instance.Motion.Movement.Execute(cameraPos, parameters.SpaceCraftSpeedCenter);
 
             void MoveLeftRoutine()
             {
@@ -59,7 +59,7 @@ namespace SpaceMarine.Opening
         void MoveSpaceCraftLeftScreenSide()
         {
             UiSpaceCraft.Instance.Motion.Movement
-                .Execute(parameters.LeftScreenSpaceCraftPosition, parameters.SpaceCraftSpeedLeft, 0);
+                .Execute(parameters.LeftScreenSpaceCraftPosition, parameters.SpaceCraftSpeedLeft);
             UiSpaceCraft.Instance.Motion.Movement.IsConstant = true;
 
             void ShowDialog()
@@ -76,7 +76,7 @@ namespace SpaceMarine.Opening
         {
             dialog.OnHide -= MoveSpaceCraftRightScreenSide;
             UiSpaceCraft.Instance.Motion.Movement
-                .Execute(parameters.RightScreenSpaceCraftPosition, parameters.SpaceCraftSpeedRight, 0);
+                .Execute(parameters.RightScreenSpaceCraftPosition, parameters.SpaceCraftSpeedRight);
 
             Fade.Instance.SetAlpha(1, parameters.FadeSpeedEnding);
             Fade.Instance.OnFinishFade += LoadLevel;

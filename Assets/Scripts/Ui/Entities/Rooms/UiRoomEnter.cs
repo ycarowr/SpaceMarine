@@ -1,6 +1,6 @@
-﻿using Patterns.GameEvents;
-using SpaceMarine.Model;
-using Tools.UI;
+﻿using SpaceMarine.Model;
+using Tools.Patterns.GameEvents;
+using Tools.UiTransform;
 
 namespace SpaceMarine.Rooms
 {

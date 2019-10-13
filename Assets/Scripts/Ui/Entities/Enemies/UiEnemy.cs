@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using Patterns;
-using Patterns.GameEvents;
 using SpaceMarine.Data;
 using SpaceMarine.Model;
-using Tools;
+using Tools.Patterns.GameEvents;
+using Tools.Patterns.Observer;
+using Tools.Shake;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -19,19 +19,6 @@ namespace SpaceMarine
         public EnemyId Id;
         public IEnemy Enemy { get; set; }
         ShakeAnimation Shake { get; set; }
-        
-        void Start()
-        {
-            GameEvents.Instance.AddListener(this);
-            Shake = GetComponent<ShakeAnimation>();
-            Test();
-        }
-
-        public virtual void Initialize(IEnemy runtimeData)
-        {
-            Enemy = runtimeData;
-            Data = Enemy.Data;
-        }
 
         public virtual void OnCollideBullet(UiBullet bullet)
         {
@@ -55,10 +42,20 @@ namespace SpaceMarine
             StartCoroutine(TakeDamageAnimation());
         }
 
-        public void TryTakeDamage(int damage)
+        void Start()
         {
-            Enemy.TakeDamage(damage);
+            GameEvents.Instance.AddListener(this);
+            Shake = GetComponent<ShakeAnimation>();
+            Test();
         }
+
+        public virtual void Initialize(IEnemy runtimeData)
+        {
+            Enemy = runtimeData;
+            Data = Enemy.Data;
+        }
+
+        public void TryTakeDamage(int damage) => Enemy.TakeDamage(damage);
 
         protected virtual IEnumerator TakeDamageAnimation()
         {
@@ -116,15 +113,9 @@ namespace SpaceMarine
         }
 
         [Button]
-        public void Test()
-        {
-            Enemy = Data.GetEnemy(transform.position);
-        }
+        public void Test() => Enemy = Data.GetEnemy(transform.position);
 
         [Button]
-        public void TryTakeDamage()
-        {
-            TryTakeDamage(1);
-        }
+        public void TryTakeDamage() => TryTakeDamage(1);
     }
 }

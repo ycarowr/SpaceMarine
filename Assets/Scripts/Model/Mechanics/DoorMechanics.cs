@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Patterns.GameEvents;
+using Tools.Patterns.GameEvents;
 
 namespace SpaceMarine.Model
 {
@@ -14,10 +14,7 @@ namespace SpaceMarine.Model
 
     public class DoorMechanics : BaseGameMechanic, IDoorMechanics
     {
-        public DoorMechanics(IGame game) : base(game)
-        {
-            Doors = new Dictionary<DoorId, IDoor>();
-        }
+        public DoorMechanics(IGame game) : base(game) => Doors = new Dictionary<DoorId, IDoor>();
 
         public Dictionary<DoorId, IDoor> Doors { get; }
         public bool HasQuickFirstDoor { get; private set; }
@@ -37,10 +34,7 @@ namespace SpaceMarine.Model
             }
         }
 
-        public IDoor Get(DoorId id)
-        {
-            return Doors?[id];
-        }
+        public IDoor Get(DoorId id) => Doors?[id];
 
         public void LockDoor(DoorId id)
         {
@@ -64,14 +58,8 @@ namespace SpaceMarine.Model
 
         //--------------------------------------------------------------------------------------------------------------
 
-        void OnQuickFirstDoor()
-        {
-            GameEvents.Instance.Notify<GameEvent.IQuickFirstDoor>(i => i.OnQuickFirstDoor());
-        }
+        void OnQuickFirstDoor() => GameEvents.Instance.Notify<GameEvent.IQuickFirstDoor>(i => i.OnQuickFirstDoor());
 
-        void OnSwitchDoor(IDoor door)
-        {
-            GameEvents.Instance.Notify<GameEvent.IDoors>(i => i.OnSwitchDoor(door));
-        }
+        void OnSwitchDoor(IDoor door) => GameEvents.Instance.Notify<GameEvent.IDoors>(i => i.OnSwitchDoor(door));
     }
 }

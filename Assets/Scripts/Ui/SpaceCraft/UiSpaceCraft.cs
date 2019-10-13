@@ -1,5 +1,5 @@
-﻿using Patterns;
-using Tools.UI;
+﻿using Tools.Patterns.Singleton;
+using Tools.UiTransform;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -16,14 +16,8 @@ namespace SpaceMarine
             Motion.Movement.IsConstant = false;
         }
 
-        void Update()
-        {
-            Motion?.Update();
-        }
+        void Update() => Motion?.Update();
 
-        public void DisableNumber()
-        {
-            Number.SetActive(false);
-        }
+        public void DisableNumber() => Number.SetActive(false);
     }
 }

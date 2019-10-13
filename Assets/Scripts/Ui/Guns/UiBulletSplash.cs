@@ -21,9 +21,6 @@ namespace SpaceMarine
         }
 
         //Called by Animator
-        public void Release()
-        {
-            UiObjectsPooler.Instance.Release(gameObject);
-        }
+        public void Release() => UiObjectsPooler.Instance.Release(gameObject);
     }
 }

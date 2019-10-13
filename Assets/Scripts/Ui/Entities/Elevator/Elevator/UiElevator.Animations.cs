@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using SpaceMarine.Model;
-using Tools.UI;
-using Tools.UI.Fade;
+using Tools.Fade;
+using Tools.UiTransform;
 using UnityEngine;
 
 namespace SpaceMarine
@@ -22,10 +22,7 @@ namespace SpaceMarine
                     Stops.Add(stop.Id, stop.Position);
             }
 
-            public void Update()
-            {
-                Motion?.Update();
-            }
+            public void Update() => Motion?.Update();
 
             #region Elevator Stops and Motion
 
@@ -51,15 +48,9 @@ namespace SpaceMarine
 
             #region Lights
 
-            public void SwitchOn()
-            {
-                Lights.SetAlpha(LightsOn);
-            }
+            public void SwitchOn() => Lights.SetAlpha(LightsOn);
 
-            public void SwitchOff()
-            {
-                Lights.SetAlpha(LightsOff);
-            }
+            public void SwitchOff() => Lights.SetAlpha(LightsOff);
 
             #endregion
 

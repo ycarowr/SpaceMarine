@@ -1,4 +1,4 @@
-﻿using Patterns;
+﻿using Tools.Patterns.GenericPrefabPooler;
 
 namespace SpaceMarine
 {

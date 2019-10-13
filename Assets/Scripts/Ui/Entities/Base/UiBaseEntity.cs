@@ -48,10 +48,7 @@ namespace SpaceMarine
                 OnTriggerExitPlayer();
         }
 
-        bool IsPlayer(Collider2D collider)
-        {
-            return collider == MyUiPlayer.Collider2D;
-        }
+        bool IsPlayer(Collider2D collider) => collider == MyUiPlayer.Collider2D;
 
         protected virtual void OnCollisionEnterPlayer()
         {

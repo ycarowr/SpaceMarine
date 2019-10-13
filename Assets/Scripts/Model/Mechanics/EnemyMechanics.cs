@@ -4,10 +4,7 @@ namespace SpaceMarine.Model
 {
     public class EnemyMechanics : BaseGameMechanic
     {
-        public EnemyMechanics(IGame game) : base(game)
-        {
-            Enemies = new List<IEnemy>();
-        }
+        public EnemyMechanics(IGame game) : base(game) => Enemies = new List<IEnemy>();
 
         public List<IEnemy> Enemies { get; }
 
@@ -33,9 +30,6 @@ namespace SpaceMarine.Model
             }
         }
 
-        public void AddEnemy(IEnemy enemy)
-        {
-            Enemies.Add(enemy);
-        }
+        public void AddEnemy(IEnemy enemy) => Enemies.Add(enemy);
     }
 }

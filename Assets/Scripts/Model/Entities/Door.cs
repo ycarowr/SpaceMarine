@@ -1,5 +1,5 @@
-using Patterns.GameEvents;
 using SpaceMarine.Data;
+using Tools.Patterns.GameEvents;
 
 namespace SpaceMarine.Model
 {
@@ -20,15 +20,9 @@ namespace SpaceMarine.Model
         public bool IsDead { get; private set; }
         public int Health { get; private set; }
 
-        public void Lock()
-        {
-            IsLocked = true;
-        }
+        public void Lock() => IsLocked = true;
 
-        public void UnLock()
-        {
-            IsLocked = false;
-        }
+        public void UnLock() => IsLocked = false;
 
         public void TakeDamage(int amount)
         {
@@ -37,10 +31,7 @@ namespace SpaceMarine.Model
             EvaluateDeath();
         }
 
-        public void Destroy()
-        {
-            GameEvents.Instance.Notify<GameEvent.IDestroyDoor>(i => i.OnDestroyDoor(this));
-        }
+        public void Destroy() => GameEvents.Instance.Notify<GameEvent.IDestroyDoor>(i => i.OnDestroyDoor(this));
 
         void EvaluateDeath()
         {
@@ -49,9 +40,7 @@ namespace SpaceMarine.Model
                 Destroy();
         }
 
-        void OnTakeDamage(int damage)
-        {
+        void OnTakeDamage(int damage) =>
             GameEvents.Instance.Notify<GameEvent.IDoorTakeDamage>(i => i.OnTakeDamage(this, damage));
-        }
     }
 }

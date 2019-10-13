@@ -1,5 +1,5 @@
-using Patterns.GameEvents;
 using SpaceMarine.Model;
+using Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace SpaceMarine.Data
@@ -28,10 +28,7 @@ namespace SpaceMarine.Data
             EvaluateDeath();
         }
 
-        public void Destroy()
-        {
-            GameEvents.Instance.Notify<GameEvent.IDestroyEnemy>(i => i.OnDestroyEnemy(this));
-        }
+        public void Destroy() => GameEvents.Instance.Notify<GameEvent.IDestroyEnemy>(i => i.OnDestroyEnemy(this));
 
         void EvaluateDeath()
         {
@@ -40,9 +37,7 @@ namespace SpaceMarine.Data
                 Destroy();
         }
 
-        void OnTakeDamage(int damage)
-        {
+        void OnTakeDamage(int damage) =>
             GameEvents.Instance.Notify<GameEvent.IEnemyTakeDamage>(i => i.OnTakeDamage(this, damage));
-        }
     }
 }

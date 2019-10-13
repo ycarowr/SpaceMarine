@@ -22,15 +22,9 @@
 
         //--------------------------------------------------------------------------------------------------------------
 
-        protected override void OnTriggerEnterPlayer()
-        {
-            SwitchOn();
-        }
+        protected override void OnTriggerEnterPlayer() => SwitchOn();
 
-        protected override void OnTriggerExitPlayer()
-        {
-            SwitchOff();
-        }
+        protected override void OnTriggerExitPlayer() => SwitchOff();
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -58,10 +52,7 @@
             OnStopProcessing();
         }
 
-        public void SetState(State state)
-        {
-            Current = state;
-        }
+        public void SetState(State state) => Current = state;
 
         //--------------------------------------------------------------------------------------------------------------
 

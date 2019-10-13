@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using SpaceMarine.Arrival;
 using SpaceMarine.Opening;
 using Tools;
-using Tools.Dialog;
 using UnityEngine;
 using UnityEngine.UI;
 
