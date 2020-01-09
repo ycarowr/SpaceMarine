@@ -1,3 +1,6 @@
+[![Unity Version](https://img.shields.io/badge/Unity-2019.1.12f1%2B-blue.svg)](https://unity3d.com/get-unity/download)
+[![Twitter](https://img.shields.io/twitter/follow/LagrangeSpot.svg?label=Follow@LagrangeSpot&style=social)](https://twitter.com/intent/follow?screen_name=LagrangeSpot)
+
 # Space Marine Project.
 The repository contains the game illustrated gifs below, the assets are free and can be found on [PixelGameArt](http://pixelgameart.org/web/). 
 
