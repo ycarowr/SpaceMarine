@@ -1,6 +1,6 @@
 ﻿namespace SpaceMarine
 {
-    public class UiBipedalShield : UiBaseEntity, UiBullet.IBulletHandler
+    public class UiBipedalVulnerableArea : UiBaseEntity, UiBullet.IBulletHandler
     {
         UiEnemy Ui { get; set; }
 

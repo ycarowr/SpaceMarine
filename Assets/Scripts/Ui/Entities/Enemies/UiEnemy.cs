@@ -48,6 +48,7 @@ namespace SpaceMarine
             Shake = GetComponent<ShakeAnimation>();
             Test();
         }
+        
 
         public virtual void Initialize(IEnemy runtimeData)
         {

@@ -28,5 +28,5 @@ MonoBehaviour:
   Name: Bipedal Robot
   QuantityExplosions: 40
   Speed: 5
-  PointA: {x: 5.5, y: -2.33}
-  PointB: {x: -4.5, y: -2.33}
+  PointA: {x: 5.5, y: -1.33}
+  PointB: {x: -4.5, y: -1.33}

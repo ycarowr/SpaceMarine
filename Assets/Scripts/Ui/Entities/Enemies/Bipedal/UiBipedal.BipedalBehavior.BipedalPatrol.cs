@@ -1,4 +1,6 @@
 using System.Collections;
+using SpaceMarine.Data;
+using SpaceMarine.Model;
 using Tools.UiTransform;
 using UnityEngine;
 
@@ -15,12 +17,16 @@ namespace SpaceMarine
             {
                 const float IdleTime = 3;
                 const float Speed = 5;
+                readonly int _idleAnimHash = Animator.StringToHash("Idle");
+                readonly int _walkAnimHash = Animator.StringToHash("Walk");
 
 
                 public BipedalPatrol(UiEnemyFSM fsm, Vector3 pointA, Vector3 pointB) : base(fsm)
                 {
                     PointA = pointA;
                     PointB = pointB;
+                    Animator = Fsm.Handler.MonoBehaviour.GetComponent<Animator>();
+                    SpriteRenderer = Fsm.Handler.MonoBehaviour.GetComponent<SpriteRenderer>();
                     Current = State.PointA;
                     Motion = new UiMotion(this);
                     Motion.Movement.IsConstant = true;
@@ -31,7 +37,10 @@ namespace SpaceMarine
                 State Current { get; set; }
                 Coroutine IdleRoutine { get; set; }
                 public UiMotion Motion { get; }
+                private Animator Animator { get; }
+                private SpriteRenderer SpriteRenderer { get; }
                 public MonoBehaviour MonoBehaviour => Fsm.Handler.MonoBehaviour;
+                private RuntimeEnemy RuntimeEnemy => (RuntimeEnemy) ((UiBipedal) Fsm.Handler.MonoBehaviour).Enemy;
 
                 //------------------------------------------------------------------------------------------------------
 
@@ -78,12 +87,19 @@ namespace SpaceMarine
                 {
                     void MoveA()
                     {
+                        if (RuntimeEnemy.IsDead)
+                            return;
+                        
                         Motion.Movement.OnFinishMotion -= MoveA;
                         GoTo(State.PointA);
+                        Animator.Play(_idleAnimHash);
                     }
 
                     Motion.Movement.OnFinishMotion += MoveA;
                     Motion.MoveTo(PointA, Speed);
+                    Animator.Play(_walkAnimHash);
+                    SpriteRenderer.flipX = false;
+                    ReverseCollisionBounders();
                 }
 
                 /// <summary>
@@ -93,12 +109,19 @@ namespace SpaceMarine
                 {
                     void MoveB()
                     {
+                        if (RuntimeEnemy.IsDead)
+                            return;
+
                         Motion.Movement.OnFinishMotion -= MoveB;
                         GoTo(State.PointB);
+                        Animator.Play(_idleAnimHash);
                     }
 
                     Motion.Movement.OnFinishMotion += MoveB;
                     Motion.MoveTo(PointB, Speed);
+                    Animator.Play(_walkAnimHash);
+                    SpriteRenderer.flipX = true;
+                    ReverseCollisionBounders();
                 }
 
                 /// <summary>
@@ -107,6 +130,9 @@ namespace SpaceMarine
                 /// <param name="next"></param>
                 void GoTo(State next)
                 {
+                    if (RuntimeEnemy.IsDead)
+                        return;
+
                     Current = next;
                     Next();
                 }
@@ -128,6 +154,13 @@ namespace SpaceMarine
                             WalkTowardsB();
                             break;
                     }
+                }
+
+                void ReverseCollisionBounders()
+                {
+                    var scale = ((BipedalBehavior) Fsm).CollisionOffset.localScale;
+                    scale.x = -scale.x;
+                    ((BipedalBehavior) Fsm).CollisionOffset.localScale = scale;
                 }
 
                 #endregion

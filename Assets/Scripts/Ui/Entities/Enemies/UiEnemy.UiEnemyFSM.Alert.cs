@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace SpaceMarine
 {
     public partial class UiEnemy
